@@ -8,7 +8,6 @@ import { FooterComponent } from '../../shared/footer/footer';
   standalone: true,
   templateUrl: './legal-notice.html',
   styleUrls: ['./legal-notice.scss'],
-  imports: [RouterLink, FooterComponent],
 })
 export class LegalNoticeComponent {
   private doc = inject(DOCUMENT);

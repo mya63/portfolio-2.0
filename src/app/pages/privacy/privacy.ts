@@ -8,7 +8,6 @@ import { FooterComponent } from '../../shared/footer/footer';
   standalone: true,
   templateUrl: './privacy.html',
   styleUrls: ['./privacy.scss'],
-  imports: [FooterComponent] // <— wichtig, damit <app-footer> erkannt wird
 })
 export class PrivacyComponent {
   private doc = inject(DOCUMENT);

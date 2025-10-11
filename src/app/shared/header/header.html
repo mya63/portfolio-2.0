@@ -7,14 +7,37 @@
     <!-- Desktop Nav -->
     <nav class="nav" aria-label="Hauptmenü">
       <div class="links">
-        <a routerLink="/" fragment="about"     routerLinkActive="active" [routerLinkActiveOptions]="{ exact:false }">About</a>
-        <a routerLink="/" fragment="skills"    routerLinkActive="active" [routerLinkActiveOptions]="{ exact:false }">Skills</a>
-        <a routerLink="/" fragment="portfolio" routerLinkActive="active" [routerLinkActiveOptions]="{ exact:false }">Portfolio</a>
-        <a routerLink="/" fragment="contact"   routerLinkActive="active" [routerLinkActiveOptions]="{ exact:false }">Contact</a>
+        <a
+          routerLink="/"
+          fragment="about"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: false }"
+          >About</a
+        >
+        <a
+          routerLink="/"
+          fragment="skills"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: false }"
+          >Skills</a
+        >
+        <a
+          routerLink="/"
+          fragment="portfolio"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: false }"
+          >Portfolio</a
+        >
+        <a
+          routerLink="/"
+          fragment="contact"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: false }"
+          >Contact</a
+        >
       </div>
       <div class="lang">
-        <button class="pill pill--outline" type="button" aria-label="Deutsch">DE</button>
-        <button class="pill pill--solid"   type="button" aria-label="Englisch">EN</button>
+        <app-lang-toggle></app-lang-toggle>
       </div>
     </nav>
 
@@ -29,7 +52,12 @@
     <div class="overlay-frame" (click)="$event.stopPropagation()">
       <div class="overlay-header">
         <div class="overlay-logo"></div>
-        <button class="overlay-burger" type="button" aria-label="Menü schließen" (click)="closeMenu()">
+        <button
+          class="overlay-burger"
+          type="button"
+          aria-label="Menü schließen"
+          (click)="closeMenu()"
+        >
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -39,8 +67,8 @@
         <a class="overlay-link" (click)="navigate('skills')">My skills</a>
         <a class="overlay-link" (click)="navigate('portfolio')">Portfolio</a>
         <a class="overlay-link" (click)="navigate('contact')">Contact</a>
-        <div class="overlay-lang">
-          <span class="en">EN</span><span>/</span><span class="de">DE</span>
+        <div class="overlay-lang" (click)="$event.stopPropagation()">
+          <app-lang-toggle></app-lang-toggle>
         </div>
       </nav>
     </div>

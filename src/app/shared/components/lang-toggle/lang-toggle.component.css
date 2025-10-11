@@ -16,3 +16,35 @@
 .lang-pill:hover{ background:#9747FF; border-color:#9747FF; }
 .lang-pill:active{ background:#fff; color:#9747FF; border-color:#fff; font-weight:600; transform: translateY(1px); }
 .lang-pill.solid{ background:#70E61C; border:none; font-weight:700; color:#fff; }
+
+/* --- Mobile layout (<= 860px) --- */
+@media (max-width: 860px) {
+  .lang {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .lang-pill {
+    font-size: 23px;
+    font-weight: 400;
+    height: auto;
+    padding: 0;
+    border: none;
+    background: transparent;
+  }
+
+  .lang-pill.solid {
+    color: #70E61C;
+    font-weight: 600;
+  }
+
+  .lang::after {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 1px;
+    background: #70E61C;
+    margin-left: 23px;
+  }
+}
