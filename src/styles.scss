@@ -1,3 +1,5 @@
+@use 'styles/buttons';
+
 /* ===== Tokens / Base (global) ===== */
 :root{
   --bg:#141D2F; --purple:#9747FF; --green:#70E61C; --white:#fff;
@@ -61,3 +63,5 @@ img,svg{display:block;max-width:100%;height:auto}
   .foot-grid{grid-template-columns:1fr}
   .copyright{text-align:left}
 }
+
+

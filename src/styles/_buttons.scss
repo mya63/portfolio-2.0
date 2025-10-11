@@ -1,0 +1,80 @@
+@use './tokens' as *;
+
+/* Basis-Button (Figma: 15x30 Padding, 10px Radius, 23px Text) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 15px 30px;
+  height: 58px; /* für konsistente Höhe */
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0;
+
+  transition: transform .12s ease, box-shadow .12s ease, background-color .12s ease, color .12s ease, border-color .12s ease;
+  user-select: none;
+
+  /* Tastatur-Nutzer sichtbar unterstützen */
+  &:focus-visible {
+    outline: 2px solid #9747FF;
+    outline-offset: 2px;
+  }
+
+  &:active { transform: scale(0.98); }
+}
+
+/* Primary (Default: Grün) – Figma: #70E61C */
+.btn--primary {
+  background: #70E61C;
+  color: #FFFFFF;
+
+  /* Hover-State (Figma: Purple + größer 20x40) -> wir skalieren stattdessen */
+  &:hover {
+    background: #9747FF;
+    transform: scale(1.12);
+    box-shadow: 0 8px 24px rgba(151, 71, 255, .35);
+  }
+
+  /* Klick/Active-State (Figma: Weiß, Text schwarz) */
+  &:active {
+    background: #FFFFFF;
+    color: #000000;
+    box-shadow: none;
+  }
+}
+
+/* Secondary – (optional, falls du den weißen Stil auch ohne Klick brauchst) */
+.btn--secondary {
+  background: #FFFFFF;
+  color: #000000;
+  border: 1px solid rgba(255,255,255,.15);
+
+  &:hover {
+    background: #9747FF;
+    color: #FFFFFF;
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(151,71,255,.35);
+    border-color: transparent;
+  }
+
+  &:active {
+    transform: scale(0.98);
+    box-shadow: none;
+  }
+}
+
+/* Text-Button (optional) */
+.btn--text {
+  background: transparent;
+  color: #FFFFFF;
+
+  &:hover { color: #70E61C; }
+}
