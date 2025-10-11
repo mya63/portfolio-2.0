@@ -1,21 +1,34 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
-import { LangToggleComponent } from '../components/lang-toggle/lang-toggle.component';
+import { Component, HostListener } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
+
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [RouterLink, RouterLinkActive, LangToggleComponent], // <--
-  templateUrl: './header.html',
-  styleUrls: ['./header.scss'],
+selector: 'app-header',
+standalone: true,
+imports: [CommonModule, RouterModule],
+templateUrl: './header.html',
+styleUrls: ['./header.scss']
 })
 export class HeaderComponent {
-  open = false;
-  nav = [
-    { label: 'About me', link: '/', fragment: 'about' },
-    { label: 'Skills',    link: '/', fragment: 'skills' },
-    { label: 'Portfolio', link: '/', fragment: 'portfolio' },
-  ];
-  toggle(){ this.open = !this.open; }
-  close(){ this.open = false; }
+menuOpen = false;
+
+
+constructor(private router: Router) {}
+
+
+toggleMenu() { this.menuOpen = !this.menuOpen; }
+closeMenu() { this.menuOpen = false; }
+
+
+navigate(fragment: string) {
+this.closeMenu();
+this.router.navigate(['/'], { fragment });
+}
+
+
+@HostListener('window:resize') onResize(){
+// Safety: wenn vom mobilen Overlay auf Desktop gewechselt wird
+if (window.innerWidth > 860 && this.menuOpen) this.menuOpen = false;
+}
 }

@@ -1,133 +1,134 @@
 @use '../../../styles/tokens' as *;
 
-.header {
+/* =========================
+   Header (sticky + Blur)
+   ========================= */
+.header{
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000; /* über Canvas/Deko */
   background: $header-bg;
+  -webkit-backdrop-filter: blur(32.5px);
+  backdrop-filter: blur(32.5px);
 }
 
-.bar {
+.bar{
   max-width: 1440px;
   margin-inline: auto;
   padding: $header-pad-y $header-pad-x;
+  min-height: $header-height;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* ersetzt gap: 590px */
-  min-height: $header-height;
+  justify-content: space-between;
 }
 
-.logo {
-  font-size: 28px;       // wirkt ca. 35px hoch (wie in Figma)
-  font-weight: 800;
-  color: #fff;
-  line-height: 1;
-  text-decoration: none;
+/* Logo */
+.logo{
+  font: 800 28px/1 'Poppins', system-ui, sans-serif;
+  color:#fff;
+  text-decoration:none;
+  white-space:nowrap;
 
-  .accent {
-    color: $accent;      // dein Neon-Grün aus Tokens (z. B. #68ff3a)
-  }
+  .accent{ color:$accent; }
 }
+
+/* Desktop-Navigation */
 .nav{
-  display: flex; align-items: center;
-  gap: 92px; /* Abstand der Links – bei Bedarf aus Figma nachmessen */
+  display:flex; align-items:center; gap:92px;
 
-  .links{
-    display: flex; align-items: center; gap: 48px;
-  }
+  .links{ display:flex; align-items:center; gap:48px; }
+  .lang{ display:flex; align-items:center; gap:12px; }
 }
 
-.links a {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  font-size: 23px;
-  line-height: 28px;
-  color: #fff;
-  text-decoration: none;
-  letter-spacing: 0;
-
-  padding: 0 4px;
-  border-radius: 6px;
+.links a{
+  font-family:'Poppins',sans-serif;
+  font-weight:400;
+  font-size:23px;
+  line-height:28px;
+  color:#fff;
+  text-decoration:none;
+  letter-spacing:0;
+  padding:0 4px;
+  border-radius:6px;
   transition: color .15s ease, background .15s ease;
 
-  &:hover {
-    background: rgba(255,255,255,.06);
-  }
-
-  &.active {
-    color: $accent;
-    font-weight: 600;
-  }
-}    
-  a{
-    color: $fg; opacity: .95;
-    font-weight: 600; letter-spacing: .2px;
-    transition: transform .12s ease, background .12s ease;
-    padding: 8px 10px; border-radius: 12px;
-    &:hover{ transform: translateY(-1px); background: rgba(255,255,255,.06); }
-  }
-
-  .lang{
-    display: flex; align-items: center; gap: 12px; }
-  
-
-.pill {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 32px;
-  min-width: 38px;
-  padding: 5px 8px;
-  gap: 5px;
-
-  font-family: 'Poppins', sans-serif;
-  font-size: 18px;
-  line-height: 22px;
-  color: #fff;
-
-  border-radius: 10px;
-  border: 1px solid #70E61C;
-  background: transparent;
-  cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
-
-  &--outline {
-    font-weight: 400; /* Regular */
-    background: transparent;
-    color: #fff;
-  }
-
-  &--solid {
-    font-weight: 700; /* Bold */
-    background: #70E61C;
-    color: #0B1522;
-    border-color: #70E61C;
-  }
+  &:hover{ background:rgba(255,255,255,.06); }
+  &.active{ color:$accent; font-weight:600; }
 }
 
-a.active {
-  color: $accent; /* oder Hintergrund */
-  font-weight: 600;
+/* Kleine Links (nur innerhalb Header scopen) */
+:host ::ng-deep a{
+  color:$fg; opacity:.95;
+  font-weight:600; letter-spacing:.2px;
+  transition: transform .12s ease, background .12s ease;
+  padding:8px 10px; border-radius:12px;
+
+  &:hover{ transform:translateY(-1px); background:rgba(255,255,255,.06); }
 }
 
+/* Pill-Buttons */
+.pill{
+  display:flex; justify-content:center; align-items:center;
+  height:32px; min-width:38px; padding:5px 8px; gap:5px;
+  font-family:'Poppins',sans-serif; font-size:18px; line-height:22px; color:#fff;
+  border-radius:10px; border:1px solid #70E61C; background:transparent;
+  cursor:pointer; transition: background .2s ease, color .2s ease;
 
+  &--outline{ font-weight:400; background:transparent; color:#fff; }
+  &--solid{ font-weight:700; background:#70E61C; color:#0B1522; border-color:#70E61C; }
+}
+
+/* =========================
+   Burger (mobil sichtbar)
+   ========================= */
 .burger{
-  display: none;
-  background: transparent; color: $fg;
-  border: 1px solid rgba(255,255,255,.18); border-radius: 12px;
-  padding: .45rem .65rem; cursor: pointer;
+  display:none; /* Desktop verstecken */
+  width:30px; height:28px;
+  background:transparent; border:0; padding:0; cursor:pointer;
+
+  span{ display:block; width:30px; height:0; border-top:2px solid #fff; margin-block:4px; }
 }
 
-/* Mobile Drawer wie in Figma */
-@media (max-width: 860px){
-  .nav{
-    position: fixed; right: 0; top: $header-height; bottom: 0;
-    width: min(75vw, 360px);
-    background: rgba(20,29,47,.96);
-    flex-direction: column; gap: 20px;
-    padding: 20px; transform: translateX(110%); transition: transform .15s ease;
-    &.open{ transform: none; }
+/* =========================
+   Mobile Overlay-Menü
+   ========================= */
+.menu-overlay{
+  position:fixed; inset:0; z-index:2000; /* über allem */
+  background:rgba(20,29,47,.8);
+  display:none;
+
+  &.open{ display:block; }
+}
+
+.menu-panel{
+  position:absolute; left:50%; top:290px; transform:translateX(-50%);
+  width:114px; display:flex; flex-direction:column; gap:29px;
+}
+
+.menu-link{
+  display:block;
+  font:400 23px/1.2 Poppins, system-ui;
+  color:#fff; text-decoration:none;
+
+  &:hover{ text-decoration:underline; }
+}
+
+.menu-panel .lang{
+  display:flex; align-items:center; gap:8px; height:28px;
+
+  button{
+    background:transparent; border:0; padding:0; cursor:pointer;
+    font:400 23px/1.2 Poppins, system-ui; color:#fff;
+
+    &.active{ font-weight:600; color:$accent; }
   }
-  .burger{ display: inline-flex; }
-  .links { flex-direction: column; gap: 12px;}
+  span{ color:#fff; font:400 23px/1.2 Poppins, system-ui; }
+}
+
+/* =========================
+   Responsive
+   ========================= */
+@media (max-width: 860px){
+  .nav{ display:none; }
+  .burger{ display:grid; place-content:center; }
 }

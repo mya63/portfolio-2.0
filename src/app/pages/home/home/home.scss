@@ -1,0 +1,193 @@
+/* Home (Mobile) – nutzt globale Tokens/Utilities */
+:host {
+  display: block;
+  background: var(--bg);
+  color: var(--white);
+}
+
+/* ===== Hero ===== */
+.hero {
+  padding: 96px 0 48px;
+  position: relative;
+
+  .hero-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .eyebrow { font: 400 32px/1 Poppins, system-ui; }
+  .name    { font: 700 44px/1 Poppins, system-ui; margin: 0; }
+  .role    { font: 400 28px/1.2 Poppins, system-ui; color: var(--purple); }
+
+  .cta { margin-top: 16px; }
+
+  /* Referenzen (Linie + Icons) */
+  .refs {
+    margin-top: 20px;
+    display: flex; align-items: center; gap: 16px;
+
+    .line { width: 93px; border-top: 4px solid var(--purple); }
+    .icons { display: flex; gap: 42px; }
+    .icons .ico { width: 30px; height: 30px; display: inline-block; }
+  }
+}
+
+/* ===== About ===== */
+.about {
+  padding: 80px 0;
+  h2 { margin: 0 0 16px; font: 700 45px/1.2 Poppins, system-ui; }
+  p  { margin: 0; font: 400 16px/1.2 Poppins, system-ui; }
+  .row { display: flex; flex-direction: column; gap: 16px; margin-top: 16px; }
+}
+
+/* ===== Skills ===== */
+.skills {
+  padding: 96px 0 24px;
+
+  .head {
+    display: flex; flex-direction: column; align-items: flex-end; gap: 12px; text-align: right;
+    h2 { margin: 0; font: 700 45px/1.2 Poppins, system-ui; }
+    p  { margin: 0; font: 400 16px/1.2 Poppins, system-ui; }
+  }
+
+  .skills-grid{
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    place-items: center;
+    gap: 20px;
+  }
+  .skill{
+    width: 88px; height: 100px;
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 12px;
+    .icon{ width:48px; height:48px; }
+    .label{ font:700 14px/1.2 Poppins, system-ui; }
+  }
+
+  .teaser {
+    margin: 24px 0 0;
+    text-align: right;
+    h3{ margin:0; font:700 24px/1.2 Poppins }
+    p{ margin:0; font:400 16px/1.2 Poppins }
+  }
+
+  .cta { margin: 24px auto 0; }
+}
+
+/* ===== Portfolio ===== */
+.portfolio{
+  padding: 96px 0;
+  text-align: center;
+
+  .lead{ margin: 8px auto 0; max-width: 342px; font:400 16px/1.2 Poppins; }
+
+  .title-row{
+    margin: 0 auto 24px; max-width: 332px;
+    display: flex; align-items: center; gap: 16px;
+    .line{ width:24px; border-top:4px solid var(--purple); }
+    h2{ margin:0; font:700 45px/1.2 Poppins; }
+    .line.right{ flex:1; }
+  }
+
+  .project{
+    margin-top: 48px;
+    .thumb{ width:100%; border-radius:12px; overflow:hidden; }
+    .h    { margin:12px 0 0; font:700 32px/1.2 Poppins; color: var(--purple); }
+    .stack{ margin:4px 0 0; font:400 23px/1.2 Poppins; color: var(--green); }
+    .desc { margin:8px auto 0; max-width:340px; font:400 16px/1.2 Poppins; }
+
+    .actions{
+      margin-top: 16px;
+      display:flex; justify-content:center; gap:16px;
+
+      /* lokale Button-Varianten nur für Portfolio */
+      .btn.purple { background: var(--purple); }
+      .btn.ghost-green { background: transparent; border:1px solid var(--green); }
+    }
+  }
+}
+
+/* ===== Testimonials ===== */
+.testimonials{
+  padding: 96px 0;
+
+  .avatar{
+    width:144px; height:144px; border-radius:999px;
+    border:4px solid var(--purple); object-fit:cover; margin:0 auto 16px;
+  }
+
+  .card{
+    border:4px solid var(--green); border-radius:32px;
+    padding:16px; max-width:342px; margin:0 auto; display:flex; flex-direction:column; gap:24px;
+
+    .text{ font:400 16px/1.2 Poppins; }
+    .meta{
+      display:flex; flex-direction:column; gap:8px; align-items:flex-start;
+      .line{ width:55px; border-top:2px solid var(--purple); border-radius:32px; }
+      .name{ font:400 16px/1.2 Poppins; }
+    }
+  }
+
+  .nav{
+    margin-top:16px; display:flex; justify-content:center; gap:20px; align-items:center;
+    .dot{ width:8px; height:8px; border-radius:50%; background:var(--green); }
+    .dot.alt{ background: var(--purple); }
+  }
+}
+
+/* ===== Contact ===== */
+.contact{
+  padding: 96px 0;
+
+  .title{
+    display:flex; align-items:center; gap:4px; justify-content:center; margin-bottom:16px;
+    .line{ width:20px; border-top:4px solid var(--purple); }
+    h2{ margin:0; font:700 45px/1.2 Poppins; }
+  }
+
+  .lead, .sublead{ margin: 12px auto 0; max-width:340px; font:400 16px/1.2 Poppins; text-align:center; }
+
+  form{
+    margin: 32px auto 0; width:340px; display:flex; flex-direction:column; gap:12px;
+
+    .field{
+      height:40px; padding:15px 25px; border:1px solid var(--purple);
+      border-radius:10px; background:transparent; color:var(--white); font:400 16px/1.2 Poppins;
+      &.area{ height:162px; resize:vertical; }
+    }
+
+    .policy{
+      display:flex; align-items:center; gap:8px; margin:4px 0 8px;
+      .pp-link{ color: var(--purple); padding:5px 4px; text-decoration:none; }
+      label, span{ font:400 14px/1.2 Poppins; }
+    }
+
+    .actions{
+      margin-top:8px; display:flex; justify-content:center;
+      .btn.primary[disabled]{ background:#B6B6B6; cursor:not-allowed; }
+    }
+  }
+}
+
+/* ===== Go-up Button ===== */
+.go-up{
+  margin: 20px auto 0;
+  width:39px;height:39px;border-radius:41px;
+  border:2px solid var(--purple);
+  background:transparent;color:var(--purple);
+  display:grid;place-items:center;font-size:18px;line-height:1;
+
+  &.white{ border-color:#fff; color:#fff; }
+}
+
+/* Abstand vor dem Footer-Component */
+app-footer{ display:block; margin-top: 40px; }
+
+/* Kleine Tweaks ab Tablet */
+@media (min-width: 700px){
+  .portfolio .lead,
+  .contact .lead,
+  .contact .sublead { max-width: 480px; }
+}
