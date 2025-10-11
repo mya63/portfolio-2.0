@@ -1,11 +1,15 @@
 <div class="lang">
-  <button
-    class="lang-pill"
-    [class.solid]="i18n.getLang()==='de'"
-    (click)="set('de')">DE</button>
+  <button class="lang-pill"
+          [class.solid]="i18n.getLang()==='de'"
+          type="button"
+          aria-label="Switch language to German"
+          aria-pressed="{{ i18n.getLang()==='de' }}"
+          (click)="set('de')">DE</button>
 
-  <button
-    class="lang-pill"
-    [class.solid]="i18n.getLang()==='en'"
-    (click)="set('en')">EN</button>
+  <button class="lang-pill"
+          [class.solid]="i18n.getLang()==='en'"
+          type="button"
+          aria-label="Switch language to English"
+          aria-pressed="{{ i18n.getLang()==='en' }}"
+          (click)="set('en')">EN</button>
 </div>
