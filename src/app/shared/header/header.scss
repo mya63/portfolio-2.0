@@ -1,0 +1,133 @@
+@use '../../../styles/tokens' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: $header-bg;
+}
+
+.bar {
+  max-width: 1440px;
+  margin-inline: auto;
+  padding: $header-pad-y $header-pad-x;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* ersetzt gap: 590px */
+  min-height: $header-height;
+}
+
+.logo {
+  font-size: 28px;       // wirkt ca. 35px hoch (wie in Figma)
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  text-decoration: none;
+
+  .accent {
+    color: $accent;      // dein Neon-Grün aus Tokens (z. B. #68ff3a)
+  }
+}
+.nav{
+  display: flex; align-items: center;
+  gap: 92px; /* Abstand der Links – bei Bedarf aus Figma nachmessen */
+
+  .links{
+    display: flex; align-items: center; gap: 48px;
+  }
+}
+
+.links a {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 28px;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0;
+
+  padding: 0 4px;
+  border-radius: 6px;
+  transition: color .15s ease, background .15s ease;
+
+  &:hover {
+    background: rgba(255,255,255,.06);
+  }
+
+  &.active {
+    color: $accent;
+    font-weight: 600;
+  }
+}    
+  a{
+    color: $fg; opacity: .95;
+    font-weight: 600; letter-spacing: .2px;
+    transition: transform .12s ease, background .12s ease;
+    padding: 8px 10px; border-radius: 12px;
+    &:hover{ transform: translateY(-1px); background: rgba(255,255,255,.06); }
+  }
+
+  .lang{
+    display: flex; align-items: center; gap: 12px; }
+  
+
+.pill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  min-width: 38px;
+  padding: 5px 8px;
+  gap: 5px;
+
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  color: #fff;
+
+  border-radius: 10px;
+  border: 1px solid #70E61C;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+
+  &--outline {
+    font-weight: 400; /* Regular */
+    background: transparent;
+    color: #fff;
+  }
+
+  &--solid {
+    font-weight: 700; /* Bold */
+    background: #70E61C;
+    color: #0B1522;
+    border-color: #70E61C;
+  }
+}
+
+a.active {
+  color: $accent; /* oder Hintergrund */
+  font-weight: 600;
+}
+
+
+.burger{
+  display: none;
+  background: transparent; color: $fg;
+  border: 1px solid rgba(255,255,255,.18); border-radius: 12px;
+  padding: .45rem .65rem; cursor: pointer;
+}
+
+/* Mobile Drawer wie in Figma */
+@media (max-width: 860px){
+  .nav{
+    position: fixed; right: 0; top: $header-height; bottom: 0;
+    width: min(75vw, 360px);
+    background: rgba(20,29,47,.96);
+    flex-direction: column; gap: 20px;
+    padding: 20px; transform: translateX(110%); transition: transform .15s ease;
+    &.open{ transform: none; }
+  }
+  .burger{ display: inline-flex; }
+  .links { flex-direction: column; gap: 12px;}
+}

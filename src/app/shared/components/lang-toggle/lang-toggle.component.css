@@ -1,0 +1,18 @@
+:host { display: block; }      /* Host zeigt Inhalt sicher an */
+
+.lang { display: flex; gap: 14px; }
+
+.lang-pill{
+  min-width: 38px; height: 32px; padding: 5px 8px;
+  border-radius: 10px; border: 1px solid #70E61C;
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 18px; line-height: 1.2; font-weight: 400;
+  color: #fff; background: transparent;
+  display:flex; align-items:center; justify-content:center;
+  cursor: pointer; user-select: none;
+  transition: background .15s, color .15s, border-color .15s, transform .05s;
+}
+
+.lang-pill:hover{ background:#9747FF; border-color:#9747FF; }
+.lang-pill:active{ background:#fff; color:#9747FF; border-color:#fff; font-weight:600; transform: translateY(1px); }
+.lang-pill.solid{ background:#70E61C; border:none; font-weight:700; color:#fff; }

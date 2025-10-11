@@ -1,0 +1,65 @@
+/* --- Section-Container --- */
+.skills {
+  background: #0f1a2b;            /* dunkles Blau wie im Figma */
+  color: #fff;                     /* weißer Text sichtbar */
+  padding: 80px 0;                 /* vertikaler Abstand */
+}
+
+/* --- Inhalt auf 1340px begrenzen, mittig --- */
+.skills__content {
+  max-width: 1340px;               /* Figma: 1340 */
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* links Icons, rechts Textbox */
+  gap: 48px;
+  align-items: center;
+}
+
+/* --- Icons-Galerie links --- */
+.skills__icons {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(64px, 1fr)); /* 4 Spalten */
+  gap: 24px;
+  justify-items: start;
+}
+.skills__icons img { width: 56px; height: 56px; object-fit: contain; }
+
+/* --- Textblock rechts (Frame 292/348 zusammengefasst) --- */
+.skills__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  text-align: left;
+}
+
+.headline {
+  font-weight: 800;
+  font-size: clamp(22px, 2.2vw, 36px);
+  line-height: 1.2;
+}
+.highlight { color: #a259ff; }    /* Lila aus Figma */
+
+.intro,
+.desc { font-size: 16px; line-height: 1.6; opacity: .9; }
+
+/* --- Button --- */
+.btn {
+  display: inline-block;
+  background: #32e24c;
+  color: #0a0a0a;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: transform .15s ease, background .2s ease;
+}
+.btn:hover { background: #28c33f; transform: translateY(-1px); }
+
+/* --- Responsive: unter 900px untereinander --- */
+@media (max-width: 900px) {
+  .skills__content { grid-template-columns: 1fr; gap: 32px; }
+  .skills__text { align-items: center; text-align: center; }
+  .skills__icons { grid-template-columns: repeat(3, 1fr); justify-items: center; }
+}
