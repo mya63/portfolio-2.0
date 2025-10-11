@@ -39,3 +39,13 @@
   }
 }
 .btn.text.active::after { width: calc(100% - 20px); }
+
+@media (max-width: 420px) {
+  .foot-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
+  }
+  .foot-icons { justify-content: center; }
+  .copyright { margin-top: 8px; }
+}

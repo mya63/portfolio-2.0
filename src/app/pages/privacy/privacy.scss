@@ -14,3 +14,56 @@
     .title-row{gap:16px}
   }
 }
+/* Mobile-Layout für die Privacy-Seite */
+:host { display: block; }
+
+.privacy-hero { /* Bereich für Titel + Linie */
+  padding: 0 16px 24px;
+}
+
+.privacy-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font: 700 42px/120% Poppins, sans-serif;
+  color: var(--green);
+}
+.privacy-title .line { width: 72px; border-top: 4px solid var(--purple); }
+
+.privacy-content {
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.privacy-content h3 {
+  font: 700 23px/120% 'Open Sans', sans-serif;
+  color: var(--purple);
+  margin: 0;
+}
+.privacy-content p {
+  font: 400 16px/120% 'Open Sans', sans-serif;
+  color: #fff;
+  margin: 0;
+}
+
+/* Go-up Button */
+.go-up {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: 39px;
+  height: 39px;
+  border: 2px solid var(--purple);
+  border-radius: 41px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+}
+
+/* Zusätzliche Feinheiten nur <420px */
+@media (max-width: 420px) {
+  .section { padding: 64px 0 0; } /* etwas kompakter oben */
+}
+
