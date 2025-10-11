@@ -14,19 +14,17 @@
 </div>
 
 
-<form class="form" (submit)="$event.preventDefault()">
-<input class="field" type="text" placeholder="Your name" id="name" />
-<input class="field" type="email" placeholder="Your email" id="email" />
-<textarea class="field area" placeholder="Your message" id="message"></textarea>
+<form class="form" [formGroup]="form" (ngSubmit)="submit()">
+  <input class="field" type="text" placeholder="Your name" formControlName="name" />
+  <input class="field" type="email" placeholder="Your email" formControlName="email" />
+  <textarea class="field area" placeholder="Your message" formControlName="message"></textarea>
 
+  <label class="policy">
+    <input type="checkbox" formControlName="pp" />
+    <span>I’ve read the <a routerLink="/privacy" class="pp-link">privacy policy</a> and agree.</span>
+  </label>
 
-<label class="policy">
-<input id="pp" type="checkbox" />
-<span>I’ve read the <a href="/privacy" class="pp-link">privacy policy</a> and agree to the processing of my data as outlined.</span>
-</label>
-
-
-<button class="btn primary" type="submit">{{ 'contact.send' | t }}</button>
+  <button class="btn primary" type="submit" [disabled]="form.invalid">Send message</button>
 </form>
 </div>
 </div>

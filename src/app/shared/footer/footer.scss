@@ -38,3 +38,4 @@
     transform: scale(0.9);
   }
 }
+.btn.text.active::after { width: calc(100% - 20px); }
