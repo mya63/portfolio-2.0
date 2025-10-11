@@ -1,51 +1,48 @@
 <header class="header" role="banner">
-<div class="bar">
+  <div class="bar">
+    <a class="logo" routerLink="/" (click)="closeMenu()">
+      <span>Yunu</span><span class="accent">s</span>
+    </a>
 
+    <!-- Desktop Nav -->
+    <nav class="nav" aria-label="Hauptmenü">
+      <div class="links">
+        <a routerLink="/" fragment="about"     routerLinkActive="active" [routerLinkActiveOptions]="{ exact:false }">About</a>
+        <a routerLink="/" fragment="skills"    routerLinkActive="active" [routerLinkActiveOptions]="{ exact:false }">Skills</a>
+        <a routerLink="/" fragment="portfolio" routerLinkActive="active" [routerLinkActiveOptions]="{ exact:false }">Portfolio</a>
+        <a routerLink="/" fragment="contact"   routerLinkActive="active" [routerLinkActiveOptions]="{ exact:false }">Contact</a>
+      </div>
+      <div class="lang">
+        <button class="pill pill--outline" type="button" aria-label="Deutsch">DE</button>
+        <button class="pill pill--solid"   type="button" aria-label="Englisch">EN</button>
+      </div>
+    </nav>
 
-<a class="logo" routerLink="/" (click)="closeMenu()">
-<span>Yunu</span>
-<span class="accent">s</span>
-</a>
+    <!-- Burger -->
+    <button class="burger" type="button" aria-label="Menü öffnen" (click)="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 
+  <!-- Mobile Overlay (Figma 1:1) -->
+  <div class="overlay-backdrop" [class.open]="menuOpen" (click)="closeMenu()">
+    <div class="overlay-frame" (click)="$event.stopPropagation()">
+      <div class="overlay-header">
+        <div class="overlay-logo"></div>
+        <button class="overlay-burger" type="button" aria-label="Menü schließen" (click)="closeMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
 
-<!-- Desktop Nav -->
-<nav class="nav" aria-label="Hauptmenü">
-<div class="links">
-<a routerLink="/" [fragment]="'about'" routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}">About</a>
-<a routerLink="/" [fragment]="'skills'" routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}">Skills</a>
-<a routerLink="/" [fragment]="'portfolio'" routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}">Portfolio</a>
-<a routerLink="/" [fragment]="'contact'" routerLinkActive="active" [routerLinkActiveOptions]="{exact:false}">Contact</a>
-</div>
-<div class="lang">
-<button class="pill pill--outline" type="button" aria-label="Deutsch">DE</button>
-<button class="pill pill--solid" type="button" aria-label="Englisch">EN</button>
-</div>
-</nav>
-
-
-<!-- Burger -->
-<button class="burger" type="button" aria-label="Menü öffnen" (click)="toggleMenu()">
-<span></span>
-<span></span>
-<span></span>
-</button>
-</div>
-
-
-<!-- Mobile Overlay -->
-<div class="menu-overlay" [class.open]="menuOpen" (click)="closeMenu()">
-<div class="menu-panel" (click)="$event.stopPropagation()">
-<a class="menu-link" (click)="navigate('about')">About</a>
-<a class="menu-link" (click)="navigate('skills')">Skills</a>
-<a class="menu-link" (click)="navigate('portfolio')">Portfolio</a>
-<a class="menu-link" (click)="navigate('contact')">Contact</a>
-
-
-<div class="lang">
-<button class="active" type="button">EN</button>
-<span>/</span>
-<button type="button">DE</button>
-</div>
-</div>
-</div>
+      <nav class="overlay-menu" aria-label="Mobile menu">
+        <a class="overlay-link" (click)="navigate('about')">About me</a>
+        <a class="overlay-link" (click)="navigate('skills')">My skills</a>
+        <a class="overlay-link" (click)="navigate('portfolio')">Portfolio</a>
+        <a class="overlay-link" (click)="navigate('contact')">Contact</a>
+        <div class="overlay-lang">
+          <span class="en">EN</span><span>/</span><span class="de">DE</span>
+        </div>
+      </nav>
+    </div>
+  </div>
 </header>
