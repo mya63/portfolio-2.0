@@ -1,0 +1,12 @@
+<button
+  class="go-up"
+  type="button"
+  [class.show]="visible()"
+  (click)="toTop()"
+  aria-label="Back to top"
+  title="Back to top">
+  <!-- echter Up-Chevron (kein rotate) -->
+  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M6 14l6-6 6 6" />
+  </svg>
+</button>

@@ -1,0 +1,54 @@
+.go-up {
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  z-index: 3000;               /* ⬅️ immer über dem Content */
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;   /* Default: weißer Ring */
+  background: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition:
+    opacity .18s ease,
+    transform .18s ease,
+    border-color .12s ease,
+    color .12s ease;
+
+  color: #ffffff;              /* steuert Icon-Farbe */
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;      /* nutzt .go-up color */
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  &.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  &:hover,
+  &:focus-visible {
+    border-color: #70E61C;
+    color: #70E61C;            /* Icon grün */
+    outline: none;
+  }
+
+  &:active { transform: scale(0.96); }
+}
+
+@media (max-width: 420px) {
+  .go-up { bottom: 64px; }     /* über Mobile-Navigation */
+}
