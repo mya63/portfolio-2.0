@@ -1,75 +1,72 @@
-<header class="page-head">
-  <div class="container" style="display:flex;justify-content:flex-end;padding:16px 0">
-    <a routerLink="/" class="btn text">Home</a>
-  </div>
-</header>
-
-<section class="legal section">
+<section id="legal" class="section">
   <div class="container">
-    <div class="title-row" style="display:flex;align-items:center;gap:32px;margin:32px 0">
-      <span class="line" style="border-top:4px solid #9747FF; width:130px;"></span>
-      <h1 style="color:#70E61C;margin:0">Legal Notice</h1>
-      <span class="line" style="border-top:4px solid #9747FF; width:500px;"></span>
+
+    <!-- Headline -->
+    <div class="legal-title">
+      <h1>Legal Notice</h1>
+      <span class="line purple small"></span>
     </div>
 
-    
-    <div class="content">
+    <!-- Content -->
+    <div class="legal-content">
       <section class="block">
-        <h2 class="h">Imprint</h2>
+        <h3 class="subtitle">Imprint</h3>
         <p>
-          Muhammed Yunus Amini<br>
-          63263 Neu-Isenburg, Germany<br>
-          Email: muhammedyunusamini4@gmail.com
+          Muhammed Yunus Amini<br />
+          63263 Neu Isenburg<br />
+          muhammedyunusamini4@gmail.com<br />
         </p>
       </section>
 
       <section class="block">
-        <h3 class="sh purple">Acceptance of terms</h3>
-        <p>
-          By accessing and using this Portfolio (“Product”), you agree to the following terms and conditions.
-          We may update these terms from time to time.
+        <h3 class="subtitle">Acceptance of terms</h3>
+        <p class="emph">
+          By accessing and using Portfolio (Product), you acknowledge and agree to the following terms and
+          conditions [...] may update or change the terms and conditions from time to time without notice.
         </p>
       </section>
 
       <section class="block">
-        <h3 class="sh purple">Scope and ownership of the product</h3>
-        <p>
-          This Portfolio was created for educational purposes (Developer Akademie). No availability or fitness
-          for commercial use is guaranteed. The design is owned by Developer Akademie GmbH.
+        <h3 class="subtitle">Scope and ownership of the product</h3>
+        <p class="emph">
+          Portfolio has been developed as part of a student group project [...] Unauthorized use, reproduction,
+          modification, distribution, or replication of the design is strictly prohibited.
         </p>
       </section>
 
       <section class="block">
-        <h3 class="sh purple">Proprietary rights</h3>
-        <p>
-          Aside from the design ownership above, all code in this repository is owned by the listed student(s).
+        <h3 class="subtitle">Proprietary rights</h3>
+        <p class="emph">
+          Aside from the design owned by Developer Akademie GmbH [...] and other proprietary information.
         </p>
       </section>
 
       <section class="block">
-        <h3 class="sh purple">Use of the product</h3>
-        <p>
-          Use only in accordance with applicable laws. Harassment, threats or illegal activities are prohibited.
+        <h3 class="subtitle">Use of the product</h3>
+        <p class="emph">
+          Portfolio is intended to be used for lawful purposes only [...] You are solely responsible for your
+          interactions with other users of Portfolio.
         </p>
       </section>
 
       <section class="block">
-        <h3 class="sh purple">Disclaimer of warranties / limitation of liability</h3>
-        <p>
-          Provided “as is”, without warranties of any kind. We shall not be liable for any damages arising from
-          the use of this Product.
+        <h3 class="subtitle">Disclaimer / Limitation of liability</h3>
+        <p class="emph">
+          Portfolio is provided "as is" without warranty of any kind [...] arising out of or in connection with
+          the use or performance of Portfolio.
         </p>
       </section>
 
       <section class="block">
-        <h3 class="sh purple">Indemnity</h3>
-        <p>
-          You agree to indemnify and hold harmless the authors from any claim related to your use of this Product.
+        <h3 class="subtitle">Indemnity</h3>
+        <p class="emph">
+          You agree to indemnify, defend and hold harmless us [...] Date: July 26, 2025
         </p>
       </section>
-
-      <p class="date">Last update: July 26, 2025</p>
     </div>
+
+    <!-- Back to top -->
+    <button class="go-up" (click)="backToTop()" aria-label="Back to top">↑</button>
   </div>
 </section>
 
