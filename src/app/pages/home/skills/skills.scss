@@ -1,31 +1,64 @@
 /* --- Section-Container --- */
 .skills {
-  background: #0f1a2b;            /* dunkles Blau wie im Figma */
-  color: #fff;                     /* weißer Text sichtbar */
-  padding: 80px 0;                 /* vertikaler Abstand */
+  background: #0f1a2b;
+  color: #fff;
+  padding: 80px 0;
 }
 
-/* --- Inhalt auf 1340px begrenzen, mittig --- */
+/* --- Inhalt zentriert --- */
 .skills__content {
-  max-width: 1340px;               /* Figma: 1340 */
+  max-width: 1340px;
   margin: 0 auto;
   padding: 0 24px;
   display: grid;
-  grid-template-columns: 1fr 1fr;  /* links Icons, rechts Textbox */
+  grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: center;
 }
 
-/* --- Icons-Galerie links --- */
+/* --- Icons-Galerie --- */
 .skills__icons {
   display: grid;
-  grid-template-columns: repeat(4, minmax(64px, 1fr)); /* 4 Spalten */
+  grid-template-columns: repeat(4, minmax(64px, 1fr));
   gap: 24px;
-  justify-items: start;
+  justify-items: center;
 }
-.skills__icons img { width: 56px; height: 56px; object-fit: contain; }
 
-/* --- Textblock rechts (Frame 292/348 zusammengefasst) --- */
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.skill img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  transition: transform 0.18s ease;
+  will-change: transform;
+}
+
+.skill:hover img,
+.skill:focus-visible img {
+  transform: translateY(-6px); /* sanftes Hüpfen nur beim Icon */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill img {
+    transition: none;
+  }
+}
+
+.skill span {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 120%;
+}
+
+/* --- Textblock --- */
 .skills__text {
   display: flex;
   flex-direction: column;
@@ -34,32 +67,67 @@
   text-align: left;
 }
 
-.headline {
-  font-weight: 800;
-  font-size: clamp(22px, 2.2vw, 36px);
-  line-height: 1.2;
+.skills-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  h2 {
+    font-weight: 800;
+    font-size: clamp(22px, 2.2vw, 36px);
+    line-height: 1.2;
+  }
+
+  .line.purple {
+    width: 60px;
+    height: 4px;
+    background: #9747ff;
+    border-radius: 2px;
+  }
 }
-.highlight { color: #a259ff; }    /* Lila aus Figma */
+
+.highlight {
+  color: #a259ff;
+}
 
 .intro,
-.desc { font-size: 16px; line-height: 1.6; opacity: .9; }
+.desc {
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
 
 /* --- Button --- */
 .btn {
   display: inline-block;
-  background: #32e24c;
+  background: #70e61c;
   color: #0a0a0a;
   font-weight: 700;
   padding: 12px 24px;
   border-radius: 10px;
   text-decoration: none;
-  transition: transform .15s ease, background .2s ease;
-}
-.btn:hover { background: #28c33f; transform: translateY(-1px); }
+  transition: transform 0.15s ease, background 0.2s ease;
 
-/* --- Responsive: unter 900px untereinander --- */
+  &:hover {
+    background: #5ccc1a;
+    transform: translateY(-1px);
+  }
+}
+
+/* --- Responsive --- */
 @media (max-width: 900px) {
-  .skills__content { grid-template-columns: 1fr; gap: 32px; }
-  .skills__text { align-items: center; text-align: center; }
-  .skills__icons { grid-template-columns: repeat(3, 1fr); justify-items: center; }
+  .skills__content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .skills__text {
+    align-items: center;
+    text-align: center;
+  }
+
+  .skills__icons {
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+  }
 }
