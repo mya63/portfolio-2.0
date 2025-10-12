@@ -7,33 +7,10 @@
     <!-- Desktop Nav -->
     <nav class="nav" aria-label="Hauptmenü">
       <div class="links">
-        <a
-          routerLink="/"
-          fragment="about"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: false }"
-        >About</a>
-
-        <a
-          routerLink="/"
-          fragment="skills"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: false }"
-        >Skills</a>
-
-        <a
-          routerLink="/"
-          fragment="portfolio"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: false }"
-        >Portfolio</a>
-
-        <a
-          routerLink="/"
-          fragment="contact"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: false }"
-        >Contact</a>
+        <a routerLink="/" fragment="about">About</a>
+        <a routerLink="/" fragment="skills">Skills</a>
+        <a routerLink="/" fragment="portfolio">Portfolio</a>
+        <a routerLink="/" fragment="contact">Contact</a>
       </div>
 
       <div class="lang">
@@ -63,33 +40,10 @@
       </div>
 
       <nav class="overlay-menu" aria-label="Mobile menu">
-        <a class="overlay-link"
-           routerLink="/"
-           fragment="about"
-           routerLinkActive="active"
-           [routerLinkActiveOptions]="{ exact:false }"
-           (click)="closeMenu()">About me</a>
-
-        <a class="overlay-link"
-           routerLink="/"
-           fragment="skills"
-           routerLinkActive="active"
-           [routerLinkActiveOptions]="{ exact:false }"
-           (click)="closeMenu()">My skills</a>
-
-        <a class="overlay-link"
-           routerLink="/"
-           fragment="portfolio"
-           routerLinkActive="active"
-           [routerLinkActiveOptions]="{ exact:false }"
-           (click)="closeMenu()">Portfolio</a>
-
-        <a class="overlay-link"
-           routerLink="/"
-           fragment="contact"
-           routerLinkActive="active"
-           [routerLinkActiveOptions]="{ exact:false }"
-           (click)="closeMenu()">Contact</a>
+        <a class="overlay-link" routerLink="/" fragment="about" (click)="closeMenu()">About me</a>
+        <a class="overlay-link" routerLink="/" fragment="skills" (click)="closeMenu()">My skills</a>
+        <a class="overlay-link" routerLink="/" fragment="portfolio" (click)="closeMenu()">Portfolio</a>
+        <a class="overlay-link" routerLink="/" fragment="contact" (click)="closeMenu()">Contact</a>
 
         <div class="overlay-lang" (click)="$event.stopPropagation()">
           <app-lang-toggle></app-lang-toggle>

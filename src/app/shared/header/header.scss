@@ -40,33 +40,26 @@
   .lang{ display:flex; align-items:center; gap:12px; }
 }
 
-/* ===== Menu button (Figma: 6. Button menu) ===== */
+/* Menülinks – simpel: weiß; beim Hover grün + lila Unterstreichung (Figma) */
 .links a{
   font-family:'Poppins',sans-serif;
   font-weight:400;
   font-size:23px;
   line-height:1.2;
-  color:#fff;                     /* Default: weiß */
+  color:#fff;
   text-decoration:none;
-  padding:0 4px;
-  border-radius:6px;
-  transition: color .12s ease, transform .08s ease;
+  transition: color .12s ease, text-decoration-color .12s ease;
 
-  &:hover{                        /* Hover: grün */
-    color:#70E61C;
+  &:hover{
+    color:$accent;                      /* grün */
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+    text-decoration-color: #9747FF;     /* lila Linie */
   }
-  &:active{                       /* Click: zurück nach weiß + kleines Feedback */
-    color:#fff;
-    transform:translateY(1px);
-  }
-  &:focus-visible{
-    outline:2px solid #9747FF;
-    outline-offset:2px;
-  }
-  &.active{                       /* Aktiver Link */
-    color:#70E61C;
-    font-weight:600;
-  }
+
+  &:active{ transform: translateY(1px); }
+  &:focus-visible{ outline:2px solid #9747FF; outline-offset:2px; }
 }
 
 /* =========================
@@ -111,15 +104,21 @@
 
 /* Mobile Links – gleiches Verhalten wie Desktop */
 .overlay-link{
-  width:114px; height:32px; display:block;
+  display:block; width:114px; height:32px;
   font-family:'Poppins',sans-serif; font-weight:400; font-size:23px; line-height:1.2;
   color:#fff; text-decoration:none;
-  transition: color .12s ease, transform .08s ease;
+  transition: color .12s ease, text-decoration-color .12s ease;
 
-  &:hover{ color:#70E61C; }
-  &:active{ color:#fff; transform:translateY(1px); }
+  &:hover{
+    color:$accent;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+    text-decoration-color: #9747FF;
+  }
+
+  &:active{ transform: translateY(1px); }
   &:focus-visible{ outline:2px solid #9747FF; outline-offset:2px; }
-  &.active{ color:#70E61C; font-weight:600; }
 }
 
 /* Sprachtoggle im Overlay – nimmt <app-lang-toggle> auf */
