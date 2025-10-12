@@ -1,31 +1,69 @@
 <section id="contact" class="contact section">
-<div class="container">
-<div class="contact-title">
-<span class="line purple"></span>
-<h2>{{ 'contact.title' | t }}</h2>
-</div>
+  <div class="contact__content">
+    <div class="contact__intro">
+      <h2 class="contact__title">Contact</h2>
 
+      <h3 class="contact__headline">Got a problem to solve?</h3>
+      <p class="contact__lead">
+        Encourage people to contact you and describe what role
+        you are interested in. Show that you will add value to their
+        projects through your work.
+      </p>
+      <p class="contact__lead">
+        Need a Frontend developer? <strong>Contact me!</strong>
+      </p>
+    </div>
 
-<div class="contact-grid">
-<div class="contact-left">
-<h3>Got a problem to solve?</h3>
-<p>Encourage people to contact you and describe what role you are interested in. Show that you will add value to their projects through your work.</p>
-<p>Need a Frontend developer? Contact me!</p>
-</div>
+    <!-- Form -->
+    <form class="contact-form" novalidate>
+      <!-- Name -->
+      <div class="field">
+        <input
+          id="name"
+          type="text"
+          placeholder="Your name"
+          required
+        />
+        <small class="err">Your name is required</small>
+      </div>
 
+      <!-- Email -->
+      <div class="field">
+        <input
+          id="email"
+          type="email"
+          placeholder="Your email"
+          required
+        />
+        <small class="err">Your email is required</small>
+      </div>
 
-<form class="form" [formGroup]="form" (ngSubmit)="submit()">
-  <input class="field" type="text" placeholder="Your name" formControlName="name" />
-  <input class="field" type="email" placeholder="Your email" formControlName="email" />
-  <textarea class="field area" placeholder="Your message" formControlName="message"></textarea>
+      <!-- Message -->
+      <div class="field">
+        <textarea
+          id="message"
+          rows="7"
+          placeholder="Your message"
+          required
+        ></textarea>
+        <small class="err">Your message is empty</small>
+      </div>
 
-  <label class="policy">
-    <input type="checkbox" formControlName="pp" />
-    <span>I’ve read the <a routerLink="/privacy" class="pp-link">privacy policy</a> and agree.</span>
-  </label>
+      <!-- Privacy policy + Button -->
+      <div class="policy-row">
+        <label class="pp">
+          <input id="pp" type="checkbox" />
+          <span>
+            I've read the
+            <a class="pp-link" href="/privacy" target="_self" rel="noopener">privacy policy</a>
+            and agree to the processing of my data as outlined.
+          </span>
+        </label>
 
-  <button class="btn primary" type="submit" [disabled]="form.invalid">Send message</button>
-</form>
-</div>
-</div>
+        <button class="btn-send" type="submit" aria-disabled="true">
+          <span>Send message :)</span>
+        </button>
+      </div>
+    </form>
+  </div>
 </section>
