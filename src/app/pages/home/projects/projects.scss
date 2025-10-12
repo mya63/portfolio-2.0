@@ -1,0 +1,147 @@
+/* ===== Section container ===== */
+.portfolio {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ===== Headline (Figma: große Überschrift + lila Linien) ===== */
+.portfolio__header{
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+  margin: 48px 0 8px;
+}
+
+.portfolio__header .line.purple{
+  height: 4px;
+  background: #9747ff;
+  border-radius: 2px;
+}
+
+.portfolio__header h2{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  font-size: clamp(36px, 6vw, 72px);
+  line-height: 1.05;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+}
+
+.portfolio__sublead{
+  text-align: center;
+  color: rgba(255,255,255,.85);
+  margin: 8px 0 48px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== Project rows (alternierend) ===== */
+.proj{
+  display: grid;
+  gap: 32px;
+  align-items: center;
+  margin-bottom: 64px;
+}
+
+/* LR: Bild links, Text rechts */
+.proj.row.lr{
+  grid-template-columns: 1.1fr 1fr;
+}
+
+/* RL: Text links, Bild rechts */
+.proj.row.rl{
+  grid-template-columns: 1fr 1.1fr;
+}
+
+.proj-img{
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
+.proj-info .prj-name{
+  font-weight: 800;
+  font-size: clamp(22px, 2.2vw, 32px);
+  margin: 0 0 8px;
+}
+
+.stack{
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.btns{ display: flex; gap: 12px; margin-top: 16px; }
+
+/* ===== Buttons – Figma 17 (auf Live/Github angewendet) ===== */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;            /* Figma */
+  border-radius: 10px;           /* Figma */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 23px;               /* Figma */
+  line-height: 120%;
+  text-decoration: none;
+  transition: background .18s ease, color .18s ease, transform .06s ease, box-shadow .18s ease;
+  cursor: pointer;
+}
+
+/* Filled Purple → Hover Green → Active White/Green */
+.btn.purple{
+  background: #9747ff;           /* Default */
+  color: #ffffff;
+  border: none;
+}
+.btn.purple:hover{
+  background: #70e61c;           /* Hover */
+  color: #ffffff;
+}
+.btn.purple:active{
+  background: #ffffff;           /* Click */
+  color: #70e61c;
+  transform: translateY(1px);
+}
+
+/* Outline-Variante wie im Shot */
+.btn.outline{
+  background: #0f1a2b;           /* dunkler Kasten */
+  color: #ffffff;
+  border: 2px solid #70e61c;
+}
+.btn.outline:hover{
+  background: #70e61c;           /* Hover */
+  color: #ffffff;
+}
+.btn.outline:active{
+  background: #ffffff;           /* Click */
+  color: #70e61c;
+  transform: translateY(1px);
+}
+
+/* Tastatur-Fokus */
+.btn:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(151,71,255,.35);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px){
+  .portfolio__header{
+    grid-template-columns: 1fr;
+  }
+  .portfolio__header .line.purple{ display: none; }
+  .portfolio__sublead{ margin-bottom: 32px; }
+
+  .proj{
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+}
