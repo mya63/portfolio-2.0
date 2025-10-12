@@ -1,29 +1,46 @@
-<section class="references section">
-  <div class="container">
-    <div class="quote-mark">“</div>
+<section id="testimonials" class="testimonials section">
+  <div class="t-wrap">
+    <!-- Karte -->
+    <article class="t-card">
+      <div class="t-quote">
+        <p>{{ current.text }}</p>
 
-    <div class="ref-wrap">
-      <img class="ref-photo" [src]="items[i].photo" alt="" />
-      <div class="ref-card">
-        <p>{{ items[i].text }}</p>
-        <div class="ref-foot">
-          <span class="by">{{ items[i].by }}</span>
+        <div class="t-meta">
+          <span class="line purple"></span>
+          <span class="author">{{ current.author }} - {{ current.role }}</span>
         </div>
       </div>
+
+      <div class="t-avatar">
+        <img [src]="current.photo" [alt]="current.author" />
+      </div>
+    </article>
+
+    <!-- Controls -->
+    <div class="t-controls">
+      <button class="nav btn-circle" (click)="prev()" aria-label="Previous">
+        <!-- left arrow -->
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M14.7 5.3a1 1 0 0 1 0 1.4L10.41 11H20a1 1 0 1 1 0 2h-9.59l4.3 4.3a1 1 0 1 1-1.42 1.4l-6-6a1 1 0 0 1 0-1.4l6-6a1 1 0 0 1 1.41 0z"/>
+        </svg>
+      </button>
+
+      <div class="dots">
+        <button
+          *ngFor="let t of items; index as i"
+          class="dot"
+          [class.is-active]="i === index"
+          (click)="go(i)"
+          aria-label="Go to testimonial {{ i + 1 }}"
+        ></button>
+      </div>
+
+      <button class="nav btn-circle" (click)="next()" aria-label="Next">
+        <!-- right arrow -->
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M9.3 18.7a1 1 0 0 1 0-1.4L13.59 13H4a1 1 0 1 1 0-2h9.59l-4.3-4.3a1 1 0 1 1 1.42-1.4l6 6a1 1 0 0 1 0 1.4l-6 6a1 1 0 0 1-1.41 0z"/>
+        </svg>
+      </button>
     </div>
-
-<div class="ref-dots">
-  <button class="dot"
-          *ngFor="let _ of items; let dotIndex = index"
-          type="button"
-          [attr.aria-label]="'Show testimonial ' + (dotIndex + 1)"
-          [attr.aria-pressed]="i === dotIndex">
-  </button>
-</div>
-
-<div class="arrows" style="display:flex;gap:12px;justify-content:center;margin-top:8px">
-  <button class="btn outline" type="button" (click)="prev()" aria-label="Previous testimonial">‹</button>
-  <button class="btn outline" type="button" (click)="next()" aria-label="Next testimonial">›</button>
-</div>
   </div>
 </section>

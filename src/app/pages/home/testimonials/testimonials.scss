@@ -1,0 +1,131 @@
+.testimonials {
+  background: #0f1a2b; /* wie die restlichen Sections */
+  padding: 80px 0;
+}
+
+.t-wrap {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Karte (Quote + Avatar) */
+.t-card {
+  display: grid;
+  grid-template-columns: 1.1fr 320px; /* Text / Avatar */
+  align-items: center;
+  gap: 48px;
+  margin: 0 auto 32px;
+}
+
+.t-quote {
+  border: 4px solid #70e61c;   /* Green */
+  border-radius: 32px;
+  padding: 48px 96px;
+  color: #fff;
+}
+
+.t-quote > p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 120%;
+  margin: 0 0 28px;
+}
+
+/* lila Linie + Autor rechts */
+.t-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.t-meta .line.purple {
+  flex: 1 1 auto;
+  height: 0;
+  border-top: 2px solid #9747ff;
+  border-radius: 32px;
+}
+.t-meta .author {
+  white-space: nowrap;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  opacity: .95;
+}
+
+/* Avatar */
+.t-avatar {
+  display: grid;
+  place-items: center;
+}
+.t-avatar img {
+  width: 272px;
+  height: 272px;
+  object-fit: cover;
+  border: 4px solid #9747ff; /* Purple */
+  border-radius: 1000px;
+  background: #0f1a2b;
+}
+
+/* Controls: ←  • • •  → */
+.t-controls {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Pfeil-Buttons (Figma: 40x40, runder grüner Ring) */
+.btn-circle {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #70e61c;
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
+  background: transparent;
+  color: #70e61c;
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease, transform .06s ease, box-shadow .18s ease;
+}
+.btn-circle:hover {
+  background: #70e61c;   /* hover fill green */
+  color: #0f1a2b;        /* icon dark */
+}
+.btn-circle:active { transform: translateY(1px); }
+.btn-circle:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(151,71,255,.35); }
+
+/* Dots */
+.dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #9747ff;     /* purple */
+  border: 0;
+  cursor: pointer;
+  transition: transform .12s ease, background .18s ease;
+}
+.dot.is-active {
+  background: #70e61c;     /* active = green */
+  transform: scale(1.15);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .t-card {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .t-quote {
+    padding: 32px 24px;
+  }
+  .t-avatar img {
+    width: 220px;
+    height: 220px;
+  }
+}
