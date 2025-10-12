@@ -6,3 +6,4 @@
 .about__circle{position:relative;width:min(380px,42vw);aspect-ratio:1/1;border:3px solid #6E39D6;border-radius:999px;display:grid;place-items:center}
 .about__circle img{width:88%;height:auto;border-radius:18px}
 @media (max-width:900px){.about__content{grid-template-columns:1fr}.about__photo{justify-self:center}}
+

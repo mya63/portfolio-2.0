@@ -40,20 +40,33 @@
   .lang{ display:flex; align-items:center; gap:12px; }
 }
 
+/* ===== Menu button (Figma: 6. Button menu) ===== */
 .links a{
   font-family:'Poppins',sans-serif;
   font-weight:400;
   font-size:23px;
-  line-height:28px;
-  color:#fff;
+  line-height:1.2;
+  color:#fff;                     /* Default: weiß */
   text-decoration:none;
-  letter-spacing:0;
   padding:0 4px;
   border-radius:6px;
-  transition: color .15s ease, background .15s ease;
+  transition: color .12s ease, transform .08s ease;
 
-  &:hover{ background:rgba(255,255,255,.06); }
-  &.active{ color:$accent; font-weight:600; }
+  &:hover{                        /* Hover: grün */
+    color:#70E61C;
+  }
+  &:active{                       /* Click: zurück nach weiß + kleines Feedback */
+    color:#fff;
+    transform:translateY(1px);
+  }
+  &:focus-visible{
+    outline:2px solid #9747FF;
+    outline-offset:2px;
+  }
+  &.active{                       /* Aktiver Link */
+    color:#70E61C;
+    font-weight:600;
+  }
 }
 
 /* =========================
@@ -96,12 +109,17 @@
   width:114px; display:flex; flex-direction:column; gap:29px;
 }
 
+/* Mobile Links – gleiches Verhalten wie Desktop */
 .overlay-link{
   width:114px; height:32px; display:block;
-  font-family:'Poppins',sans-serif; font-weight:400; font-size:23px; line-height:120%;
+  font-family:'Poppins',sans-serif; font-weight:400; font-size:23px; line-height:1.2;
   color:#fff; text-decoration:none;
+  transition: color .12s ease, transform .08s ease;
 
-  &:hover{ text-decoration: underline; }
+  &:hover{ color:#70E61C; }
+  &:active{ color:#fff; transform:translateY(1px); }
+  &:focus-visible{ outline:2px solid #9747FF; outline-offset:2px; }
+  &.active{ color:#70E61C; font-weight:600; }
 }
 
 /* Sprachtoggle im Overlay – nimmt <app-lang-toggle> auf */

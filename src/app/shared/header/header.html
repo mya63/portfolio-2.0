@@ -12,30 +12,30 @@
           fragment="about"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: false }"
-          >About</a
-        >
+        >About</a>
+
         <a
           routerLink="/"
           fragment="skills"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: false }"
-          >Skills</a
-        >
+        >Skills</a>
+
         <a
           routerLink="/"
           fragment="portfolio"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: false }"
-          >Portfolio</a
-        >
+        >Portfolio</a>
+
         <a
           routerLink="/"
           fragment="contact"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: false }"
-          >Contact</a
-        >
+        >Contact</a>
       </div>
+
       <div class="lang">
         <app-lang-toggle></app-lang-toggle>
       </div>
@@ -63,10 +63,34 @@
       </div>
 
       <nav class="overlay-menu" aria-label="Mobile menu">
-        <a class="overlay-link" (click)="navigate('about')">About me</a>
-        <a class="overlay-link" (click)="navigate('skills')">My skills</a>
-        <a class="overlay-link" (click)="navigate('portfolio')">Portfolio</a>
-        <a class="overlay-link" (click)="navigate('contact')">Contact</a>
+        <a class="overlay-link"
+           routerLink="/"
+           fragment="about"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact:false }"
+           (click)="closeMenu()">About me</a>
+
+        <a class="overlay-link"
+           routerLink="/"
+           fragment="skills"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact:false }"
+           (click)="closeMenu()">My skills</a>
+
+        <a class="overlay-link"
+           routerLink="/"
+           fragment="portfolio"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact:false }"
+           (click)="closeMenu()">Portfolio</a>
+
+        <a class="overlay-link"
+           routerLink="/"
+           fragment="contact"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact:false }"
+           (click)="closeMenu()">Contact</a>
+
         <div class="overlay-lang" (click)="$event.stopPropagation()">
           <app-lang-toggle></app-lang-toggle>
         </div>
