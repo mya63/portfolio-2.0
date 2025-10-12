@@ -7,3 +7,25 @@
 .about__circle img{width:88%;height:auto;border-radius:18px}
 @media (max-width:900px){.about__content{grid-template-columns:1fr}.about__photo{justify-self:center}}
 
+/* Icon-Grundstil (unverändert) */
+.icon{
+  width:48px;height:48px;
+  background-color:#70E61C;
+  display:inline-block; flex:0 0 auto;
+  transition:background-color .18s ease;
+  /* Mask für Safari/Chrome/Edge + Fallback */
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-position:center;
+  -webkit-mask-size:contain;
+          mask-repeat:no-repeat;
+          mask-position:center;
+          mask-size:contain;
+}
+
+/* Masken je Icon (Korrekte Pfade!) */
+.icon--loc    { -webkit-mask-image:url('/assets/icons/location.svg'); mask-image:url('/assets/icons/location.svg'); }
+.icon--bulb   { -webkit-mask-image:url('/assets/icons/bulb.svg');    mask-image:url('/assets/icons/bulb.svg'); }
+.icon--puzzle { -webkit-mask-image:url('/assets/icons/puzzle.svg');  mask-image:url('/assets/icons/puzzle.svg'); }
+
+/* Hover-Farbe (cyan wie in Version B) */
+.row:hover .icon{ background-color:#1CDAE6; }

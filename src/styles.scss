@@ -83,3 +83,36 @@ img,svg{ display:block; max-width:100%; height:auto }
   .foot-grid{ grid-template-columns:1fr }
   .copyright{ text-align:left }
 }
+
+/* Icon-Gruppe wie in Figma: Default grün, Hover cyan */
+.row {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  align-items: start;
+  gap: 16px;
+
+  .icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+  }
+
+  .icon svg {
+    width: 30px;
+    height: 30px;
+    color: #70E61C;                 /* Default: grün */
+    transition: color .18s ease, transform .18s ease;
+  }
+
+  &:hover .icon svg {
+    color: #1CDAE6;                 /* Hover: cyan/blau */
+    transform: scale(1.12);         /* leichte Vergrößerung wie im Figma-Hover */
+  }
+}
+
+/* Optional: größere Variante (wie die „zweite Zeile“ im Figma-Frame) */
+.row--lg .icon svg {
+  width: 40px;
+  height: 40px;
+}
