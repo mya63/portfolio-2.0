@@ -136,3 +136,11 @@
   .nav{ display:none; }
   .burger{ display:grid; place-content:center; }
 }
+
+/* Optional: Blur im Header nur auf Desktop ausschalten (Deckblatt-Optik) */
+@media (min-width: 861px){
+  .header{
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}

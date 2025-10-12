@@ -1,13 +1,21 @@
-/* ===============================
+/* =========================
    HERO – CLEAN CONSOLIDATED
-   =============================== */
+   ========================= */
+
+/* – optionale Hel\-Variablen nur für den Hero –
+   (#141D2F -> rgb 20,29,47; Headerhöhe ≈ 96px) */
+:root{
+  --hero-overlay-rgb: 20, 29, 47;
+  --hero-overlay-base: .55;   /* 0–1; höher = dunkler */
+  --header-height: 96px;
+}
 
 .hero{
   position: relative;
   padding: 80px 0 60px;
 }
 
-/* Figma: 28. Hero Background (Radial-Gradient) */
+/* BG aus Figma */
 .hero-bg{
   position: absolute;
   inset: 0;
@@ -15,24 +23,50 @@
   z-index: 0;
 }
 
-/* Haupt-Layout */
+/* ---------- Overlays (unter Content) ---------- */
+/* dünner Top-Streifen: gleiche Farbe wie Header, hilft gegen Blur-Schimmer */
+.hero::before{
+  content:"";
+  position:absolute;
+  left:0; right:0; top:0;
+  height: var(--header-height);
+  background: rgba(var(--hero-overlay-rgb), 1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* dezentes Abdunkeln rechts/oben – exakt Headerfarbe, kein Weißschimmer */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index: 1;
+  pointer-events:none;
+  background:
+    radial-gradient(120% 120% at 85% 35%,
+      rgba(var(--hero-overlay-rgb), calc(var(--hero-overlay-base) + .12)) 0%,
+      rgba(var(--hero-overlay-rgb), var(--hero-overlay-base))               35%,
+      rgba(var(--hero-overlay-rgb), calc(var(--hero-overlay-base) - .17))   55%,
+      rgba(var(--hero-overlay-rgb), 0)                                      72%);
+}
+
+/* ---------- Grid ---------- */
 .hero .container.hero-grid{
   position: relative;
-  z-index: 1;
+  z-index: 2; /* über Overlays */
   display: grid;
   grid-template-columns: 1.05fr 1fr; /* links leicht mehr Platz fürs Bild */
   align-items: center;
   gap: 48px;
 }
 
-/* ==== Linke Spalte: Foto + Glows + Kontaktleiste ==== */
+/* ---------- Linke Spalte: Foto + Glows + Kontakt ---------- */
 .hero-photo-wrap{
   position: relative;
   width: min(520px, 40vw);
   aspect-ratio: 1/1;
   margin: 0 auto 0 0;
 
-  /* NEU: normaler Flow -> Kontaktleiste sitzt unter dem Bild */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -61,11 +95,7 @@
   pointer-events: none;
 }
 
-/* ===== Kontaktleiste UNTER dem Bild =====
-   Feinjustage:
-   --contact-offset: Abstand unter dem Bild
-   --contact-gap:    Abstand Icons ↔ Mail
-*/
+/* Kontaktleiste unter dem Bild */
 .hero-contact{
   --contact-offset: 96px;
   --contact-gap: 28px;
@@ -93,6 +123,7 @@
   text-decoration: none;
   outline: none;
 }
+
 .hero-socials .ico img{ width: 30px; height: 30px; transition: transform .15s ease; }
 .hero-socials .ico:hover img,
 .hero-socials .ico:focus-visible img{ transform: scale(1.33); }
@@ -105,17 +136,25 @@
   opacity: .95;
 }
 
-/* ==== Rechte Spalte: Textblock (I am | Name | Role | Button) ==== */
+/* ---------- Rechte Spalte: Textblock ---------- */
 .hero-text{
   display: grid;
-  grid-template-columns: auto 1fr;   /* Spalte 1 = "I am" (schmal), Spalte 2 = Inhalt */
+  grid-template-columns: auto 1fr;   /* "I am" | Inhalt */
   grid-template-rows: auto auto auto;
   align-items: end;
   column-gap: clamp(14px, 1.6vw, 22px);
   row-gap: 10px;
+
+  /* harte Resets: niemals eigene Hintergründe/Schatten */
+  background: transparent;
+  box-shadow: none;
+  text-shadow: none;
+  filter: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* "I am" vertikal – figma-clean & präsent */
+/* "I am" vertikal */
 .hero-text .iam{
   grid-column: 1;
   grid-row: 1 / span 3;
@@ -125,7 +164,7 @@
   font-size: clamp(22px, 2.8vw, 38px);
   letter-spacing: 0.12em;
   opacity: .95;
-  align-self: center; /* mittig neben dem Namensblock */
+  align-self: center;
 }
 
 /* Name – zwei Zeilen */
@@ -144,10 +183,9 @@
 }
 .name .name-row{ display: block; }
 .name .accent{ color: var(--purple); }
-/* harte Resets gegen globale Dekos */
-.name, .name *{ text-decoration: none !important; text-shadow: none !important; border-bottom: 0 !important; outline: 0 !important; }
+.name, .name *{ text-decoration: none; text-shadow: none; border-bottom: 0; outline: 0; }
 
-/* Untertitel / Rolle */
+/* Rolle */
 .role{
   grid-column: 2;
   grid-row: 2;
@@ -164,17 +202,17 @@
 .hero-text .btn{
   grid-column: 2;
   grid-row: 3;
-  height: 52px;          /* kompakter als global */
+  height: 52px;
   padding: 0 24px;
   font-size: 15px;
   margin-top: clamp(6px, .8vw, 10px);
 }
 
-/* ==== Scroll down (vertikal, Pfeil nach unten) ==== */
+/* ---------- Scroll down ---------- */
 .scrolldown{
   position: absolute;
   right: 16px;
-  bottom: 0vh;               /* weiter unten wie im Figma */
+  bottom: 0;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -184,9 +222,9 @@
   font: 500 14px/1 'Poppins', sans-serif;
   opacity: .85;
 }
-.scrolldown .arrow{ transform: rotate(-90deg); } /* Pfeil nach unten */
+.scrolldown .arrow{ transform: rotate(-90deg); }
 
-/* ==== Responsive ==== */
+/* ---------- Responsive ---------- */
 @media (max-width: 1200px){
   .name{ font-size: clamp(32px, 5vw, 64px); }
   .role{ font-size: clamp(18px, 2.6vw, 30px); }
@@ -196,7 +234,7 @@
   .hero .container.hero-grid{ grid-template-columns: 1fr; }
 
   .hero-text{
-    grid-template-columns: 1fr;  /* "I am" über dem Titel */
+    grid-template-columns: 1fr;  /* "I am" oben */
     row-gap: 8px;
   }
 
@@ -223,11 +261,109 @@
     margin-top: var(--contact-offset);
   }
 
-  /* Scrolldown am Ende des Hero-Blocks ausrichten */
   .scrolldown{
     position: static;
     transform: none;
     margin-top: 24px;
     justify-content: flex-end;
+  }
+}
+
+
+/* === GLOBALE HERO-VARS (stehen bei dir schon oben) === */
+:root{
+  --hero-overlay-rgb: 20, 29, 47;
+  --hero-overlay-base: .55;
+  --header-height: 96px; /* wie im Header */
+}
+
+/* === HERO-HÖHE: fülle den Viewport === */
+.hero{
+  /* lass dein padding, aber gib dem Hero eine Mindesthöhe,
+     damit das Bild wirklich “Bauch bis Rand” kann */
+  min-height: calc(100vh - 0px);
+}
+
+/* === BILD-BLOCK: wird hoch und frei === */
+.hero-photo-wrap{
+  position: relative;
+
+  /* WICHTIG: Aspect-Ratio entfernen, damit Höhe übernimmt */
+  /* aspect-ratio: 1/1;  --> ENTFERNEN */
+
+  /* Breite etwas größer, damit die Figur präsent ist */
+  width: min(640px, 46vw);
+
+  /* Höhe über Viewport steuern:
+     - Header abziehen
+     - etwas Luft für deinen Top-Padding im Hero lassen (~40–60px)
+  */
+  min-height: calc(100vh - var(--header-height) - 56px);
+
+  margin: 0 auto 0 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Glows kannst du lassen; optional minimal nach unten ziehen
+.photo-purple{ top: 330px; }
+.photo-green { top: 200px; }
+*/
+
+/* === PORTRAIT: unten anliegen & maximal hoch === */
+.hero-photo{
+  position: absolute;
+  left: 50%;
+  bottom: 0;               /* Bauch am unteren Rand */
+  transform: translateX(-50%);
+
+  height: 100%;            /* fülle die Wrap-Höhe */
+  width: auto;             /* Proportionen behalten */
+  max-width: none;         /* nicht durch width begrenzen */
+  object-fit: contain;
+
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Kontaktleiste: bleibt unter dem Bild (Abstand etwas kleiner) */
+.hero-contact{
+  --contact-offset: 32px;  /* vorher 96px */
+  margin-top: var(--contact-offset);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1200px){
+  .hero-photo-wrap{
+    width: min(560px, 48vw);
+    min-height: calc(100vh - var(--header-height) - 64px);
+  }
+}
+
+@media (max-width: 900px){
+  /* Auf Mobile nicht “zu groß”: etwas kürzen */
+  .hero{
+    min-height: auto; /* normale Höhe reicht */
+  }
+
+  .hero .container.hero-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .hero-photo-wrap{
+    width: min(520px, 78vw);
+    min-height: clamp(420px, 68vh, 720px);
+  }
+
+  .hero-photo{
+    bottom: 0;
+    height: 100%;
+    width: auto;
+  }
+
+  .hero-contact{
+    --contact-offset: 24px;
   }
 }
