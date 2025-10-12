@@ -1,8 +1,7 @@
-// src/app/pages/home/home/home.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeroComponent } from '../hero/hero';
-import { AboutMeComponent } from '../about-me/about-me';   // ⬅️ hier
+import { AboutMeComponent } from '../about-me/about-me';
 import { SkillsComponent } from '../skills/skills';
 import { ProjectsComponent } from '../projects/projects';
 import { TestimonialsComponent } from '../testimonials/testimonials';
@@ -14,11 +13,11 @@ import { ContactComponent } from '../../contact/contact';
   imports: [
     CommonModule,
     HeroComponent,
-    AboutMeComponent,        // ⬅️ hier
+    AboutMeComponent,
     SkillsComponent,
     ProjectsComponent,
     TestimonialsComponent,
-    ContactComponent
+    ContactComponent,
   ],
   templateUrl: './home.html',
   styleUrls: ['./home.scss']
