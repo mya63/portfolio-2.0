@@ -12,3 +12,46 @@
 .hero-socials{display:flex;gap:16px;align-items:center;margin-top:16px}
 .scrolldown{position:absolute;right:16px;bottom:16px;display:flex;gap:8px;transform:rotate(90deg);transform-origin:right bottom}
 @media (max-width:900px){.hero .container.hero-grid{grid-template-columns:1fr}.scrolldown{position:static;transform:none;margin-top:24px;justify-content:flex-end}}
+/* === Social buttons (Figma: 8/9/10) === */
+.hero-socials{
+  display: flex;
+  align-items: center;
+  gap: 40px;              /* Figma: gap 40 */
+  margin-top: 12px;
+}
+
+/* anklickbare Fläche mit Kreis-Hit-Area (besser für UX) */
+.hero-socials .ico{
+  display: grid;
+  place-items: center;
+  width: 44px;            /* etwas größer als das Icon für Touch-Ziele */
+  height: 44px;
+  border-radius: 999px;
+  text-decoration: none;
+  outline: none;
+}
+
+/* Icon selbst: Default ~30px, Hover ~40px (wir skalieren sanft) */
+.hero-socials .ico img{
+  width: 30px;
+  height: 30px;
+  transition: transform .15s ease;
+}
+
+/* Hover/Fokus -> ~40px (30px * 1.33 ≈ 40px) */
+.hero-socials .ico:hover img,
+.hero-socials .ico:focus-visible img{
+  transform: scale(1.33);
+}
+
+/* Tastaturfokus sichtbar machen */
+.hero-socials .ico:focus-visible{
+  box-shadow: 0 0 0 2px #9747FF;
+  outline: none;
+  border-radius: 999px;
+}
+
+/* Optional: auf sehr kleinen Screens enger */
+@media (max-width: 480px){
+  .hero-socials{ gap: 28px; }
+}
