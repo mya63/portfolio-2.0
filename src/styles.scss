@@ -4,15 +4,13 @@
 :root{
   --bg:#141D2F; --purple:#9747FF; --green:#70E61C; --white:#fff;
   --radius:10px; --radius-lg:32px; --container:1340px; --maxw:1920px;
-  
 }
 
 *{ box-sizing:border-box }
 
 html{
-  /* smooth scroll + GLOBALER OFFSET damit Anker nicht unter dem Sticky-Header landen */
   scroll-behavior:smooth;
-  scroll-padding-top: 96px;        /* an deine Headerhöhe anpassen */
+  scroll-padding-top: 96px;        /* Sticky-Header-Höhe */
 }
 
 body{
@@ -25,7 +23,7 @@ img,svg{ display:block; max-width:100%; height:auto }
 /* ===== Layout helpers ===== */
 .page{ max-width:var(--maxw); margin:0 auto; position:relative; overflow-x:hidden }
 .container{ width:var(--container); max-width:calc(100% - 2*100px); margin:0 auto; position:relative }
-.section{ position:relative; padding:96px 0 }
+.section{ position:relative; padding:96px 0; scroll-margin-top: calc(96px + 8px); } /* exakt an Überschrift stoppen */
 .center{ text-align:center }
 .accent{ color:var(--purple) }
 .line{ display:inline-block; height:0; border-top:4px solid var(--white) }
@@ -41,10 +39,8 @@ img,svg{ display:block; max-width:100%; height:auto }
   color:#fff; cursor:pointer; text-decoration:none;
   box-shadow:4px 4px 4px rgba(0,0,0,.25);
   font:400 16px/1 Poppins,sans-serif;
-  transition:all .2s;
+  transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease, color .18s ease;
 }
-
-/* bestehende Varianten */
 .btn.primary{ background:var(--green) }
 .btn.primary:hover{ background:var(--purple) }
 .btn.primary:active{ background:#fff; color:#000 }
@@ -52,12 +48,16 @@ img,svg{ display:block; max-width:100%; height:auto }
 .btn.outline{ background:transparent; border:1px solid var(--green) }
 .btn.disabled{ background:#B6B6B6; pointer-events:none }
 
+/* kräftiger Hover-Pop für alle Buttons */
+.btn:hover{ transform:translateY(-2px) scale(1.06); box-shadow:0 10px 24px rgba(151,71,255,.22); }
+.btn:active{ transform:scale(.98); }
+
 /* Text-Button (Legal notice / Privacy links) */
 .btn.text{ background:transparent; border:none; padding:5px 10px; color:#fff; position:relative }
 .btn.text::after{ content:""; position:absolute; left:10px; bottom:0; width:0; height:2px; background:var(--green); transition:width .3s }
 .btn.text:hover::after{ width:calc(100% - 20px) }
 
-/* ===== Aliase für neue Klassennamen (z. B. im Hero benutzt) ===== */
+/* Aliase */
 .btn.btn--primary{ background:var(--green) }
 .btn.btn--primary:hover{ background:var(--purple) }
 .btn.btn--primary:active{ background:#fff; color:#000 }
@@ -73,12 +73,7 @@ img,svg{ display:block; max-width:100%; height:auto }
   .container{ max-width:calc(100% - 48px) }
   .section{ padding:72px 0 }
 }
-
-@media (max-width:860px){
-  /* kleinerer globaler Anker-Offset, wenn der Header niedriger ist */
-  html{ scroll-padding-top: 72px; }
-}
-
+@media (max-width:860px){ html{ scroll-padding-top: 72px; } }
 @media (max-width:700px){
   .section{ padding:56px 0 }
   .foot-grid{ grid-template-columns:1fr }
@@ -102,18 +97,15 @@ img,svg{ display:block; max-width:100%; height:auto }
   .icon svg {
     width: 30px;
     height: 30px;
-    color: #70E61C;                 /* Default: grün */
+    color: #70E61C;
     transition: color .18s ease, transform .18s ease;
   }
 
   &:hover .icon svg {
-    color: #1CDAE6;                 /* Hover: cyan/blau */
-    transform: scale(1.12);         /* leichte Vergrößerung wie im Figma-Hover */
+    color: #1CDAE6;
+    transform: scale(1.12);
   }
 }
 
-/* Optional: größere Variante (wie die „zweite Zeile“ im Figma-Frame) */
-.row--lg .icon svg {
-  width: 40px;
-  height: 40px;
-}
+/* Optional: größere Variante */
+.row--lg .icon svg { width: 40px; height: 40px; }

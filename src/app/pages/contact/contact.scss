@@ -10,7 +10,7 @@
   margin: 0 auto;
   padding: 0 24px;
   display: grid;
-  grid-template-columns: 1.1fr 1fr; /* Text links, Form rechts */
+  grid-template-columns: 1.1fr 1fr;
   gap: 48px;
   align-items: start;
 }
@@ -22,32 +22,14 @@
   margin: 0 0 24px;
 }
 
-.contact__headline {
-  font-weight: 700;
-  margin: 8px 0 8px;
-}
-
-.contact__lead {
-  opacity: .9;
-  line-height: 1.6;
-  margin: 0 0 8px;
-}
+.contact__headline { font-weight: 700; margin: 8px 0 8px; }
+.contact__lead { opacity: .9; line-height: 1.6; margin: 0 0 8px; }
 
 /* ---------- Form ---------- */
+.contact-form { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.field { display: grid; gap: 10px; }
 
-.contact-form {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-}
-
-/* Input + Textarea wrapper (für Fehlermeldung) */
-.field {
-  display: grid;
-  gap: 10px;
-}
-
-/* Boxstyles: Default = Purple border, Blue bg */
+/* Boxstyles */
 .field > input,
 .field > textarea {
   width: 100%;
@@ -61,136 +43,65 @@
   transition: border-color .15s ease, box-shadow .15s ease;
   resize: vertical;
 
-  &::placeholder {
-    color: rgba(255, 255, 255, .7);
-  }
+  &::placeholder { color: rgba(255, 255, 255, .7); }
 }
 
-/* Fokus / Hover => Green */
+/* Hover/Focus grün */
 .field > input:focus,
 .field > input:hover,
 .field > textarea:focus,
-.field > textarea:hover {
-  border-color: #70e61c;
-}
+.field > textarea:hover { border-color: #70e61c; }
 
-/* Valid => Green border */
+/* Valid */
 .field > input:valid,
-.field > textarea:valid {
-  border-color: #70e61c;
-}
+.field > textarea:valid { border-color: #70e61c; }
 
-/* Error: wenn nicht leer und invalid => Red border + Fehlermeldung */
+/* Error */
 .field > input:not(:placeholder-shown):invalid,
-.field > textarea:not(:placeholder-shown):invalid {
-  border-color: #e61c40;
-}
+.field > textarea:not(:placeholder-shown):invalid { border-color: #e61c40; }
 
-.err {
-  display: none;
-  font: 400 14px/1.2 'Poppins', sans-serif;
-  color: #e61c40;
-}
-
-/* Zeige Fehlermeldung nur bei invalid + nicht leer */
+.err{ display:none; font:400 14px/1.2 'Poppins', sans-serif; color:#e61c40; }
 .field > input:not(:placeholder-shown):invalid ~ .err,
-.field > textarea:not(:placeholder-shown):invalid ~ .err {
-  display: inline-block;
-}
+.field > textarea:not(:placeholder-shown):invalid ~ .err { display:inline-block; }
 
 /* ---------- Privacy policy + Button ---------- */
-
-.policy-row {
-  display: grid;
-  gap: 12px;
-}
+.policy-row { display: grid; gap: 12px; }
 
 /* Checkbox + Text */
-.pp {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font: 400 14px/1.2 'Poppins', sans-serif;
+.pp{
+  display:inline-flex; align-items:center; gap:8px;
+  font:400 14px/1.2 'Poppins', sans-serif;
 
-  /* eigenes Kästchen (nah an Figma) */
-  input[type='checkbox'] {
-    appearance: none;
-    width: 24px;
-    height: 24px;
-    border-radius: 4px;
-    box-shadow: 0 0 0 0 rgba(151, 71, 255, 0);
-    background: #141d2f;
-    border: 1px solid #9747ff;
-    display: grid;
-    place-content: center;
-    transition: box-shadow .15s ease, background .15s ease, border-color .15s ease;
-  }
-
-  input[type='checkbox']::after {
-    content: '';
-    width: 14px;
-    height: 14px;
-    border-radius: 2px;
-    background: transparent;
-    transition: background .15s ease;
-  }
-
-  input[type='checkbox']:hover {
-    border-color: #70e61c;
-  }
-
-  input[type='checkbox']:checked {
-    border-color: #70e61c;
-    box-shadow: 0 0 0 6px rgba(24, 55, 113, 0.35);
-  }
-
-  input[type='checkbox']:checked::after {
-    background: #70e61c;
-  }
+  /* einfache, saubere grüne Checkbox (System) */
+  input[type='checkbox']{ accent-color:#70E61C; width:24px; height:24px; }
 }
 
-/* Privacy-policy Link – lila, beim Hover unterstrichen */
-.pp-link {
-  color: #9747ff;
-  text-decoration: none;
-}
-.pp-link:hover { text-decoration: underline; }
+/* Link */
+.pp-link{ color:#9747ff; text-decoration:none; }
+.pp-link:hover{ text-decoration: underline; }
 
-/* Send-Button – inaktiv (grau) solange Checkbox nicht gecheckt ist */
-.btn-send {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  height: 58px;
-  width: 253px;
-  border-radius: 10px;
-  background: #b6b6b6;            /* disabled */
-  color: #ffffff;
-  box-shadow: 4px 4px 4px rgba(0,0,0,.25);
-  font: 400 23px/1.2 'Poppins', sans-serif;
-  border: 0;
-  cursor: not-allowed;
-  user-select: none;
+/* Send-Button – inaktiv */
+.btn-send{
+  display:inline-flex; justify-content:center; align-items:center; gap:10px;
+  height:58px; width:253px; border-radius:10px;
+  background:#b6b6b6; color:#ffffff;
+  box-shadow:4px 4px 4px rgba(0,0,0,.25);
+  font:400 23px/1.2 'Poppins', sans-serif; border:0;
+  cursor:not-allowed; user-select:none;
   transition: transform .06s ease, background .15s ease, box-shadow .15s ease;
 }
 
-/* Aktiv, sobald die Checkbox gecheckt ist (CSS :has) */
-.contact-form:has(#pp:checked) .btn-send {
-  background: #70e61c;
-  cursor: pointer;
+/* Aktiv bei Check */
+.contact-form:has(#pp:checked) .btn-send{
+  background:#70e61c; cursor:pointer;
 }
-.contact-form:has(#pp:checked) .btn-send:hover {
-  transform: translateY(-1px);
-  box-shadow: 6px 6px 14px rgba(0,0,0,.25);
+.contact-form:has(#pp:checked) .btn-send:hover{
+  transform:translateY(-1px); box-shadow:6px 6px 14px rgba(0,0,0,.25);
 }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 980px) {
-  .contact__content {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
+  .contact__content { grid-template-columns: 1fr; gap: 32px; }
   .contact__title { text-align: left; }
   .policy-row { justify-items: start; }
 }

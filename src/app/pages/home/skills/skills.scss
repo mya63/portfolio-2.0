@@ -24,38 +24,36 @@
   justify-items: center;
 }
 
+/* „Continually learning“ lila (letztes Icon) */
+.skills__icons .skill:last-child span{ color:#9747FF; }
+
 .skill {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
   text-align: center;
-}
 
-.skill img {
-  width: 56px;
-  height: 56px;
-  object-fit: contain;
-  transition: transform 0.18s ease;
-  will-change: transform;
-}
-
-.skill:hover img,
-.skill:focus-visible img {
-  transform: translateY(-6px); /* sanftes Hüpfen nur beim Icon */
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .skill img {
-    transition: none;
+  img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    transition: transform .18s ease;
+    will-change: transform;
   }
-}
 
-.skill span {
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 120%;
+  &:hover img,
+  &:focus-visible img {
+    transform: translateY(-6px);
+  }
+
+  span {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 120%;
+  }
 }
 
 /* --- Textblock --- */
@@ -86,9 +84,7 @@
   }
 }
 
-.highlight {
-  color: #a259ff;
-}
+.highlight { color: #a259ff; }
 
 .intro,
 .desc {
@@ -97,21 +93,20 @@
   opacity: 0.9;
 }
 
-/* --- Button --- */
+/* --- Button (wie Hero, kräftiger Hover & wechselt auf lila) --- */
 .btn {
-  display: inline-block;
-  background: #70e61c;
-  color: #0a0a0a;
-  font-weight: 700;
-  padding: 12px 24px;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: transform 0.15s ease, background 0.2s ease;
+  display:inline-flex; align-items:center; justify-content:center;
+  height:58px; padding:0 30px; border-radius:10px;
+  background:#70e61c; color:#fff; font:400 23px/1.2 'Poppins',sans-serif;
+  text-decoration:none; border:none;
+  transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease, color .18s ease;
 
-  &:hover {
-    background: #5ccc1a;
-    transform: translateY(-1px);
+  &:hover{
+    transform:translateY(-2px) scale(1.06);
+    box-shadow:0 10px 24px rgba(112,230,28,.28);
+    background:#9747ff; color:#fff;
   }
+  &:active{ transform:scale(.98); background:#fff; color:#000; }
 }
 
 /* --- Responsive --- */
@@ -132,41 +127,10 @@
   }
 }
 
-/* --- Kachel-Basis --- */
-.skill {
-  position: relative;          /* wichtig für das Popup */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  text-align: center;
-
-  img {
-    width: 56px;
-    height: 56px;
-    object-fit: contain;
-    transition: transform .18s ease;
-    will-change: transform;
-  }
-
-  /* nur Icon hopst */
-  &:hover img,
-  &:focus-visible img {
-    transform: translateY(-6px);
-  }
-
-  span {
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 120%;
-  }
-}
-
 /* --- Interest-Popup (Sprechblase) --- */
 .skill--interest .skill-popup {
   position: absolute;
-  bottom: calc(100% + 16px);   /* über der Kachel */
+  bottom: calc(100% + 16px);
   left: 50%;
   transform: translateX(-50%);
   width: 240px;
@@ -181,13 +145,9 @@
   transition: opacity .2s ease;
   z-index: 2;
 }
-
 .skill--interest:hover .skill-popup,
-.skill--interest:focus-within .skill-popup {
-  opacity: 1;
-}
+.skill--interest:focus-within .skill-popup { opacity: 1; }
 
-/* Sprechblasen-Pfeil */
 .skill--interest .skill-popup::after {
   content: "";
   position: absolute;
@@ -199,7 +159,6 @@
   border-top: 10px solid #fff;
 }
 
-/* Inhalt im Popup */
 .skill--interest .skill-popup p {
   font-family: "Poppins", sans-serif;
   font-size: 15px;
@@ -211,7 +170,6 @@
   justify-content: center;
   gap: 24px;
 }
-
 .skill-popup__icons .tech {
   display: flex;
   flex-direction: column;
@@ -222,13 +180,5 @@
   span { font: 700 12px/1.08 "Poppins", sans-serif; color: #000; }
 }
 
-/* Motion-Preference */
-@media (prefers-reduced-motion: reduce) {
-  .skill img { transition: none; }
-}
-
-/* Optional: Mobile Popup etwas schmaler */
-@media (max-width: 600px) {
-  .skill--interest .skill-popup { width: 200px; }
-}
-
+@media (prefers-reduced-motion: reduce) { .skill img { transition: none; } }
+@media (max-width: 600px) { .skill--interest .skill-popup { width: 200px; } }

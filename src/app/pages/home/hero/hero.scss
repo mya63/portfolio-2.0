@@ -1,41 +1,19 @@
-/* =========================
-   HERO – CLEAN CONSOLIDATED
-   ========================= */
-
-/* – optionale Hel\-Variablen nur für den Hero –
-   (#141D2F -> rgb 20,29,47; Headerhöhe ≈ 96px) */
 :root{
-  --hero-overlay-rgb: 20, 29, 47;
-  --hero-overlay-base: .55;   /* 0–1; höher = dunkler */
+  --hero-overlay-rgb: 20,29,47;
+  --hero-overlay-base: .55;
   --header-height: 96px;
+  --purple:#8B4DFF;
+  --green:#70E61C;
 }
 
-.hero{
-  position: relative;
-  padding: 80px 0 60px;
+.hero{ position:relative; padding:80px 0 60px; min-height:calc(100vh - 0px); }
+.hero-bg{ position:absolute; inset:0;
+  background:radial-gradient(102.53% 81.55% at 46.74% 3.94%, #1A2743 0.37%, #27334B 13.54%, #141D2F 71.91%);
+  z-index:0;
 }
-
-/* BG aus Figma */
-.hero-bg{
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(102.53% 81.55% at 46.74% 3.94%, #1A2743 0.37%, #27334B 13.54%, #141D2F 71.91%);
-  z-index: 0;
+.hero::before{ content:""; position:absolute; left:0; right:0; top:0; height:var(--header-height);
+  background:rgba(var(--hero-overlay-rgb),1); z-index:1; pointer-events:none;
 }
-
-/* ---------- Overlays (unter Content) ---------- */
-/* dünner Top-Streifen: gleiche Farbe wie Header, hilft gegen Blur-Schimmer */
-.hero::before{
-  content:"";
-  position:absolute;
-  left:0; right:0; top:0;
-  height: var(--header-height);
-  background: rgba(var(--hero-overlay-rgb), 1);
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* dezentes Abdunkeln rechts/oben – exakt Headerfarbe, kein Weißschimmer */
 .hero::after{
   content:"";
   position:absolute;
@@ -50,320 +28,100 @@
       rgba(var(--hero-overlay-rgb), 0)                                      72%);
 }
 
-/* ---------- Grid ---------- */
 .hero .container.hero-grid{
-  position: relative;
-  z-index: 2; /* über Overlays */
-  display: grid;
-  grid-template-columns: 1.05fr 1fr; /* links leicht mehr Platz fürs Bild */
-  align-items: center;
-  gap: 48px;
+  position:relative; z-index:2;
+  display:grid; grid-template-columns:1.05fr 1fr;
+  align-items:stretch;      /* <— wichtig: linke Spalte darf hoch werden */
+  gap:48px;
 }
 
-/* ---------- Linke Spalte: Foto + Glows + Kontakt ---------- */
+/* ==== Linke Spalte ==== */
 .hero-photo-wrap{
-  position: relative;
-  width: min(520px, 40vw);
-  aspect-ratio: 1/1;
-  margin: 0 auto 0 0;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  position:relative;
+  width:min(640px,46vw);
+  margin:0 auto 0 0;
 }
 
-.photo-purple,
-.photo-green{
-  position: absolute;
-  filter: blur(46.5px);
-  border-radius: 999px;
-  z-index: 0;
+/* Glows bleiben absolut hinter dem Bild */
+.photo-purple,.photo-green{
+  position:absolute; filter:blur(46.5px); border-radius:999px; z-index:0;
 }
+.photo-purple{ background:var(--purple); width:340px; height:390px; right:-40px; top:300px; }
+.photo-green { background:var(--green);  width:330px; height:240px; left:20px;  top:170px; }
 
-.photo-purple{ background: var(--purple); width: 340px; height: 390px; right: -40px; top: 300px; }
-.photo-green { background: var(--green);  width: 330px; height: 240px; left: 20px;  top: 170px;  }
-
+/* === HERO-FOTO – Safe-Mode (nicht absolut) === */
 .hero-photo{
-  position: absolute;
-  left: 50%;
-  bottom: -6px;
-  transform: translateX(-50%);
-  width: 96%;
-  height: auto;
-  object-fit: contain;
-  z-index: 1;
-  pointer-events: none;
+  position:relative;       /* NICHT mehr absolute */
+  display:block;
+  width:100%;              /* füllt die Spalte */
+  height:auto;
+  max-height:calc(100vh - var(--header-height) - 56px); /* Kopf unter Header, Bauch bis Rand */
+  object-fit:contain;
+  z-index:3;               /* über den Glows */
+  /* debug: border:2px solid red; */
 }
 
-/* Kontaktleiste unter dem Bild */
+/* Kontaktleiste */
 .hero-contact{
-  --contact-offset: 96px;
-  --contact-gap: 28px;
-
-  position: relative;
-  margin-top: var(--contact-offset);
-  display: flex;
-  align-items: center;
-  gap: var(--contact-gap);
-  z-index: 2;
+  --contact-offset: 24px; --contact-gap: 28px;
+  position:relative; margin-top:var(--contact-offset);
+  display:flex; align-items:center; gap:var(--contact-gap); z-index:2;
 }
+.hero-socials{ display:flex; align-items:center; gap:28px; }
+.hero-socials .ico{ display:grid; place-items:center; width:44px; height:44px; border-radius:999px; text-decoration:none; outline:none; }
+.hero-socials .ico img{ width:30px; height:30px; transition:transform .15s ease; }
+.hero-socials .ico:hover img, .hero-socials .ico:focus-visible img{ transform:scale(1.33); }
+.hero-socials .ico:focus-visible{ box-shadow:0 0 0 2px #9747FF; border-radius:999px; }
+.hero-mail{ color:#fff; text-decoration:none; font:500 16px/1.3 'Poppins',sans-serif; opacity:.95; }
 
-.hero-socials{
-  display: flex;
-  align-items: center;
-  gap: 28px;
-}
-
-.hero-socials .ico{
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  text-decoration: none;
-  outline: none;
-}
-
-.hero-socials .ico img{ width: 30px; height: 30px; transition: transform .15s ease; }
-.hero-socials .ico:hover img,
-.hero-socials .ico:focus-visible img{ transform: scale(1.33); }
-.hero-socials .ico:focus-visible{ box-shadow: 0 0 0 2px #9747FF; outline: none; border-radius: 999px; }
-
-.hero-mail{
-  color: #fff;
-  text-decoration: none;
-  font: 500 16px/1.3 'Poppins', sans-serif;
-  opacity: .95;
-}
-
-/* ---------- Rechte Spalte: Textblock ---------- */
+/* ==== Rechte Spalte ==== */
 .hero-text{
-  display: grid;
-  grid-template-columns: auto 1fr;   /* "I am" | Inhalt */
-  grid-template-rows: auto auto auto;
-  align-items: end;
-  column-gap: clamp(14px, 1.6vw, 22px);
-  row-gap: 10px;
-
-  /* harte Resets: niemals eigene Hintergründe/Schatten */
-  background: transparent;
-  box-shadow: none;
-  text-shadow: none;
-  filter: none;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+  display:grid; grid-template-columns:auto 1fr; grid-template-rows:auto auto auto;
+  align-items:end; column-gap:clamp(14px,1.6vw,22px); row-gap:10px;
 }
-
-/* "I am" vertikal */
+.hero-text .title{ display:flex; flex-direction:column; align-items:center; }
 .hero-text .iam{
-  grid-column: 1;
-  grid-row: 1 / span 3;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  font-weight: 600;
-  font-size: clamp(22px, 2.8vw, 38px);
-  letter-spacing: 0.12em;
-  opacity: .95;
-  align-self: center;
+  grid-column:1; grid-row:1 / span 3; writing-mode:vertical-rl; transform:rotate(180deg);
+  font-weight:600; font-size:clamp(22px,2.8vw,38px); letter-spacing:.12em; opacity:.95; align-self:center;
 }
-
-/* Name – zwei Zeilen */
 .name{
-  grid-column: 2;
-  grid-row: 1;
-  margin: 0;
-  line-height: 1.04;
-  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  font-weight: 800;
-  color: #fff;
-  display: grid;
-  gap: 8px;
-  font-size: clamp(34px, 4.8vw, 72px);
-  z-index: 2;
+  grid-column:2; grid-row:1; margin:0; line-height:1.04; font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  font-weight:800; color:#fff; display:grid; gap:8px; font-size:clamp(34px,4.8vw,72px); z-index:2; text-align:center;
 }
-.name .name-row{ display: block; }
-.name .accent{ color: var(--purple); }
-.name, .name *{ text-decoration: none; text-shadow: none; border-bottom: 0; outline: 0; }
-
-/* Rolle */
+.name .name-row{ display:block; } .name .accent{ color:var(--purple); }
 .role{
-  grid-column: 2;
-  grid-row: 2;
-  color: var(--purple);
-  margin: 6px 0 14px;
-  font-weight: 700;
-  font-size: clamp(18px, 2.4vw, 34px);
-  letter-spacing: .02em;
-  line-height: 1.08;
-  z-index: 1;
+  grid-column:2; grid-row:2; color:var(--purple); margin:6px 0 14px; font-weight:700;
+  font-size:clamp(18px,2.4vw,34px); letter-spacing:.02em; line-height:1.08; z-index:1; text-align:center;
 }
-
-/* CTA */
 .hero-text .btn{
-  grid-column: 2;
-  grid-row: 3;
-  height: 52px;
-  padding: 0 24px;
-  font-size: 15px;
-  margin-top: clamp(6px, .8vw, 10px);
+  grid-column:2; grid-row:3; height:58px; padding:15px 30px; font-size:23px;
+  margin-top:clamp(6px,.8vw,10px); border-radius:10px;
+  transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease, color .18s ease;
 }
+.btn.btn--primary{ background:var(--green); color:#fff; }
+.btn.btn--primary:hover{ background:var(--purple); transform:translateY(-2px) scale(1.06); box-shadow:0 10px 24px rgba(151,71,255,.28); }
+.btn.btn--primary:active{ transform:scale(.98); background:#fff; color:#000; }
 
-/* ---------- Scroll down ---------- */
+/* Scroll down */
 .scrolldown{
-  position: absolute;
-  right: 16px;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transform: rotate(90deg);
-  transform-origin: right bottom;
-  color: #fff;
-  font: 500 14px/1 'Poppins', sans-serif;
-  opacity: .85;
+  position:absolute; right:16px; bottom:0; display:flex; align-items:center; gap:8px;
+  transform:rotate(90deg); transform-origin:right bottom; color:#fff; font:500 14px/1 'Poppins',sans-serif; opacity:.85;
 }
-.scrolldown .arrow{ transform: rotate(-90deg); }
+.scrolldown .arrow{ transform:rotate(-90deg); }
 
-/* ---------- Responsive ---------- */
-@media (max-width: 1200px){
-  .name{ font-size: clamp(32px, 5vw, 64px); }
-  .role{ font-size: clamp(18px, 2.6vw, 30px); }
+/* Responsive */
+@media (max-width:1200px){
+  .name{ font-size:clamp(32px,5vw,64px); }
+  .role{ font-size:clamp(18px,2.6vw,30px); }
 }
-
-@media (max-width: 900px){
-  .hero .container.hero-grid{ grid-template-columns: 1fr; }
-
-  .hero-text{
-    grid-template-columns: 1fr;  /* "I am" oben */
-    row-gap: 8px;
-  }
-
-  .hero-text .iam{
-    writing-mode: horizontal-tb;
-    transform: none;
-    font-size: clamp(13px, 3.6vw, 18px);
-    letter-spacing: 0.1em;
-    align-self: start;
-  }
-
-  .name{ font-size: clamp(28px, 8vw, 44px); }
-  .role{ font-size: clamp(16px, 4.8vw, 24px); }
-
-  .hero-text .btn{
-    height: 48px;
-    padding: 0 20px;
-    font-size: 14px;
-  }
-
-  .hero-contact{
-    --contact-offset: 24px;
-    --contact-gap: 20px;
-    margin-top: var(--contact-offset);
-  }
-
-  .scrolldown{
-    position: static;
-    transform: none;
-    margin-top: 24px;
-    justify-content: flex-end;
-  }
-}
-
-
-/* === GLOBALE HERO-VARS (stehen bei dir schon oben) === */
-:root{
-  --hero-overlay-rgb: 20, 29, 47;
-  --hero-overlay-base: .55;
-  --header-height: 96px; /* wie im Header */
-}
-
-/* === HERO-HÖHE: fülle den Viewport === */
-.hero{
-  /* lass dein padding, aber gib dem Hero eine Mindesthöhe,
-     damit das Bild wirklich “Bauch bis Rand” kann */
-  min-height: calc(100vh - 0px);
-}
-
-/* === BILD-BLOCK: wird hoch und frei === */
-.hero-photo-wrap{
-  position: relative;
-
-  /* WICHTIG: Aspect-Ratio entfernen, damit Höhe übernimmt */
-  /* aspect-ratio: 1/1;  --> ENTFERNEN */
-
-  /* Breite etwas größer, damit die Figur präsent ist */
-  width: min(640px, 46vw);
-
-  /* Höhe über Viewport steuern:
-     - Header abziehen
-     - etwas Luft für deinen Top-Padding im Hero lassen (~40–60px)
-  */
-  min-height: calc(100vh - var(--header-height) - 56px);
-
-  margin: 0 auto 0 0;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-/* Glows kannst du lassen; optional minimal nach unten ziehen
-.photo-purple{ top: 330px; }
-.photo-green { top: 200px; }
-*/
-
-/* === PORTRAIT: unten anliegen & maximal hoch === */
-.hero-photo{
-  position: absolute;
-  left: 50%;
-  bottom: 0;               /* Bauch am unteren Rand */
-  transform: translateX(-50%);
-
-  height: 100%;            /* fülle die Wrap-Höhe */
-  width: auto;             /* Proportionen behalten */
-  max-width: none;         /* nicht durch width begrenzen */
-  object-fit: contain;
-
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* Kontaktleiste: bleibt unter dem Bild (Abstand etwas kleiner) */
-.hero-contact{
-  --contact-offset: 32px;  /* vorher 96px */
-  margin-top: var(--contact-offset);
-}
-
-/* ========== RESPONSIVE ========== */
-@media (max-width: 1200px){
-  .hero-photo-wrap{
-    width: min(560px, 48vw);
-    min-height: calc(100vh - var(--header-height) - 64px);
-  }
-}
-
-@media (max-width: 900px){
-  /* Auf Mobile nicht “zu groß”: etwas kürzen */
-  .hero{
-    min-height: auto; /* normale Höhe reicht */
-  }
-
-  .hero .container.hero-grid{
-    grid-template-columns: 1fr;
-  }
-
-  .hero-photo-wrap{
-    width: min(520px, 78vw);
-    min-height: clamp(420px, 68vh, 720px);
-  }
-
-  .hero-photo{
-    bottom: 0;
-    height: 100%;
-    width: auto;
-  }
-
-  .hero-contact{
-    --contact-offset: 24px;
-  }
+@media (max-width:900px){
+  .hero .container.hero-grid{ grid-template-columns:1fr; }
+  .hero-text{ grid-template-columns:1fr; row-gap:8px; }
+  .hero-text .iam{ writing-mode:horizontal-tb; transform:none; font-size:clamp(13px,3.6vw,18px); letter-spacing:.1em; align-self:start; }
+  .name{ font-size:clamp(28px,8vw,44px); }
+  .role{ font-size:clamp(16px,4.8vw,24px); }
+  .hero-text .btn{ height:52px; padding:12px 24px; font-size:18px; }
+  .hero{ min-height:auto; }
+  .scrolldown{ position:static; transform:none; margin-top:24px; justify-content:flex-end; }
+  .hero-contact{ --contact-offset:24px; --contact-gap:20px; margin-top:var(--contact-offset); }
 }
