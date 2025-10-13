@@ -54,9 +54,18 @@
 }
 
 /* Pfade zu deinen SVGs (achte auf korrekte Dateien) */
-.icon--loc    { -webkit-mask-image: url('/assets/icons/location.svg'); mask-image: url('/assets/icons/location.svg'); }
-.icon--bulb   { -webkit-mask-image: url('/assets/icons/bulb.svg');    mask-image: url('/assets/icons/bulb.svg'); }
-.icon--puzzle { -webkit-mask-image: url('/assets/icons/puzzle.svg');  mask-image: url('/assets/icons/puzzle.svg'); }
+.icon--loc {
+  -webkit-mask-image: url('../../../../assets/icons/location.svg');
+  mask-image: url('../../../../assets/icons/location.svg');
+}
+.icon--bulb {
+  -webkit-mask-image: url('../../../../assets/icons/bulb.svg');
+  mask-image: url('../../../../assets/icons/bulb.svg');
+}
+.icon--puzzle {
+  -webkit-mask-image: url('../../../../assets/icons/puzzle.svg');
+  mask-image: url('../../../../assets/icons/puzzle.svg');
+}
 
 /* Foto rechts mit grünem Ring wie im Figma */
 /* Größen anpassen, Ring + Avatar */
