@@ -70,35 +70,42 @@ card3: {
   role: 'CEO, Google LLC – Senior Entwickler'
 }
   },
-  contact: {
-    title: 'Kontakt',
-    q: 'Ein Problem zu lösen?',
-    lead1: 'Ermutige Leute, dich zu kontaktieren, und beschreibe, welche Rolle dich interessiert. Zeige, welchen Mehrwert du in Projekten schaffst.',
-    lead2: 'Frontend-Entwickler gesucht? Kontaktiere mich!',
-    name: 'Dein Name',
-    email: 'Deine E-Mail',
-    message: 'Deine Nachricht',
-    privacy: 'Ich habe die <strong>Datenschutzerklärung</strong> gelesen und stimme der Verarbeitung meiner Daten zu.',
-    send: 'Nachricht senden :)'
-  },
-
-  legal: {
-    title: 'Impressum',
-    imprint: 'Impressum',
-    accept: 'Akzeptanz der Bedingungen',
-    scope: 'Umfang und Eigentum am Produkt',
-    rights: 'Schutzrechte',
-    use: 'Nutzung des Produkts',
-    disclaimer: 'Haftungsausschluss / Haftungsbeschränkung',
-    indemnity: 'Freistellung',
-    backToTop: 'Nach oben'
-  },
-
-  privacy: {
-    title: 'Datenschutzerklärung',
-    subtitle: 'Untertitel',
-    backToTop: 'Nach oben'
-  },
-
+contact: {
+  title: 'Kontakt',
+  q: 'Ein Problem zu lösen?',
+  lead1: 'Ermutige Leute, dich zu kontaktieren, und beschreibe, welche Rolle dich interessiert. Zeige, welchen Mehrwert du durch deine Arbeit schaffst.',
+  lead2: 'Frontend-Entwickler gesucht? <strong>Kontaktiere mich!</strong>',
+  name: 'Dein Name',
+  email: 'Deine E-Mail',
+  message: 'Deine Nachricht',
+  privacyHtml: `Ich habe die <a class="pp-link" href="/privacy" rel="noopener">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu.`,
+  send: 'Nachricht senden :)',
+  err: {
+    name: 'Dein Name ist erforderlich',
+    email: 'Deine E-Mail ist erforderlich',
+    message: 'Deine Nachricht ist leer'
+  }
+},
+// de.ts
+legal: {
+  title: 'Impressum',
+  backToTop: 'Nach oben',
+  imprint: { body: 'Muhammed Yunus Amini<br>63263 Neu-Isenburg<br>muhammedyunusamini4@gmail.com' },
+  accept: { body: 'Mit dem Zugriff auf und der Nutzung des Portfolios (Produkt) ...' },
+  scope: { body: 'Das Portfolio wurde im Rahmen eines Studierendenprojekts entwickelt ...' },
+  rights: { body: 'Unbeschadet des Designs der Developer Akademie GmbH ...' },
+  use: { body: 'Das Portfolio darf nur zu rechtmäßigen Zwecken genutzt werden ...' },
+  disclaimer: { body: 'Das Portfolio wird ohne Gewähr bereitgestellt ...' },
+  indemnity: { body: 'Sie stellen uns von sämtlichen Ansprüchen frei ...' }
+}
+,
+// de.ts
+privacy: {
+  title: 'Datenschutzerklärung',
+  backToTop: 'Nach oben',
+  section1: { title: 'Verantwortlicher', body: '…dein Text…' },
+  section2: { title: 'Verarbeitete Daten', body: '…dein Text…' }
+}
+,
   misc: { scrolldown: 'Runterscrollen' }
 };

@@ -6,20 +6,11 @@ import { I18nService } from '../../../core/i18n/i18n.service';
   selector: 'app-lang-toggle',
   standalone: true,
   imports: [CommonModule],
-  template: `
-    <div class="lang-toggle">
-      <button type="button"
-              class="pill pill--outline"
-              [class.active]="lang.getLang()==='de'"
-              (click)="set('de')">DE</button>
-      <button type="button"
-              class="pill pill--solid"
-              [class.active]="lang.getLang()==='en'"
-              (click)="set('en')">EN</button>
-    </div>
-  `
+  templateUrl: './lang-toggle.component.html',
+  styleUrls: ['./lang-toggle.component.scss']
 })
 export class LangToggleComponent {
   lang = inject(I18nService);
   set(code: 'de'|'en'){ this.lang.setLang(code); }
+  is(code: 'de'|'en'){ return this.lang.getLang() === code; }
 }

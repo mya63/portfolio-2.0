@@ -8,53 +8,37 @@
     <div class="legal-content">
       <section class="block">
         <h3 class="subtitle">{{ 'legal.imprint' | t }}</h3>
-        <p>
-          Muhammed Yunus Amini<br />
-          63263 Neu Isenburg<br />
-          muhammedyunusamini4@gmail.com<br />
-        </p>
+        <p [innerHTML]="'legal.imprint.body' | t"></p>
       </section>
 
       <section class="block">
         <h3 class="subtitle">{{ 'legal.accept' | t }}</h3>
-        <p class="emph">
-          By accessing and using Portfolio (Product), you acknowledge and agree to the following terms [...]
-        </p>
+        <p class="emph" [innerHTML]="'legal.accept.body' | t"></p>
       </section>
 
       <section class="block">
         <h3 class="subtitle">{{ 'legal.scope' | t }}</h3>
-        <p class="emph">
-          Portfolio has been developed as part of a student group project [...]
-        </p>
+        <p class="emph" [innerHTML]="'legal.scope.body' | t"></p>
       </section>
 
       <section class="block">
         <h3 class="subtitle">{{ 'legal.rights' | t }}</h3>
-        <p class="emph">
-          Aside from the design owned by Developer Akademie GmbH [...]
-        </p>
+        <p class="emph" [innerHTML]="'legal.rights.body' | t"></p>
       </section>
 
       <section class="block">
         <h3 class="subtitle">{{ 'legal.use' | t }}</h3>
-        <p class="emph">
-          Portfolio is intended to be used for lawful purposes only [...]
-        </p>
+        <p class="emph" [innerHTML]="'legal.use.body' | t"></p>
       </section>
 
       <section class="block">
         <h3 class="subtitle">{{ 'legal.disclaimer' | t }}</h3>
-        <p class="emph">
-          Portfolio is provided "as is" without warranty of any kind [...]
-        </p>
+        <p class="emph" [innerHTML]="'legal.disclaimer.body' | t"></p>
       </section>
 
       <section class="block">
         <h3 class="subtitle">{{ 'legal.indemnity' | t }}</h3>
-        <p class="emph">
-          You agree to indemnify, defend and hold harmless us [...] Date: July 26, 2025
-        </p>
+        <p class="emph" [innerHTML]="'legal.indemnity.body' | t"></p>
       </section>
     </div>
 

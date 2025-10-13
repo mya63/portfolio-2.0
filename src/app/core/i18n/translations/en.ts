@@ -73,35 +73,44 @@ export const en = {
     }
   },
 
-  contact: {
-    title: 'Contact',
-    q: 'Got a problem to solve?',
-    lead1: 'Encourage people to contact you and describe what role you are interested in. Show that you will add value to their projects through your work.',
-    lead2: 'Need a Frontend developer? Contact me!',
-    name: 'Your name',
-    email: 'Your email',
-    message: 'Your message',
-    privacy: 'I\'ve read the <strong>privacy policy</strong> and agree to the processing of my data as outlined.',
-    send: 'Send message :)'
-  },
+contact: {
+  title: 'Contact',
+  q: 'Got a problem to solve?',
+  lead1: 'Encourage people to contact you and describe what role you are interested in. Show that you will add value to their projects through your work.',
+  lead2: 'Need a Frontend developer? <strong>Contact me!</strong>',
+  name: 'Your name',
+  email: 'Your email',
+  message: 'Your message',
+  // mit Link – wenn du RouterLink nutzen willst, kannst du <a class="pp-link" href="/privacy"> so lassen
+  privacyHtml: `I've read the <a class="pp-link" href="/privacy" rel="noopener">privacy policy</a> and agree to the processing of my data as outlined.`,
+  send: 'Send message :)',
+  err: {
+    name: 'Your name is required',
+    email: 'Your email is required',
+    message: 'Your message is empty'
+  }
+},
 
-  legal: {
-    title: 'Legal Notice',
-    imprint: 'Imprint',
-    accept: 'Acceptance of terms',
-    scope: 'Scope and ownership of the product',
-    rights: 'Proprietary rights',
-    use: 'Use of the product',
-    disclaimer: 'Disclaimer / Limitation of liability',
-    indemnity: 'Indemnity',
-    backToTop: 'Back to top'
-  },
-
-  privacy: {
-    title: 'Privacy Policy',
-    subtitle: 'Subtitle',
-    backToTop: 'Back to top'
-  },
-
+// en.ts
+legal: {
+  title: 'Legal Notice',
+  backToTop: 'Back to top',
+  imprint: { body: 'Muhammed Yunus Amini<br>63263 Neu-Isenburg<br>muhammedyunusamini4@gmail.com' },
+  accept: { body: 'By accessing and using Portfolio (Product) ...' },
+  scope: { body: 'Portfolio has been developed as part of a student group project ...' },
+  rights: { body: 'Aside from the design owned by Developer Akademie GmbH ...' },
+  use: { body: 'Portfolio is intended to be used for lawful purposes only ...' },
+  disclaimer: { body: 'Portfolio is provided "as is" without warranty ...' },
+  indemnity: { body: 'You agree to indemnify, defend and hold harmless us ...' }
+}
+,
+// en.ts
+privacy: {
+  title: 'Privacy Policy',
+  backToTop: 'Back to top',
+  section1: { title: 'Controller', body: '…your text…' },
+  section2: { title: 'Data we process', body: '…your text…' }
+}
+,
   misc: { scrolldown: 'Scroll down' }
 };

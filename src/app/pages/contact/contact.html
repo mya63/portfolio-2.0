@@ -1,16 +1,13 @@
 <section id="contact" class="contact section">
   <div class="contact__content">
-    <div class="contact__intro">
-      <h2 class="contact__title">Contact</h2>
 
-      <h3 class="contact__headline">Got a problem to solve?</h3>
+    <div class="contact__intro">
+      <h2 class="contact__title">{{ 'contact.title' | t }}</h2>
+
+      <h3 class="contact__headline">{{ 'contact.q' | t }}</h3>
+      <p class="contact__lead">{{ 'contact.lead1' | t }}</p>
       <p class="contact__lead">
-        Encourage people to contact you and describe what role
-        you are interested in. Show that you will add value to their
-        projects through your work.
-      </p>
-      <p class="contact__lead">
-        Need a Frontend developer? <strong>Contact me!</strong>
+        {{ 'contact.lead2' | t }}
       </p>
     </div>
 
@@ -21,10 +18,10 @@
         <input
           id="name"
           type="text"
-          placeholder="Your name"
+          [placeholder]="'contact.name' | t"
           required
         />
-        <small class="err">Your name is required</small>
+        <small class="err">{{ 'contact.err.name' | t }}</small>
       </div>
 
       <!-- Email -->
@@ -32,10 +29,10 @@
         <input
           id="email"
           type="email"
-          placeholder="Your email"
+          [placeholder]="'contact.email' | t"
           required
         />
-        <small class="err">Your email is required</small>
+        <small class="err">{{ 'contact.err.email' | t }}</small>
       </div>
 
       <!-- Message -->
@@ -43,25 +40,22 @@
         <textarea
           id="message"
           rows="7"
-          placeholder="Your message"
+          [placeholder]="'contact.message' | t"
           required
         ></textarea>
-        <small class="err">Your message is empty</small>
+        <small class="err">{{ 'contact.err.message' | t }}</small>
       </div>
 
       <!-- Privacy policy + Button -->
       <div class="policy-row">
         <label class="pp">
           <input id="pp" type="checkbox" />
-          <span>
-            I've read the
-            <a class="pp-link" href="/privacy" target="_self" rel="noopener">privacy policy</a>
-            and agree to the processing of my data as outlined.
-          </span>
+          <!-- Hinweis: wir verwenden innerHTML, damit der Link im Text bleiben kann -->
+          <span [innerHTML]="'contact.privacyHtml' | t"></span>
         </label>
 
         <button class="btn-send" type="submit" aria-disabled="true">
-          <span>Send message :)</span>
+          <span>{{ 'contact.send' | t }}</span>
         </button>
       </div>
     </form>

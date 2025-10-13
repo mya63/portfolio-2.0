@@ -1,0 +1,68 @@
+/* Base tokens */
+$green: #70E61C;
+$purple: #9747FF;
+
+.lang-toggle{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  gap:14px;
+  width:92px;   /* Figma */
+  height:32px;  /* Figma */
+}
+
+/* Button common */
+.pill{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:5px 8px;         /* Figma */
+  height:32px;             /* Figma */
+  min-width:38px;          /* left: 38px; right wird 40px */
+  border-radius:10px;      /* Figma */
+  font-family:'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size:18px;          /* Figma */
+  line-height:22px;        /* 120% von 18px */
+  letter-spacing:0;
+  cursor:pointer;
+  user-select:none;
+  transition:background .15s ease, color .15s ease, border-color .15s ease, transform .05s ease;
+
+  /* Default typography like Figma inactive: 400 */
+  font-weight:400;
+  color:#fff;
+}
+
+/* Outlined (inactive) = DE wenn EN aktiv */
+.pill--outline{
+  border:1px solid $green;
+  background:transparent;
+  &:hover{ background:$purple; }
+  &:active{ background:#fff; color:$purple; transform:translateY(1px); }
+  &.is-active{    /* Wenn DE aktiv (grün ausgefüllt) */
+    background:$green;
+    border-color:transparent;
+    color:#fff;
+    font-weight:700;       /* Figma active weight */
+    min-width:39px;        /* Figma 39px bei "active" Variante */
+  }
+}
+
+/* Solid (active for EN) */
+.pill--solid{
+  background:$green;
+  border:0;
+  font-weight:700;         /* Figma active */
+  min-width:40px;          /* Figma */
+  &:hover{ filter:brightness(1.05); }
+  &:active{ background:#fff; color:$purple; border:0; transform:translateY(1px); }
+  &.is-active{ background:$green; color:#fff; }
+  &:not(.is-active){       /* wenn EN NICHT aktiv -> als Outline */
+    background:transparent;
+    border:1px solid $green;
+    font-weight:400;
+    min-width:38px;
+    &:hover{ background:$purple; }
+    &:active{ background:#fff; color:$purple; transform:translateY(1px); }
+  }
+}
