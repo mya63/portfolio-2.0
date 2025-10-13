@@ -4,12 +4,11 @@
       <span>Yunu</span><span class="accent">s</span>
     </a>
 
-    <!-- Desktop Nav -->
     <nav class="nav" aria-label="Hauptmenü">
       <div class="links">
-        <a routerLink="/" fragment="about">About</a>
-        <a routerLink="/" fragment="skills">Skills</a>
-        <a routerLink="/" fragment="portfolio">Portfolio</a>
+        <a routerLink="/" fragment="about">{{ 'nav.about' | t }}</a>
+        <a routerLink="/" fragment="skills">{{ 'nav.skills' | t }}</a>
+        <a routerLink="/" fragment="portfolio">{{ 'nav.portfolio' | t }}</a>
       </div>
 
       <div class="lang">
@@ -17,32 +16,25 @@
       </div>
     </nav>
 
-    <!-- Burger -->
     <button class="burger" type="button" aria-label="Menü öffnen" (click)="toggleMenu()">
       <span></span><span></span><span></span>
     </button>
   </div>
 
-  <!-- Mobile Overlay (Figma 1:1) -->
   <div class="overlay-backdrop" [class.open]="menuOpen" (click)="closeMenu()">
     <div class="overlay-frame" (click)="$event.stopPropagation()">
       <div class="overlay-header">
         <div class="overlay-logo"></div>
-        <button
-          class="overlay-burger"
-          type="button"
-          aria-label="Menü schließen"
-          (click)="closeMenu()"
-        >
+        <button class="overlay-burger" type="button" aria-label="Menü schließen" (click)="closeMenu()">
           <span></span><span></span><span></span>
         </button>
       </div>
 
       <nav class="overlay-menu" aria-label="Mobile menu">
-        <a class="overlay-link" routerLink="/" fragment="about" (click)="closeMenu()">About me</a>
-        <a class="overlay-link" routerLink="/" fragment="skills" (click)="closeMenu()">My skills</a>
-        <a class="overlay-link" routerLink="/" fragment="portfolio" (click)="closeMenu()">Portfolio</a>
-        <a class="overlay-link" routerLink="/" fragment="contact" (click)="closeMenu()">Contact</a>
+        <a class="overlay-link" routerLink="/" fragment="about" (click)="closeMenu()">{{ 'nav.about' | t }}</a>
+        <a class="overlay-link" routerLink="/" fragment="skills" (click)="closeMenu()">{{ 'nav.skills' | t }}</a>
+        <a class="overlay-link" routerLink="/" fragment="portfolio" (click)="closeMenu()">{{ 'nav.portfolio' | t }}</a>
+        <a class="overlay-link" routerLink="/" fragment="contact" (click)="closeMenu()">{{ 'nav.contact' | t }}</a>
 
         <div class="overlay-lang" (click)="$event.stopPropagation()">
           <app-lang-toggle></app-lang-toggle>

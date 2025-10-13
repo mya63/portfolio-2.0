@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../../../core/i18n/translate.pipe';
 
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [TranslatePipe],           // skills.html nutzt | t
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './skills.html',
-  styleUrls: ['./skills.scss'],
+  styleUrls: ['./skills.scss']
 })
 export class SkillsComponent {}

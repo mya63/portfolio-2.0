@@ -1,7 +1,6 @@
 <section id="skills" class="skills section">
   <div class="skills__content">
 
-    <!-- Icons links -->
     <div class="skills__icons">
       <div class="skill"><img src="assets/html.svg" alt="HTML"><span>HTML</span></div>
       <div class="skill"><img src="assets/css.svg" alt="CSS"><span>CSS</span></div>
@@ -11,45 +10,31 @@
       <div class="skill"><img src="assets/git.svg" alt="Git"><span>Git</span></div>
       <div class="skill"><img src="assets/api.svg" alt="REST-API"><span>REST-API</span></div>
 
-      <!-- ✅ Interest als Kachel (mit Popup) -->
       <div class="skill skill--interest">
         <img src="assets/learn.svg" alt="Learning">
-        <span>Continually<br>learning</span>
+        <span>{{ 'skills.interestTitle' | t }}</span>
 
         <div class="skill-popup">
-          <p>I have a special interest in learning</p>
+          <p>{{ 'skills.interestPopup' | t }}</p>
           <div class="skill-popup__icons">
-            <div class="tech">
-              <img src="assets/react.svg" alt="React"><span>React</span>
-            </div>
-            <div class="tech">
-              <img src="assets/vue.svg" alt="Vue.js"><span>Vue.js</span>
-            </div>
+            <div class="tech"><img src="assets/react.svg" alt="React"><span>{{ 'skills.interest.react' | t }}</span></div>
+            <div class="tech"><img src="assets/vue.svg" alt="Vue"><span>{{ 'skills.interest.vue' | t }}</span></div>
           </div>
         </div>
       </div>
-      <!-- /Interest -->
     </div>
 
-    <!-- Textblock rechts -->
     <div class="skills__text">
       <div class="skills-title">
         <span class="line purple"></span>
         <h2>{{ 'skills.title' | t }}</h2>
       </div>
 
-      <p class="intro">
-        Show that you have used a variety of front-end technologies in your projects.
-      </p>
+      <p class="intro">{{ 'skills.lead' | t }}</p>
 
       <div class="cta">
-        <h3>
-          {{ 'skills.cta.ask' | t }}
-          <span class="highlight">{{ 'skills.cta.more' | t }}</span>
-        </h3>
-        <p class="desc">
-          Reveal enthusiasm for learning new technologies and frameworks.
-        </p>
+        <h3>{{ 'skills.cta.ask' | t }}<span class="highlight">{{ 'skills.cta.more' | t }}</span></h3>
+        <p class="desc">{{ 'skills.desc' | t }}</p>
         <a class="btn" href="#contact">{{ 'hero.talk' | t }}</a>
       </div>
     </div>

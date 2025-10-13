@@ -1,24 +1,22 @@
 <section class="section">
   <div class="container privacy-hero">
     <h1 class="privacy-title">
-      Privacy Policy
+      {{ 'privacy.title' | t }}
       <span class="line purple"></span>
     </h1>
   </div>
 
   <div class="container privacy-content">
     <div>
-      <h3>Subtitle</h3>
+      <h3>{{ 'privacy.subtitle' | t }}</h3>
       <p>… dein Text …</p>
     </div>
 
     <div>
-      <h3>Subtitle</h3>
+      <h3>{{ 'privacy.subtitle' | t }}</h3>
       <p>… dein Text …</p>
     </div>
   </div>
 
-<button class="go-up" (click)="backToTop()" aria-label="Back to top">↑</button>
-    ↑
+  <button class="go-up" (click)="backToTop()" aria-label="Back to top">↑ {{ 'privacy.backToTop' | t }}</button>
 </section>
-

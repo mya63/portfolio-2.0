@@ -1,17 +1,14 @@
-import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { DOCUMENT } from '@angular/common';
-import { FooterComponent } from '../../shared/footer/footer';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
 @Component({
   selector: 'app-legal-notice',
   standalone: true,
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './legal-notice.html',
-  styleUrls: ['./legal-notice.scss'],
+  styleUrls: ['./legal-notice.scss']
 })
 export class LegalNoticeComponent {
-  private doc = inject(DOCUMENT);
-  backToTop() {
-    this.doc.defaultView?.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+  backToTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
 }

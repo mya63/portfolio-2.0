@@ -1,19 +1,14 @@
-import { Component, inject } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
-// ggf. Footer einbinden (siehe Punkt 2)
-import { FooterComponent } from '../../shared/footer/footer';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
 @Component({
   selector: 'app-privacy',
   standalone: true,
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './privacy.html',
-  styleUrls: ['./privacy.scss'],
+  styleUrls: ['./privacy.scss']
 })
 export class PrivacyComponent {
-  private doc = inject(DOCUMENT);
-
-  backToTop() {
-    // SSR-sicherer als direkt window zu benutzen
-    this.doc.defaultView?.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+  backToTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
 }
