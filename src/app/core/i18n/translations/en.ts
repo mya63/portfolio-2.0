@@ -34,7 +34,7 @@ export const en = {
       join: {
         name: 'Join',
         stack: 'Angular | TypeScript | HTML | CSS | Firebase',
-        desc: 'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.'
+        desc: 'Task manager inspired by the Kanban system. Create and organize tasks using drag and drop, assign users and categories.'
       },
       pollo: {
         name: 'EL POLLO LOCO',
@@ -44,7 +44,7 @@ export const en = {
       pokedex: {
         name: 'Pokédex',
         stack: 'JavaScript | HTML | CSS | API',
-        desc: 'Based on the PokéAPI – a simple library that provides and catalogues Pokémon information.'
+        desc: 'Based on the PokéAPI – a simple library providing Pokémon information.'
       },
       dabubble: {
         name: 'DA Bubble',
@@ -56,7 +56,7 @@ export const en = {
 
   refs: {
     card1: {
-      text: 'Yunus was a top team colleague at DA. His positive commitment and willingness to take on responsibility made a significant contribution to us achieving our goals.',
+      text: 'Yunus was a top team colleague at DA. His positive commitment and willingness to take on responsibility made a significant contribution to achieving our goals.',
       author: 'Tony Stark',
       role: 'CEO, Stark Industries – Mentor & Team Lead'
     },
@@ -64,53 +64,81 @@ export const en = {
       text: 'Yunus consistently demonstrated exceptional problem-solving skills and a keen eye for detail. His contributions significantly enhanced our project outcomes.',
       author: 'Steve Jobs',
       role: 'Co-founder, Apple Inc. – Project Manager'
-
     },
-  card3: {
+    card3: {
       text: 'Muhammed Yunus is a highly motivated and dedicated professional. His ability to adapt to new challenges and learn quickly makes him a valuable asset to any team.',
-  author: 'Sundai Pichai',
-  role: 'CEO, Google LLC – Senior Developer'
+      author: 'Sundar Pichai',
+      role: 'CEO, Google LLC – Senior Developer'
     }
   },
 
-contact: {
-  title: 'Contact',
-  q: 'Got a problem to solve?',
-  lead1: 'Encourage people to contact you and describe what role you are interested in. Show that you will add value to their projects through your work.',
-  lead2: 'Need a Frontend developer? <strong>Contact me!</strong>',
-  name: 'Your name',
-  email: 'Your email',
-  message: 'Your message',
-  // mit Link – wenn du RouterLink nutzen willst, kannst du <a class="pp-link" href="/privacy"> so lassen
-  privacyHtml: `I've read the <a class="pp-link" href="/privacy" rel="noopener">privacy policy</a> and agree to the processing of my data as outlined.`,
-  send: 'Send message :)',
-  err: {
-    name: 'Your name is required',
-    email: 'Your email is required',
-    message: 'Your message is empty'
-  }
-},
+  contact: {
+    title: 'Contact',
+    q: 'Got a problem to solve?',
+    lead1: 'Encourage people to contact you and describe what role you are interested in. Show that you will add value to their projects through your work.',
+    lead2: 'Need a Frontend developer? <strong>Contact me!</strong>',
+    name: 'Your name',
+    email: 'Your email',
+    message: 'Your message',
+    privacyHtml: `I've read the <a class="pp-link" href="/privacy" rel="noopener">privacy policy</a> and agree to the processing of my data as outlined.`,
+    send: 'Send message :)',
+    err: {
+      name: 'Your name is required',
+      email: 'Your email is required',
+      message: 'Your message is empty'
+    }
+  },
 
-// en.ts
-legal: {
-  title: 'Legal Notice',
-  backToTop: 'Back to top',
-  imprint: { body: 'Muhammed Yunus Amini<br>63263 Neu-Isenburg<br>muhammedyunusamini4@gmail.com' },
-  accept: { body: 'By accessing and using Portfolio (Product) ...' },
-  scope: { body: 'Portfolio has been developed as part of a student group project ...' },
-  rights: { body: 'Aside from the design owned by Developer Akademie GmbH ...' },
-  use: { body: 'Portfolio is intended to be used for lawful purposes only ...' },
-  disclaimer: { body: 'Portfolio is provided "as is" without warranty ...' },
-  indemnity: { body: 'You agree to indemnify, defend and hold harmless us ...' }
-}
-,
-// en.ts
-privacy: {
-  title: 'Privacy Policy',
-  backToTop: 'Back to top',
-  section1: { title: 'Controller', body: '…your text…' },
-  section2: { title: 'Data we process', body: '…your text…' }
-}
-,
+  legal: {
+    title: 'Legal Notice',
+    backToTop: 'Back to top',
+    imprint: {
+      body: `Information according to § 5 TMG:<br><br>
+      Muhammed Yunus Amini<br>
+      63263 Neu-Isenburg<br>
+      Germany<br><br>
+      E-mail: muhammedyunusamini4@gmail.com<br><br>
+      Responsible for content according to § 55 Abs. 2 RStV:<br>
+      Muhammed Yunus Amini<br><br>
+      Disclaimer:<br>
+      The contents of this website were created with great care. However, we cannot guarantee the accuracy, completeness or timeliness of the content.<br>
+      Despite careful content control, we assume no liability for the content of external links. The operators of linked pages are solely responsible for their content.<br><br>
+      Copyright:<br>
+      The content and works created by the website operator are subject to German copyright law.`
+    }
+  },
+
+  privacy: {
+    title: 'Privacy Policy',
+    backToTop: 'Back to top',
+    section1: {
+      title: '1. Controller',
+      body: `Responsible for data processing on this website:<br>
+      Muhammed Yunus Amini<br>
+      63263 Neu-Isenburg<br>
+      E-mail: muhammedyunusamini4@gmail.com`
+    },
+    section2: {
+      title: '2. General Information',
+      body: `Protecting your personal data is very important to us. You can generally use this website without providing personal information. Personal data (e.g. name, e-mail) is only collected if you provide it voluntarily.`
+    },
+    section3: {
+      title: '3. Contact',
+      body: `If you contact us by e-mail, the data you provide will be stored for processing your inquiry. This data will not be passed on to third parties without your consent.`
+    },
+    section4: {
+      title: '4. Server Log Files',
+      body: `The provider automatically collects information (browser type, operating system, referrer, hostname, time). These data cannot be assigned to specific persons.`
+    },
+    section5: {
+      title: '5. Rights of the Data Subject',
+      body: `You have the right to access, rectify, erase and restrict processing of your personal data as well as the right to data portability and to object to processing.`
+    },
+    section6: {
+      title: '6. Privacy Contact',
+      body: `If you have any questions about data protection, please contact: info@yumus.dev`
+    }
+  },
+
   misc: { scrolldown: 'Scroll down' }
 };

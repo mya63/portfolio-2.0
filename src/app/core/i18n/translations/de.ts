@@ -58,54 +58,91 @@ export const de = {
     card1: {
       text: 'Yunus war ein Top-Teamkollege an der DA. Sein positives Engagement und seine Bereitschaft, Verantwortung zu übernehmen, haben wesentlich zu unseren Zielen beigetragen.',
       author: 'Tony Stark',
-      role: 'CEO, Stark Industries – Mentor & Teamleiter'},
-card2: {
-  text: 'Yunus hat stets außergewöhnliche Problemlösungsfähigkeiten und ein ausgeprägtes Auge für Details gezeigt. Seine Beiträge haben unsere Projektergebnisse maßgeblich verbessert.',
-  author: 'Steve Jobs',
-  role: 'Mitgründer, Apple Inc. – Projektleiter'
-},
-card3: {
-  text: 'Muhammed Yunus ist ein hoch motivierter und engagierter Profi. Seine Fähigkeit, sich neuen Herausforderungen anzupassen und schnell zu lernen, macht ihn zu einer wertvollen Bereicherung für jedes Team.',
-  author: 'Sundar Pichai',
-  role: 'CEO, Google LLC – Senior Entwickler'
-}
+      role: 'CEO, Stark Industries – Mentor & Teamleiter'
+    },
+    card2: {
+      text: 'Yunus hat stets außergewöhnliche Problemlösungsfähigkeiten und ein ausgeprägtes Auge für Details gezeigt. Seine Beiträge haben unsere Projektergebnisse maßgeblich verbessert.',
+      author: 'Steve Jobs',
+      role: 'Mitgründer, Apple Inc. – Projektleiter'
+    },
+    card3: {
+      text: 'Muhammed Yunus ist ein hoch motivierter und engagierter Profi. Seine Fähigkeit, sich neuen Herausforderungen anzupassen und schnell zu lernen, macht ihn zu einer wertvollen Bereicherung für jedes Team.',
+      author: 'Sundar Pichai',
+      role: 'CEO, Google LLC – Senior Entwickler'
+    }
   },
-contact: {
-  title: 'Kontakt',
-  q: 'Ein Problem zu lösen?',
-  lead1: 'Ermutige Leute, dich zu kontaktieren, und beschreibe, welche Rolle dich interessiert. Zeige, welchen Mehrwert du durch deine Arbeit schaffst.',
-  lead2: 'Frontend-Entwickler gesucht? <strong>Kontaktiere mich!</strong>',
-  name: 'Dein Name',
-  email: 'Deine E-Mail',
-  message: 'Deine Nachricht',
-  privacyHtml: `Ich habe die <a class="pp-link" href="/privacy" rel="noopener">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu.`,
-  send: 'Nachricht senden :)',
-  err: {
-    name: 'Dein Name ist erforderlich',
-    email: 'Deine E-Mail ist erforderlich',
-    message: 'Deine Nachricht ist leer'
-  }
-},
-// de.ts
-legal: {
-  title: 'Impressum',
-  backToTop: 'Nach oben',
-  imprint: { body: 'Muhammed Yunus Amini<br>63263 Neu-Isenburg<br>muhammedyunusamini4@gmail.com' },
-  accept: { body: 'Mit dem Zugriff auf und der Nutzung des Portfolios (Produkt) ...' },
-  scope: { body: 'Das Portfolio wurde im Rahmen eines Studierendenprojekts entwickelt ...' },
-  rights: { body: 'Unbeschadet des Designs der Developer Akademie GmbH ...' },
-  use: { body: 'Das Portfolio darf nur zu rechtmäßigen Zwecken genutzt werden ...' },
-  disclaimer: { body: 'Das Portfolio wird ohne Gewähr bereitgestellt ...' },
-  indemnity: { body: 'Sie stellen uns von sämtlichen Ansprüchen frei ...' }
-}
-,
-// de.ts
-privacy: {
-  title: 'Datenschutzerklärung',
-  backToTop: 'Nach oben',
-  section1: { title: 'Verantwortlicher', body: '…dein Text…' },
-  section2: { title: 'Verarbeitete Daten', body: '…dein Text…' }
-}
-,
+
+  contact: {
+    title: 'Kontakt',
+    q: 'Ein Problem zu lösen?',
+    lead1: 'Ermutige Leute, dich zu kontaktieren, und beschreibe, welche Rolle dich interessiert. Zeige, welchen Mehrwert du durch deine Arbeit schaffst.',
+    lead2: 'Frontend-Entwickler gesucht? <strong>Kontaktiere mich!</strong>',
+    name: 'Dein Name',
+    email: 'Deine E-Mail',
+    message: 'Deine Nachricht',
+    privacyHtml: `Ich habe die <a class="pp-link" href="/privacy" rel="noopener">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu.`,
+    send: 'Nachricht senden :)',
+    err: {
+      name: 'Dein Name ist erforderlich',
+      email: 'Deine E-Mail ist erforderlich',
+      message: 'Deine Nachricht ist leer'
+    }
+  },
+
+  legal: {
+    title: 'Impressum',
+    backToTop: 'Nach oben',
+    imprint: {
+      body: `Angaben gemäß § 5 TMG:<br><br>
+      Muhammed Yunus Amini<br>
+      63263 Neu-Isenburg<br>
+      Deutschland<br><br>
+      E-Mail: muhammedyunusamini4@gmail.com<br><br>
+      Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:<br>
+      Muhammed Yunus Amini<br><br>
+      Haftungsausschluss:<br>
+      Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität kann jedoch keine Gewähr übernommen werden.<br>
+      Trotz sorgfältiger Kontrolle übernehmen wir keine Haftung für externe Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.<br><br>
+      Urheberrecht:<br>
+      Die durch den Betreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht.`
+    }
+  },
+
+  privacy: {
+    title: 'Datenschutzerklärung',
+    backToTop: 'Nach oben',
+    section1: {
+      title: '1. Verantwortlicher',
+      body: `Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br>
+      Muhammed Yunus Amini<br>
+      63263 Neu-Isenburg<br>
+      E-mail: muhammedyunusamini4@gmail.com`
+    },
+    section2: {
+      title: '2. Allgemeines zur Datenverarbeitung',
+      body: `Der Schutz Ihrer persönlichen Daten ist uns sehr wichtig. Diese Website kann grundsätzlich ohne Angabe personenbezogener Daten besucht werden.
+      Personenbezogene Daten (z. B. Name, E-Mail) werden nur erhoben, wenn Sie uns diese freiwillig mitteilen.`
+    },
+    section3: {
+      title: '3. Kontakt',
+      body: `Wenn Sie uns per E-Mail kontaktieren, werden Ihre Angaben zur Bearbeitung der Anfrage gespeichert.
+      Diese Daten werden ohne Ihre Einwilligung nicht an Dritte weitergegeben.`
+    },
+    section4: {
+      title: '4. Server-Logfiles',
+      body: `Der Provider erhebt automatisch Informationen (Browsertyp, Betriebssystem, Referrer, Hostname, Uhrzeit).
+      Diese Daten sind nicht bestimmten Personen zuordenbar.`
+    },
+    section5: {
+      title: '5. Rechte der betroffenen Person',
+      body: `Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer Daten
+      sowie das Recht auf Datenübertragbarkeit und Widerspruch.`
+    },
+    section6: {
+      title: '6. Datenschutzkontakt',
+      body: `Bei Fragen zum Datenschutz wenden Sie sich bitte an: info@yumus.dev`
+    }
+  },
+
   misc: { scrolldown: 'Runterscrollen' }
 };
