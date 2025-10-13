@@ -7,13 +7,20 @@ export const de = {
     talk: 'Lass uns sprechen!'
   },
 
-  about: {
-    title: 'Über mich',
-    intro: 'Schreibe IT-bezogene Informationen über dich. Warum brennst du fürs Coden? Was ist deine Inspiration, deine Programmierfähigkeiten zu verbessern?',
-    point1: 'Wo befindest du dich? Bist du offen für verschiedene Arbeitsmodelle wie Remote-Arbeit oder sogar Umzug?',
-    point2: 'Zeige, dass du aufgeschlossen bist. Begeisterst du dich für neue Technologien und verbesserst kontinuierlich deine Skills?',
-    point3: 'Beschreibe deinen Problemlösungs-Ansatz. Lernst du aus jeder Herausforderung und suchst nach effizienten, eleganten Lösungen?'
-  },
+about: {
+  title: 'Über mich',
+  intro: `Ich bin <strong>Muhammed Yunus Amini</strong>, Frontend-Entwickler aus Frankfurt. 
+  Ich gestalte moderne, klare und benutzerfreundliche Web-Oberflächen – mit Fokus auf sauberen Code, Performance und einen hochwertigen Look.<br><br>`,
+
+  // Location / Verfügbarkeit (Pin-Icon)
+  point1: 'Ich lebe in Frankfurt (Rhein-Main). Offen für Remote, Hybrid und Einsätze vor Ort – bei passenden Projekten auch mobil deutschlandweit.',
+
+  // Idee / Lernen (Glühbirne)
+  point2: 'Ich lerne täglich dazu – vor allem Angular, TypeScript und JavaScript. Mir sind klare UI/UX, Barrierefreiheit und wartbarer Code wichtig.',
+
+  // Puzzle / Problemlösen
+  point3: 'Ich löse Probleme strukturiert: Anforderungen verstehen, in kleine Schritte teilen, sauber implementieren und testen. Ziel: einfache, zuverlässige Lösungen.'
+},
 
   skills: {
     title: 'Meine Skills',

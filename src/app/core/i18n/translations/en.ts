@@ -7,13 +7,20 @@ export const en = {
     talk: "Let's talk!"
   },
 
-  about: {
-    title: 'About me',
-    intro: 'Write some information about yourself that is IT related. Why are you passionate about coding? What is your source of inspiration for improving your programming skills?',
-    point1: 'Where are you located? Are you open to different ways of working, such as working remotely or even relocating?',
-    point2: 'Show that you are open-minded. Are you enthusiastic about learning new technologies and continually improving your skills?',
-    point3: 'A brief description of your problem-solving approach. Do you learn from each challenge as you search for the most efficient or elegant solution?'
-  },
+about: {
+  title: 'About me',
+  intro: `I’m <strong>Muhammed Yunus Amini</strong>, a Frontend Developer based in Frankfurt. 
+  I build modern, clean and user-friendly interfaces with a focus on clean code, performance and a high-quality look & feel.<br><br>`,
+
+  // Location / Availability (Pin icon)
+  point1: 'Based in Frankfurt (Rhine-Main). Open to remote, hybrid and on-site work — and nationwide travel for the right projects.',
+
+  // Idea / Learning (Bulb icon)
+  point2: 'I keep learning every day — mainly Angular, TypeScript and JavaScript. I care about clear UI/UX, accessibility and maintainable code.',
+
+  // Puzzle / Problem solving
+  point3: 'My approach is structured: understand requirements, break them down, implement cleanly and test. Goal: simple and reliable solutions.'
+},
 
   skills: {
     title: 'My skills',

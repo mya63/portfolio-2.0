@@ -2,7 +2,9 @@
   <div class="container about-grid">
     <div class="about-text">
       <h2>{{ 'about.title' | t }}</h2>
-      <p>{{ 'about.intro' | t }}</p>
+
+      <!-- Nur EINE Zeile für den Introtext, als HTML gerendert -->
+      <p class="about-intro" [innerHTML]="'about.intro' | t"></p>
 
       <div class="row">
         <i class="icon icon--loc" aria-hidden="true"></i>
