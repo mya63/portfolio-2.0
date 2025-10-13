@@ -1,31 +1,110 @@
-.about{padding:80px 0}
-.about__content{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
-.about__list{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:16px}
-.about__item{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start}
-.about__photo{position:relative;justify-self:end}
-.about__circle{position:relative;width:min(380px,42vw);aspect-ratio:1/1;border:3px solid #6E39D6;border-radius:999px;display:grid;place-items:center}
-.about__circle img{width:88%;height:auto;border-radius:18px}
-@media (max-width:900px){.about__content{grid-template-columns:1fr}.about__photo{justify-self:center}}
+/* ============ About Me ============ */
+.about { padding: 80px 0; }
 
-/* Icon-Grundstil (unverändert) */
-.icon{
-  width:48px;height:48px;
-  background-color:#70E61C;
-  display:inline-block; flex:0 0 auto;
-  transition:background-color .18s ease;
-  /* Mask für Safari/Chrome/Edge + Fallback */
-  -webkit-mask-repeat:no-repeat;
-  -webkit-mask-position:center;
-  -webkit-mask-size:contain;
-          mask-repeat:no-repeat;
-          mask-position:center;
-          mask-size:contain;
+/* 2-spaltiges Layout wie im Figma (Text links, Foto rechts) */
+.about .about-grid{
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr; /* Links etwas breiter */
+  align-items: center;
+  gap: 48px;
 }
 
-/* Masken je Icon (Korrekte Pfade!) */
-.icon--loc    { -webkit-mask-image:url('/assets/icons/location.svg'); mask-image:url('/assets/icons/location.svg'); }
-.icon--bulb   { -webkit-mask-image:url('/assets/icons/bulb.svg');    mask-image:url('/assets/icons/bulb.svg'); }
-.icon--puzzle { -webkit-mask-image:url('/assets/icons/puzzle.svg');  mask-image:url('/assets/icons/puzzle.svg'); }
+/* Überschrift & Copy – Größen an Figma angelehnt */
+.about .about-text h2{
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 16px;
+  font-size: clamp(40px, 6vw, 90px); /* ~90px bei Desktop */
+}
+.about .about-text > p{
+  margin: 0 0 24px;
+  max-width: 471px;
+}
 
-/* Hover-Farbe (cyan wie in Version B) */
-.row:hover .icon{ background-color:#1CDAE6; }
+/* Stichpunkte mit Icon links, Text rechts */
+.about .row{
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  align-items: start;
+  gap: 16px;
+  max-width: 471px;
+  margin: 16px 0 0;
+}
+
+/* Icons – Farbe, Masken & Hover-Scale */
+.icon{
+  width: 48px; height: 48px;
+  background-color: #70E61C;
+  transition: transform .15s ease, background-color .15s ease;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+          mask-repeat: no-repeat;
+          mask-position: center;
+          mask-size: contain;
+}
+.row:hover .icon{
+  transform: scale(1.08);           /* leicht größer beim Hover */
+  background-color: #1CDAE6;        /* Cyan wie in Version B */
+}
+/* Fallback für weniger Bewegung */
+@media (prefers-reduced-motion: reduce){
+  .icon{ transition: background-color .15s ease; }
+  .row:hover .icon{ transform: none; }
+}
+
+/* Pfade zu deinen SVGs (achte auf korrekte Dateien) */
+.icon--loc    { -webkit-mask-image: url('/assets/icons/location.svg'); mask-image: url('/assets/icons/location.svg'); }
+.icon--bulb   { -webkit-mask-image: url('/assets/icons/bulb.svg');    mask-image: url('/assets/icons/bulb.svg'); }
+.icon--puzzle { -webkit-mask-image: url('/assets/icons/puzzle.svg');  mask-image: url('/assets/icons/puzzle.svg'); }
+
+/* Foto rechts mit grünem Ring wie im Figma */
+/* Größen anpassen, Ring + Avatar */
+.about .about-photo{
+  position: relative;
+  justify-self: end;
+  width: min(509px, 42vw);
+  aspect-ratio: 1/1;
+}
+
+/* sichtbarer grüner Ring */
+.about .about-photo .ring{
+  position: absolute;
+  inset: 0;
+  border: 4px solid #70E61C;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 40px rgba(112, 230, 28, 0.35);  /* Glow */
+}
+
+/* innerer runder Ausschnitt, hält das Bild IM Kreis */
+.about .about-photo .avatar{
+  /* Abstand zwischen Ring und Bild – kannste feinjustieren */
+  --gap: 10px;                 /* 6–12px sieht meist gut aus */
+  position: absolute;
+  inset: var(--gap);
+  border-radius: 50%;
+  overflow: hidden;            /* >>> schützt vor Überstand */
+  display: grid;
+  place-items: center;
+}
+
+/* Bild sauber zentriert */
+.about .about-photo .avatar img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsive – unter 900px einspaltig, Foto centered */
+@media (max-width: 900px){
+  .about .about-grid{ grid-template-columns: 1fr; }
+  .about .about-photo{
+    justify-self: center;
+    width: min(380px, 70vw);
+  }
+  .about .about-text h2{
+    font-size: clamp(36px, 10vw, 60px);
+  }
+}
