@@ -22,15 +22,17 @@ about: {
   point3: 'My approach is structured: understand requirements, break them down, implement cleanly and test. Goal: simple and reliable solutions.'
 },
 
-  skills: {
-    title: 'My skills',
-    lead: 'Show that you have used a variety of front-end technologies in your projects.',
-    cta: { ask: 'Looking for ', more: 'another skill?' },
-    desc: 'Reveal enthusiasm for learning new technologies and frameworks.',
-    interestTitle: 'Continually\nlearning',
-    interestPopup: 'I have a special interest in learning',
-    interest: { react: 'React', vue: 'Vue.js' }
-  },
+skills: {
+  title: 'My skills',
+  lead:
+    'I work daily with modern front-end tools. Clean code, accessibility and performance guide my decisions.',
+  cta: { ask: 'Looking for ', more: 'another skill?' },
+  desc:
+    'Angular, TypeScript and JavaScript are my core stack. I enjoy exploring new patterns, testing strategies and UI details.',
+  interestTitle: 'Continually\nlearning',
+  interestPopup: 'I have a special interest in learning',
+  interest: { react: 'React', vue: 'Vue.js' }
+},
 
   portfolio: {
     title: 'Portfolio',
@@ -79,22 +81,23 @@ about: {
     }
   },
 
-  contact: {
-    title: 'Contact',
-    q: 'Got a problem to solve?',
-    lead1: 'Encourage people to contact you and describe what role you are interested in. Show that you will add value to their projects through your work.',
-    lead2: 'Need a Frontend developer? <strong>Contact me!</strong>',
-    name: 'Your name',
-    email: 'Your email',
-    message: 'Your message',
-    privacyHtml: `I've read the <a class="pp-link" href="/privacy" rel="noopener">privacy policy</a> and agree to the processing of my data as outlined.`,
-    send: 'Send message :)',
-    err: {
-      name: 'Your name is required',
-      email: 'Your email is required',
-      message: 'Your message is empty'
-    }
-  },
+contact: {
+  title: 'Contact',
+  q: 'Got a problem to solve?',
+  lead1:
+    'Tell me briefly what kind of project or role you need support with. I focus on clean code, clear communication and efficient collaboration.',
+  lead2: 'Need a Frontend developer? <strong>Contact me!</strong>',
+  name: 'Your name',
+  email: 'Your email',
+  message: 'Your message',
+  privacyHtml: `I've read the <a class="pp-link" href="/privacy" rel="noopener">privacy policy</a> and agree to the processing of my data as outlined.`,
+  send: 'Send message :)',
+  err: {
+    name: 'Your name is required',
+    email: 'Your email is required',
+    message: 'Your message is empty'
+  }
+},
 
   legal: {
     title: 'Legal Notice',

@@ -5,10 +5,8 @@
       <h2 class="contact__title">{{ 'contact.title' | t }}</h2>
 
       <h3 class="contact__headline">{{ 'contact.q' | t }}</h3>
-      <p class="contact__lead">{{ 'contact.lead1' | t }}</p>
-      <p class="contact__lead">
-        {{ 'contact.lead2' | t }}
-      </p>
+      <p class="contact__lead" [innerHTML]="'contact.lead1' | t"></p>
+      <p class="contact__lead" [innerHTML]="'contact.lead2' | t"></p>
     </div>
 
     <!-- Form -->
@@ -50,7 +48,7 @@
       <div class="policy-row">
         <label class="pp">
           <input id="pp" type="checkbox" />
-          <!-- Hinweis: wir verwenden innerHTML, damit der Link im Text bleiben kann -->
+          <!-- innerHTML, damit Link u. <strong> korrekt gerendert werden -->
           <span [innerHTML]="'contact.privacyHtml' | t"></span>
         </label>
 

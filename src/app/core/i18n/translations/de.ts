@@ -22,15 +22,17 @@ about: {
   point3: 'Ich löse Probleme strukturiert: Anforderungen verstehen, in kleine Schritte teilen, sauber implementieren und testen. Ziel: einfache, zuverlässige Lösungen.'
 },
 
-  skills: {
-    title: 'Meine Skills',
-    lead: 'Zeige, dass du in deinen Projekten verschiedene Frontend-Technologien eingesetzt hast.',
-    cta: { ask: 'Du suchst ', more: 'eine weitere Fähigkeit?' },
-    desc: 'Zeige Begeisterung dafür, neue Technologien und Frameworks zu lernen.',
-    interestTitle: 'Stetig\nam Lernen',
-    interestPopup: 'Besonders interessiere ich mich für',
-    interest: { react: 'React', vue: 'Vue.js' }
-  },
+skills: {
+  title: 'Meine Fähigkeiten',
+  lead:
+    'Ich arbeite täglich mit modernen Frontend-Technologien. Sauberer Code, Zugänglichkeit und Performance sind mein Kompass.',
+  cta: { ask: 'Fehlt ', more: 'eine Fähigkeit?' },
+  desc:
+    'Angular, TypeScript und JavaScript sind mein Kern-Stack. Ich experimentiere gern mit neuen Patterns, Teststrategien und feinen UI-Details.',
+  interestTitle: 'Ständig\nam Lernen',
+  interestPopup: 'Ich habe besonderes Interesse an',
+  interest: { react: 'React', vue: 'Vue.js' }
+},
 
   portfolio: {
     title: 'Portfolio',
@@ -79,22 +81,24 @@ about: {
     }
   },
 
-  contact: {
-    title: 'Kontakt',
-    q: 'Ein Problem zu lösen?',
-    lead1: 'Ermutige Leute, dich zu kontaktieren, und beschreibe, welche Rolle dich interessiert. Zeige, welchen Mehrwert du durch deine Arbeit schaffst.',
-    lead2: 'Frontend-Entwickler gesucht? <strong>Kontaktiere mich!</strong>',
-    name: 'Dein Name',
-    email: 'Deine E-Mail',
-    message: 'Deine Nachricht',
-    privacyHtml: `Ich habe die <a class="pp-link" href="/privacy" rel="noopener">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu.`,
-    send: 'Nachricht senden :)',
-    err: {
-      name: 'Dein Name ist erforderlich',
-      email: 'Deine E-Mail ist erforderlich',
-      message: 'Deine Nachricht ist leer'
-    }
-  },
+contact: {
+  title: 'Kontakt',
+  q: 'Ein Problem zu lösen?',
+  lead1:
+    'Schreib mir kurz, wobei du Unterstützung brauchst und welche Rolle du suchst. Ich bringe Mehrwert durch sauberen Code und klare Kommunikation.',
+  lead2: 'Frontend-Entwickler gesucht? <strong>Schreib mir!</strong>',
+  name: 'Dein Name',
+  email: 'Deine E-Mail',
+  message: 'Deine Nachricht',
+  privacyHtml:
+    `Ich habe die <a class="pp-link" href="/privacy" rel="noopener">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu.`,
+  send: 'Nachricht senden :)',
+  err: {
+    name: 'Dein Name wird benötigt',
+    email: 'Deine E-Mail wird benötigt',
+    message: 'Deine Nachricht ist leer'
+  }
+},
 
   legal: {
     title: 'Impressum',
