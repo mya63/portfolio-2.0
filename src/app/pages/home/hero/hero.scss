@@ -6,8 +6,12 @@
   --green:#70E61C;
 }
 
-.hero{ position:relative; padding:80px 0 60px; min-height:calc(100vh - 0px); }
-.hero-bg{ position:absolute; inset:0;
+.hero{
+  position: relative;
+  padding: 80px 0 120px;
+  min-height: calc(100vh - 0px);
+  overflow: visible;
+}.hero-bg{ position:absolute; inset:0;
   background:radial-gradient(102.53% 81.55% at 46.74% 3.94%, #1A2743 0.37%, #27334B 13.54%, #141D2F 71.91%);
   z-index:0;
 }
@@ -46,8 +50,13 @@
 .photo-purple,.photo-green{
   position:absolute; filter:blur(46.5px); border-radius:999px; z-index:0;
 }
-.photo-purple{ background:var(--purple); width:340px; height:390px; right:-40px; top:300px; }
-.photo-green { background:var(--green);  width:330px; height:240px; left:20px;  top:170px; }
+.photo-purple{
+  background: var(--purple);
+  width: 340px;
+  height: 390px;
+  right: -80px;
+  top: 360px;
+}.photo-green { background:var(--green);  width:330px; height:240px; left:20px;  top:170px; }
 
 /* === HERO-FOTO – Safe-Mode (nicht absolut) === */
 .hero-photo{
