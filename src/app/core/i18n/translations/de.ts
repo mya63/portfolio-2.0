@@ -55,10 +55,10 @@ skills: {
         stack: 'JavaScript | HTML | CSS | API',
         desc: 'Auf Basis der PokéAPI – einfache Bibliothek mit Pokémon-Informationen.'
       },
-      dabubble: {
-        name: 'DA Bubble',
-        stack: 'Angular | TypeScript | Firebase',
-        desc: 'Ein Slack-Klon für Gruppenkommunikation.'
+      kanmind: {
+        name: 'KanMind',
+        stack: 'Django | DRF | PYTHON',
+        desc: 'KanMind ist eine Fullstack-Kanban- und Task-Management-Anwendung mit getrennter Frontend- und Backend-Architektur.'
       }
     }
   },
