@@ -26,9 +26,17 @@
 .contact__lead { opacity: .9; line-height: 1.6; margin: 0 0 8px; }
 
 /* ---------- Form ---------- */
-.contact-form { display: grid; grid-template-columns: 1fr; gap: 20px; }
-.field { display: grid; gap: 10px; }
-
+/* MYA START: Shadow für Contact Form */
+.contact-form{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 32px;
+  border-radius: 16px;
+  background: #141d2f;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+}
+/* MYA END */
 /* Boxstyles */
 .field > input,
 .field > textarea {
