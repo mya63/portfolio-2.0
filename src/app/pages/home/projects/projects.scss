@@ -33,8 +33,21 @@
 .proj.row.lr{ grid-template-columns: 1.1fr 1fr; }
 .proj.row.rl{ grid-template-columns: 1fr 1.1fr; }
 
-.proj-img{ width: 100%; height: auto; border-radius: 12px; display: block; }
+/* START: Shadow für Projektbilder */
+.proj-img{
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
 
+.proj-img:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+}
+/* END */
 .proj-info .prj-name{ font-weight: 800; font-size: clamp(22px, 2.2vw, 32px); margin: 0 0 8px; color:#9747FF; }
 .stack{ font-weight: 700; margin-bottom: 12px; color:#70E61C; }
 
