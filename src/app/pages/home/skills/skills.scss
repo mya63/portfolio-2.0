@@ -34,6 +34,11 @@
   align-items: center;
   gap: 10px;
   text-align: center;
+  /* MYA START: Skill Card Shadow */
+  padding: 12px;
+  border-radius: 12px;
+  transition: transform .18s ease, box-shadow .18s ease;
+/* MYA END */
 
   img {
     width: 56px;
@@ -43,11 +48,18 @@
     will-change: transform;
   }
 
-  &:hover img,
-  &:focus-visible img {
-    transform: translateY(-6px);
-  }
+/* MYA START: Skill Hover Shadow */
+&:hover,
+&:focus-visible{
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.28);
+}
 
+&:hover img,
+&:focus-visible img{
+  transform: translateY(-6px);
+}
+/* MYA END */
   span {
     font-family: "Poppins", sans-serif;
     font-weight: 700;
