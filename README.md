@@ -8,9 +8,7 @@ https://mya63.github.io/portfolio-2.0/
 
 ## About
 
-This portfolio presents projects I built during my software development training at **Developer Akademie**.
-
-It showcases my work in frontend and backend development, clean code practices, and modern web technologies.
+This portfolio showcases my work in frontend and backend development, clean code practices, and modern web technologies.
 
 
 ## Tech Stack
