@@ -1,4 +1,4 @@
-# Portfolio 2.0
+# Portfolio
 
 Personal developer portfolio of **Muhammed Yunus Amini**.
 
