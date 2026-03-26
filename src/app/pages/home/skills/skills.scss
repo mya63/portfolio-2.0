@@ -19,12 +19,10 @@
 /* --- Icons-Galerie --- */
 .skills__icons {
   display: grid;
-  grid-template-columns: repeat(4, minmax(90px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 24px;
   justify-items: center;
-  align-items: start;
 }
-
 .skill {
   min-height: 110px;
   width: 100%;
@@ -56,12 +54,11 @@
   }
 
   /* MYA START: Skill Hover Shadow */
-  &:hover,
-  &:focus-visible {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
-  }
-
+&:hover,
+&:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
   &:hover img,
   &:focus-visible img {
     transform: translateY(-6px);
