@@ -10,7 +10,7 @@ import { TranslatePipe } from '../../../core/i18n/translate.pipe';
 })
 export class HeroComponent {
   name  = 'Muhammed Yunus Amini';
-  title = 'FRONTEND DEVELOPER';
+  title = 'FULLSTACK DEVELOPER';
   email = 'muhammedyunusamini4@gmail.com';
 
   scrollTo(id: string) {

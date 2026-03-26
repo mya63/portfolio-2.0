@@ -9,7 +9,7 @@ export const de = {
 
 about: {
   title: 'Über mich',
-  intro: `Ich bin <strong>Muhammed Yunus Amini</strong>, Frontend-Entwickler aus Frankfurt. 
+  intro: `Ich bin <strong>Muhammed Yunus Amini</strong>, Fullstack-Entwickler aus Frankfurt. 
   Ich gestalte moderne, klare und benutzerfreundliche Web-Oberflächen – mit Fokus auf sauberen Code, Performance und einen hochwertigen Look.<br><br>`,
 
   // Location / Verfügbarkeit (Pin-Icon)
@@ -86,7 +86,7 @@ contact: {
   q: 'Ein Problem zu lösen?',
   lead1:
     'Schreib mir kurz, wobei du Unterstützung brauchst und welche Rolle du suchst. Ich bringe Mehrwert durch sauberen Code und klare Kommunikation.',
-  lead2: 'Frontend-Entwickler gesucht? <strong>Schreib mir!</strong>',
+  lead2: 'Fullstack-Entwickler gesucht? <strong>Schreib mir!</strong>',
   name: 'Dein Name',
   email: 'Deine E-Mail',
   message: 'Deine Nachricht',

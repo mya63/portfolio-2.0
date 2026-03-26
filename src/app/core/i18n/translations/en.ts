@@ -3,13 +3,13 @@ export const en = {
 
   hero: {
     iam: 'I am',
-    role: 'FRONTEND DEVELOPER',
+    role: 'FULLSTACK DEVELOPER',
     talk: "Let's talk!"
   },
 
 about: {
   title: 'About me',
-  intro: `I’m <strong>Muhammed Yunus Amini</strong>, a Frontend Developer based in Frankfurt. 
+  intro: `I’m <strong>Muhammed Yunus Amini</strong>, a Fullstack Developer based in Frankfurt. 
   I build modern, clean and user-friendly interfaces with a focus on clean code, performance and a high-quality look & feel.<br><br>`,
 
   // Location / Availability (Pin icon)
@@ -86,7 +86,7 @@ contact: {
   q: 'Got a problem to solve?',
   lead1:
     'Tell me briefly what kind of project or role you need support with. I focus on clean code, clear communication and efficient collaboration.',
-  lead2: 'Need a Frontend developer? <strong>Contact me!</strong>',
+  lead2: 'Need a Fullstack developer? <strong>Contact me!</strong>',
   name: 'Your name',
   email: 'Your email',
   message: 'Your message',
