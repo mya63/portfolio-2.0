@@ -82,6 +82,13 @@
   grid-area: contact;
 }
 
+.hero-sub {
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+  margin-top: -6px;
+  margin-bottom: 10px;
+}
+
 /* Glows */
 .photo-purple,
 .photo-green {
@@ -242,6 +249,8 @@
   z-index: 1;
   text-align: left;
 }
+
+
 
 .hero-cta {
   margin-top: 8px;
