@@ -84,3 +84,9 @@ app-footer {
     max-width: 640px;
   }
 }
+
+@media (max-width: 700px) {
+  .container {
+    max-width: calc(100% - 24px);
+  }
+}

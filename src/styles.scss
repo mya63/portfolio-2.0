@@ -109,3 +109,15 @@ img,svg{ display:block; max-width:100%; height:auto }
 
 /* Optional: größere Variante */
 .row--lg .icon svg { width: 40px; height: 40px; }
+
+@media (max-width: 700px) {
+  .container {
+    width: 100%;
+    max-width: calc(100% - 24px);
+  }
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
