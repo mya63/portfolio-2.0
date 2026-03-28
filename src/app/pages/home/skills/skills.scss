@@ -19,13 +19,17 @@
 /* --- Icons-Galerie --- */
 .skills__icons {
   display: grid;
-  grid-template-columns: repeat(4, minmax(64px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 24px;
   justify-items: center;
 }
-
+.skill {
+  min-height: 110px;
+  width: 100%;
+  max-width: 140px;
+}
 /* „Continually learning“ lila (letztes Icon) */
-.skills__icons .skill:last-child span{ color:#9747FF; }
+.skills__icons .skill:last-child span { color: #9747FF; }
 
 .skill {
   position: relative;
@@ -34,11 +38,12 @@
   align-items: center;
   gap: 10px;
   text-align: center;
+
   /* MYA START: Skill Card Shadow */
   padding: 12px;
   border-radius: 12px;
   transition: transform .18s ease, box-shadow .18s ease;
-/* MYA END */
+  /* MYA END */
 
   img {
     width: 56px;
@@ -48,18 +53,18 @@
     will-change: transform;
   }
 
-/* MYA START: Skill Hover Shadow */
+  /* MYA START: Skill Hover Shadow */
 &:hover,
-&:focus-visible{
-  transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.28);
+&:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
+  &:hover img,
+  &:focus-visible img {
+    transform: translateY(-6px);
+  }
+  /* MYA END */
 
-&:hover img,
-&:focus-visible img{
-  transform: translateY(-6px);
-}
-/* MYA END */
   span {
     font-family: "Poppins", sans-serif;
     font-weight: 700;
@@ -107,18 +112,31 @@
 
 /* --- Button (wie Hero, kräftiger Hover & wechselt auf lila) --- */
 .btn {
-  display:inline-flex; align-items:center; justify-content:center;
-  height:58px; padding:0 30px; border-radius:10px;
-  background:#70e61c; color:#fff; font:400 23px/1.2 'Poppins',sans-serif;
-  text-decoration:none; border:none;
-  transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease, color .18s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 58px;
+  padding: 0 30px;
+  border-radius: 10px;
+  background: #70e61c;
+  color: #fff;
+  font: 400 23px/1.2 'Poppins', sans-serif;
+  text-decoration: none;
+  border: none;
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, color .18s ease;
 
-  &:hover{
-    transform:translateY(-2px) scale(1.06);
-    box-shadow:0 10px 24px rgba(112,230,28,.28);
-    background:#9747ff; color:#fff;
+  &:hover {
+    transform: translateY(-2px) scale(1.06);
+    box-shadow: 0 10px 24px rgba(112, 230, 28, .28);
+    background: #9747ff;
+    color: #fff;
   }
-  &:active{ transform:scale(.98); background:#fff; color:#000; }
+
+  &:active {
+    transform: scale(.98);
+    background: #fff;
+    color: #000;
+  }
 }
 
 /* --- Responsive --- */
@@ -133,11 +151,42 @@
     text-align: center;
   }
 
+  /* MYA START: Tablet Grid Fix */
   .skills__icons {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(64px, 1fr));
     justify-items: center;
   }
+  /* MYA END */
 }
+
+/* MYA START: Mobile Skills Grid Fix */
+@media (max-width: 600px) {
+  .skills {
+    padding: 64px 0;
+  }
+
+  .skills__content {
+    padding: 0 16px;
+  }
+
+  .skills__icons {
+    grid-template-columns: repeat(2, minmax(90px, 1fr));
+    gap: 20px 16px;
+    width: 100%;
+  }
+
+  .skill {
+    width: 100%;
+    max-width: 140px;
+    margin: 0 auto;
+  }
+
+  .skill span {
+    font-size: 15px;
+    word-break: break-word;
+  }
+}
+/* MYA END */
 
 /* --- Interest-Popup (Sprechblase) --- */
 .skill--interest .skill-popup {
@@ -150,15 +199,18 @@
   color: #000;
   border-radius: 20px;
   padding: 16px 20px;
-  box-shadow: 0 4px 4px rgba(0,0,0,.25);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
   text-align: center;
   opacity: 0;
   pointer-events: none;
   transition: opacity .2s ease;
   z-index: 2;
 }
+
 .skill--interest:hover .skill-popup,
-.skill--interest:focus-within .skill-popup { opacity: 1; }
+.skill--interest:focus-within .skill-popup {
+  opacity: 1;
+}
 
 .skill--interest .skill-popup::after {
   content: "";
@@ -182,15 +234,32 @@
   justify-content: center;
   gap: 24px;
 }
+
 .skill-popup__icons .tech {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 5px;
 
-  img { width: 32px; height: 32px; }
-  span { font: 700 12px/1.08 "Poppins", sans-serif; color: #000; }
+  img {
+    width: 32px;
+    height: 32px;
+  }
+
+  span {
+    font: 700 12px/1.08 "Poppins", sans-serif;
+    color: #000;
+  }
 }
 
-@media (prefers-reduced-motion: reduce) { .skill img { transition: none; } }
-@media (max-width: 600px) { .skill--interest .skill-popup { width: 200px; } }
+@media (prefers-reduced-motion: reduce) {
+  .skill img {
+    transition: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .skill--interest .skill-popup {
+    width: 200px;
+  }
+}

@@ -1,29 +1,40 @@
 <section id="skills" class="skills section">
   <div class="skills__content">
-
     <div class="skills__icons">
-      <div class="skill"><img src="assets/html.svg" alt="HTML"><span>HTML</span></div>
-      <div class="skill"><img src="assets/css.svg" alt="CSS"><span>CSS</span></div>
-      <div class="skill"><img src="assets/js.svg" alt="JavaScript"><span>JavaScript</span></div>
-      <div class="skill"><img src="assets/ts.svg" alt="TypeScript"><span>TypeScript</span></div>
-      <div class="skill"><img src="assets/angular.svg" alt="Angular"><span>Angular</span></div>
-      <div class="skill"><img src="assets/git.svg" alt="Git"><span>Git</span></div>
-      <div class="skill"><img src="assets/api.svg" alt="REST-API"><span>REST-API</span></div>
+      <div class="skill"><img src="assets/html.svg" alt="HTML" /><span>HTML</span></div>
+      <div class="skill"><img src="assets/css.svg" alt="CSS" /><span>CSS</span></div>
+      <div class="skill"><img src="assets/js.svg" alt="JavaScript" /><span>JavaScript</span></div>
+      <div class="skill"><img src="assets/ts.svg" alt="TypeScript" /><span>TypeScript</span></div>
 
+      <div class="skill"><img src="assets/angular.svg" alt="Angular" /><span>Angular</span></div>
+      <div class="skill"><img src="assets/git.svg" alt="Git" /><span>Git</span></div>
+      <div class="skill"><img src="assets/api.svg" alt="REST-API" /><span>REST-API</span></div>
+      <div class="skill"><img src="assets/python.svg" alt="Python" /><span>Python</span></div>
+
+      <div class="skill"><img src="assets/django.svg" alt="Django" /><span>Django</span></div>
+      <div class="skill"><img src="assets/drf.svg" alt="DRF" /><span>DRF</span></div>
+      <div class="skill"><img src="assets/firebase.svg" alt="Firebase" /><span>Firebase</span></div>
+
+      <div class="skill"><img src="assets/scrum.svg" alt="Scrum" /><span>Scrum</span></div>
       <div class="skill skill--interest">
-        <img src="assets/learn.svg" alt="Learning">
+        <img src="assets/learn.svg" alt="Learning" />
         <span>{{ 'skills.interestTitle' | t }}</span>
 
         <div class="skill-popup">
           <p>{{ 'skills.interestPopup' | t }}</p>
           <div class="skill-popup__icons">
-            <div class="tech"><img src="assets/react.svg" alt="React"><span>{{ 'skills.interest.react' | t }}</span></div>
-            <div class="tech"><img src="assets/vue.svg" alt="Vue"><span>{{ 'skills.interest.vue' | t }}</span></div>
+            <div class="tech">
+              <img src="assets/react.svg" alt="React" /><span>{{
+                'skills.interest.react' | t
+              }}</span>
+            </div>
+            <div class="tech">
+              <img src="assets/vue.svg" alt="Vue" /><span>{{ 'skills.interest.vue' | t }}</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
     <div class="skills__text">
       <div class="skills-title">
         <span class="line purple"></span>
@@ -33,7 +44,9 @@
       <p class="intro">{{ 'skills.lead' | t }}</p>
 
       <div class="cta">
-        <h3>{{ 'skills.cta.ask' | t }}<span class="highlight">{{ 'skills.cta.more' | t }}</span></h3>
+        <h3>
+          {{ 'skills.cta.ask' | t }}<span class="highlight">{{ 'skills.cta.more' | t }}</span>
+        </h3>
         <p class="desc">{{ 'skills.desc' | t }}</p>
         <a class="btn" href="#contact">{{ 'hero.talk' | t }}</a>
       </div>
