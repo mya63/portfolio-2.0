@@ -21,7 +21,21 @@ body{
 img,svg{ display:block; max-width:100%; height:auto }
 
 /* ===== Layout helpers ===== */
-.page{ max-width:var(--maxw); margin:0 auto; position:relative; overflow-x:hidden }
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+.page {
+  flex: 1;
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  position: relative;
+  overflow-x: hidden;
+}
 .container{ width:var(--container); max-width:calc(100% - 2*100px); margin:0 auto; position:relative }
 .section{ position:relative; padding:96px 0; scroll-margin-top: calc(96px + 8px); } /* exakt an Überschrift stoppen */
 .center{ text-align:center }
