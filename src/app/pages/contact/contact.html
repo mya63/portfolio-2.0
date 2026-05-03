@@ -1,6 +1,5 @@
 <section id="contact" class="contact section">
   <div class="contact__content">
-
     <div class="contact__intro">
       <h2 class="contact__title">{{ 'contact.title' | t }}</h2>
 
@@ -9,52 +8,61 @@
       <p class="contact__lead" [innerHTML]="'contact.lead2' | t"></p>
     </div>
 
-    <!-- Form -->
-    <form class="contact-form" novalidate>
-      <!-- Name -->
-      <div class="field">
+    <form class="contact-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <div class="field" [class.invalid]="isInvalid('name')">
         <input
           id="name"
           type="text"
+          formControlName="name"
           [placeholder]="'contact.name' | t"
-          required
         />
-        <small class="err">{{ 'contact.err.name' | t }}</small>
+        @if (isInvalid('name')) {
+          <small class="err">{{ 'contact.err.name' | t }}</small>
+        }
       </div>
 
-      <!-- Email -->
-      <div class="field">
+      <div class="field" [class.invalid]="isInvalid('email')">
         <input
           id="email"
           type="email"
+          formControlName="email"
           [placeholder]="'contact.email' | t"
-          required
         />
-        <small class="err">{{ 'contact.err.email' | t }}</small>
+        @if (isInvalid('email')) {
+          <small class="err">{{ 'contact.err.email' | t }}</small>
+        }
       </div>
 
-      <!-- Message -->
-      <div class="field">
+      <div class="field" [class.invalid]="isInvalid('message')">
         <textarea
           id="message"
           rows="7"
+          formControlName="message"
           [placeholder]="'contact.message' | t"
-          required
         ></textarea>
-        <small class="err">{{ 'contact.err.message' | t }}</small>
+        @if (isInvalid('message')) {
+          <small class="err">{{ 'contact.err.message' | t }}</small>
+        }
       </div>
 
-      <!-- Privacy policy + Button -->
       <div class="policy-row">
         <label class="pp">
-          <input id="pp" type="checkbox" />
-          <!-- innerHTML, damit Link u. <strong> korrekt gerendert werden -->
+          <input id="pp" type="checkbox" formControlName="pp" />
           <span [innerHTML]="'contact.privacyHtml' | t"></span>
         </label>
 
-        <button class="btn-send" type="submit" aria-disabled="true">
+        <button
+          class="btn-send"
+          type="submit"
+          [disabled]="form.invalid"
+          [attr.aria-disabled]="form.invalid"
+        >
           <span>{{ 'contact.send' | t }}</span>
         </button>
+
+        @if (success) {
+          <p class="success-message">Message sent successfully!</p>
+        }
       </div>
     </form>
   </div>
