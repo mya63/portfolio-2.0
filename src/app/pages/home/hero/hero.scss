@@ -8,41 +8,21 @@
 .hero {
   position: relative;
   min-height: calc(100vh - var(--header-height));
-  padding: 40px 0 72px;
+  padding: 40px 0 140px;
   overflow: hidden;
-  background: #141d2f;
+  background: #0f172a;
 }
 
-/* MYA CHANGED: Background bleibt stabil */
 .hero-bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at 22% 30%, rgba(112, 230, 28, .28), transparent 28%),
-    radial-gradient(circle at 34% 55%, rgba(151, 71, 255, .35), transparent 30%),
-    radial-gradient(circle at 80% 30%, rgba(151, 71, 255, .15), transparent 28%),
-    #141d2f;
   z-index: 0;
-}
-
-/* MYA NEW: Figma-artige Welle unten */
-.hero-bg::after {
-  content: '';
-  position: absolute;
-  left: -5%;
-  right: -5%;
-  bottom: -90px;
-  height: 260px;
-  background: #141d2f;
-  border-radius: 50% 50% 0 0;
-  transform: rotate(-3deg);
-  z-index: 1;
 }
 
 .hero .container.hero-grid {
   position: relative;
-  z-index: 2;
-  min-height: calc(100vh - var(--header-height) - 112px);
+  z-index: 1; /* CHANGED: Grid unter Wave */
+  min-height: calc(100vh - var(--header-height) - 72px);
   display: grid;
   grid-template-columns: minmax(340px, 520px) minmax(360px, 560px);
   grid-template-areas:
@@ -56,10 +36,27 @@
 
 /* Photo */
 .hero-photo-wrap {
-  grid-area: photo;
   position: relative;
-  width: clamp(360px, 38vw, 520px);
-  max-width: 100%;
+  z-index: 1;
+}
+
+/* MYA CHANGED: Wave liegt über Foto-Unterkante */
+.hero-wave {
+  position: absolute;
+  left: 50%;
+  bottom: -590px;
+  width: 150vw;
+  min-width: 1700px;
+  height: auto; /* ADD */
+  transform: translateX(-50%);
+  z-index: 2;
+  pointer-events: none;
+}
+.hero-text,
+.hero-contact,
+.scrolldown {
+  position: relative;
+  z-index: 5;
 }
 
 .photo-purple,
@@ -88,7 +85,7 @@
 
 .hero-photo {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   width: 100%;
   height: auto;
   max-height: calc(100vh - 180px);
@@ -169,7 +166,7 @@
 .hero-contact {
   grid-area: contact;
   position: relative;
-  z-index: 3;
+  z-index: 5;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -219,7 +216,7 @@
   color: #fff;
   font: 500 14px/1 'Poppins', sans-serif;
   opacity: .85;
-  z-index: 3;
+  z-index: 5;
 }
 
 .scrolldown .arrow {
@@ -428,3 +425,4 @@
     font-size: 12px;
   }
 }
+

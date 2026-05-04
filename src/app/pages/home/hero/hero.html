@@ -1,6 +1,13 @@
 <section class="hero" id="hero">
   <div class="hero-bg"></div>
 
+  <img
+  class="hero-wave"
+  src="assets/hero-wave.svg"
+  alt=""
+  aria-hidden="true"
+/>
+
   <div class="container hero-grid">
     <!-- LINKES COL: Foto + Icons + Mail -->
     <div class="hero-photo-wrap">
@@ -11,12 +18,9 @@
 
     <!-- RECHTES COL: Textblock -->
     <div class="hero-text">
-      <!-- links senkrecht -->
       <span class="iam" aria-hidden="true">I am</span>
 
-      <!-- rechts die Titel-Spalte -->
       <div class="title">
-        <!-- Name: Zeile 1 = Muhammed, Zeile 2 = Yunus Amini -->
         <h1 class="name">
           <span class="name-row">Muhammed</span>
           <span class="name-row">Yunus <span class="accent">Amini</span></span>
@@ -26,13 +30,11 @@
 
         <p class="hero-sub">Clean Code · Responsive Design · Real Projects</p>
 
-        <!-- CTA zentriert und professionell groß -->
         <div class="hero-cta">
           <button
             class="btn btn--primary"
             type="button"
             (click)="scrollTo('contact')"
-            aria-label="Scroll to contact"
           >
             Let’s talk!
           </button>
@@ -40,29 +42,23 @@
       </div>
     </div>
 
-    <!-- Icons + Mail (unter dem Bild, wie im Figma) -->
+    <!-- Icons + Mail -->
     <div class="hero-contact">
       <div class="hero-socials">
-        <a
-          class="ico"
-          href="https://github.com/mya63"
-          target="_blank"
-          rel="noopener"
-          aria-label="GitHub"
-        >
-          <img src="assets/giticon.png" alt="GitHub" width="30" height="30" />
+        <a class="ico" href="https://github.com/mya63" target="_blank">
+          <img src="assets/giticon.png" alt="GitHub" />
         </a>
-        <a class="ico" href="mailto:muhammedyunusamini4@gmail.com" aria-label="Email">
-          <img src="assets/email.png" alt="Email" width="30" height="30" />
+
+        <a class="ico" href="mailto:muhammedyunusamini4@gmail.com">
+          <img src="assets/email.png" alt="Email" />
         </a>
+
         <a
           class="ico"
           href="https://www.linkedin.com/in/muhammed-yunus-amini-5380b829a/"
           target="_blank"
-          rel="noopener"
-          aria-label="LinkedIn"
         >
-          <img src="assets/linkedin.png" alt="LinkedIn" width="30" height="30" />
+          <img src="assets/linkedin.png" alt="LinkedIn" />
         </a>
       </div>
 
@@ -71,10 +67,10 @@
       </a>
     </div>
 
-    <!-- Scroll down: vertikal, Pfeil zeigt nach unten -->
+    <!-- Scroll down -->
     <div class="scrolldown">
       <span>Scroll down</span>
-      <svg class="arrow" viewBox="0 0 24 24" width="24" height="24" fill="#fff">
+      <svg class="arrow" viewBox="0 0 24 24" width="24" height="24">
         <path d="M12 16 6 10h12l-6 6Z" />
       </svg>
     </div>
