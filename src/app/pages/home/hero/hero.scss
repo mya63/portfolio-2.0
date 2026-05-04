@@ -21,7 +21,7 @@
 
 .hero .container.hero-grid {
   position: relative;
-  z-index: 1; /* CHANGED: Grid unter Wave */
+  z-index: auto; /* CHANGED: Grid unter Wave */
   min-height: calc(100vh - var(--header-height) - 72px);
   display: grid;
   grid-template-columns: minmax(340px, 520px) minmax(360px, 560px);
