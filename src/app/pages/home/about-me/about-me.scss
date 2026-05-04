@@ -1,6 +1,8 @@
 /* ============ About Me ============ */
-.about { padding: 80px 0; }
-
+.about {
+  padding: 80px 0;
+  background: #141d2f; /* MYA CHANGED: passt besser zur Hero-Wave */
+}
 /* 2-spaltiges Layout wie im Figma (Text links, Foto rechts) */
 .about .about-grid{
   display: grid;

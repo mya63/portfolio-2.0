@@ -43,12 +43,13 @@
 /* MYA CHANGED: Wave liegt über Foto-Unterkante */
 .hero-wave {
   position: absolute;
-  left: 50%;
-  bottom: -590px;
-  width: 150vw;
-  min-width: 1700px;
-  height: auto; /* ADD */
-  transform: translateX(-50%);
+
+  left: 0;          /* CHANGED */
+  bottom: -475px;
+
+  width: 100%;      /* CHANGED */
+  height: auto;
+
   z-index: 2;
   pointer-events: none;
 }
