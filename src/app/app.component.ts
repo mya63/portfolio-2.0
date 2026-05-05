@@ -1,5 +1,6 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import AOS from 'aos';
 import { HeaderComponent } from './shared/header/header';
 import { FooterComponent } from './shared/footer/footer';
@@ -23,11 +24,22 @@ import { GoUpComponent } from './shared/components/go-up/go-up.component';
   `,
 })
 export class AppComponent implements AfterViewInit {
+  constructor(private router: Router) {}
+
   ngAfterViewInit(): void {
     AOS.init({
-      duration: 800,
+      duration: 1200,
       once: true,
-      offset: 120
+      offset: 160,
+      easing: 'ease-in-out'
     });
+
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        setTimeout(() => {
+          AOS.refreshHard();
+        }, 200);
+      });
   }
 }
