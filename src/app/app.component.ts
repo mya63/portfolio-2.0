@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import AOS from 'aos';
 import { HeaderComponent } from './shared/header/header';
 import { FooterComponent } from './shared/footer/footer';
 import { GoUpComponent } from './shared/components/go-up/go-up.component';
@@ -21,4 +22,12 @@ import { GoUpComponent } from './shared/components/go-up/go-up.component';
     </div>
   `,
 })
-export class AppComponent {}
+export class AppComponent implements AfterViewInit {
+  ngAfterViewInit(): void {
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 120
+    });
+  }
+}
