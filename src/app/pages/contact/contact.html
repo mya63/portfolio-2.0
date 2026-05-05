@@ -54,15 +54,21 @@
         <button
           class="btn-send"
           type="submit"
-          [disabled]="form.invalid"
-          [attr.aria-disabled]="form.invalid"
-        >
-          <span>{{ 'contact.send' | t }}</span>
-        </button>
+          [disabled]="form.invalid || isSending"
+          [attr.aria-disabled]="form.invalid || isSending"
+    >
+        <span>
+          {{ isSending ? 'Wird gesendet...' : ('contact.send' | t) }}
+        </span>
+      </button>
 
-        @if (success) {
-          <p class="success-message">Message sent successfully!</p>
-        }
+      @if (success) {
+        <p class="success-message">Nachricht wurde erfolgreich gesendet!</p>
+      }
+
+      @if (error) {
+        <p class="error-message">Nachricht konnte nicht gesendet werden.</p>
+      }
       </div>
     </form>
   </div>

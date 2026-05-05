@@ -157,6 +157,13 @@
   font: 400 16px/1.4 'Poppins', sans-serif;
 }
 
+/* NEU: Error Message */
+.error-message {
+  margin: 8px 0 0;
+  color: #e61c40;
+  font: 400 16px/1.4 'Poppins', sans-serif;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 980px) {
   .contact__content {
