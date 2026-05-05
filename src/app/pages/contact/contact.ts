@@ -72,13 +72,20 @@ export class ContactComponent {
   // NEU
   private handleSuccess(): void {
     this.success = true;
+    this.error = false;
     this.isSending = false;
     this.form.reset({ name: '', email: '', message: '', pp: false });
+
+    setTimeout(() => {
+      this.success = false;
+    }, 3000);
   }
 
   // NEU
+  // NEU
   private handleError(): void {
     this.error = true;
+    this.success = false;
     this.isSending = false;
   }
 }
