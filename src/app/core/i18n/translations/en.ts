@@ -90,7 +90,8 @@ contact: {
   name: 'Your name',
   email: 'Your email',
   message: 'Your message',
-  privacyHtml: `I've read the <a class="pp-link" href="/privacy" rel="noopener">privacy policy</a> and agree to the processing of my data as outlined.`,
+  privacyHtml:
+  `I've read the <a class="pp-link" href="#/privacy" rel="noopener">privacy policy</a> and agree to the processing of my data as outlined.`,
   send: 'Send message :)',
   err: {
     name: 'Your name is required',
@@ -146,7 +147,7 @@ contact: {
     },
     section6: {
       title: '6. Privacy Contact',
-      body: `If you have any questions about data protection, please contact: info@yumus.dev`
+      body: `If you have any questions about data protection, please contact: muhammedyunusamini4@gmail.com`
     }
   },
 

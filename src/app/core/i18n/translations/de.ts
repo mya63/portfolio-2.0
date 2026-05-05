@@ -91,7 +91,7 @@ contact: {
   email: 'Deine E-Mail',
   message: 'Deine Nachricht',
   privacyHtml:
-    `Ich habe die <a class="pp-link" href="/privacy" rel="noopener">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu.`,
+    `Ich habe die <a class="pp-link" href="#/privacy" rel="noopener">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu.`,
   send: 'Nachricht senden :)',
   err: {
     name: 'Dein Name wird benötigt',
@@ -151,7 +151,7 @@ contact: {
     },
     section6: {
       title: '6. Datenschutzkontakt',
-      body: `Bei Fragen zum Datenschutz wenden Sie sich bitte an: info@yumus.dev`
+      body: `Bei Fragen zum Datenschutz wenden Sie sich bitte an: muhammedyunusamini4@gmail.com`
     }
   },
 
