@@ -108,7 +108,7 @@ contact: {
       Muhammed Yunus Amini<br>
       63263 Neu-Isenburg<br>
       Deutschland<br><br>
-      E-Mail: muhammedyunusamini4@gmail.com<br><br>
+      E-Mail: contact@yunusamini.dev<br><br>
       Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:<br>
       Muhammed Yunus Amini<br><br>
       Haftungsausschluss:<br>
@@ -127,7 +127,7 @@ contact: {
       body: `Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br>
       Muhammed Yunus Amini<br>
       63263 Neu-Isenburg<br>
-      E-mail: muhammedyunusamini4@gmail.com`
+      E-mail: contact@yunusamini.dev`
     },
     section2: {
       title: '2. Allgemeines zur Datenverarbeitung',
@@ -151,7 +151,7 @@ contact: {
     },
     section6: {
       title: '6. Datenschutzkontakt',
-      body: `Bei Fragen zum Datenschutz wenden Sie sich bitte an: muhammedyunusamini4@gmail.com`
+      body: `Bei Fragen zum Datenschutz wenden Sie sich bitte an: contact@yunusamini.dev`
     }
   },
 

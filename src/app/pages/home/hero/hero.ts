@@ -11,7 +11,7 @@ import { TranslatePipe } from '../../../core/i18n/translate.pipe';
 export class HeroComponent {
   name  = 'Muhammed Yunus Amini';
   title = 'FULLSTACK DEVELOPER';
-  email = 'muhammedyunusamini4@gmail.com';
+  email = 'contact@yunusamini.dev';
 
   scrollTo(id: string) {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
