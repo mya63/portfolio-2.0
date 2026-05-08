@@ -59,6 +59,11 @@ skills: {
         name: 'KanMind',
         stack: 'Django | DRF | PYTHON',
         desc: 'KanMind ist eine Fullstack-Kanban- und Task-Management-Anwendung mit getrennter Frontend- und Backend-Architektur.'
+      },
+      coderr: {
+        name: 'Coderr',
+        stack: 'JavaScript | Django | DRF | Render | GitHub Pages',
+        desc: 'Fullstack-Marktplatz-Anwendung mit Authentifizierung, Benutzerrollen, API-Anbindung und schnellem Gast-Login zum einfachen Testen.'
       }
     }
   },
