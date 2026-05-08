@@ -43,16 +43,16 @@
 /* MYA CHANGED: Wave liegt über Foto-Unterkante */
 .hero-wave {
   position: absolute;
-
-  left: 0;          /* CHANGED */
-  bottom: -475px;
-
-  width: 100%;      /* CHANGED */
+  left: 50%;
+  bottom: -690px;
+  width: 1920px;
+  max-width: none;
   height: auto;
-
+  transform: translateX(-50%);
   z-index: 2;
   pointer-events: none;
 }
+
 .hero-text,
 .hero-contact,
 .scrolldown {
@@ -265,6 +265,12 @@
     width: min(420px, 88vw);
   }
 
+  .hero-wave {
+  bottom: -60px;
+  width: 900px;
+  max-width: none;
+}
+
   .hero-photo {
     max-height: none;
   }
@@ -336,6 +342,14 @@
 
   .scrolldown {
     display: none;
+  }
+}
+
+/* Tablet / iPad Mini */
+@media (min-width: 601px) and (max-width: 900px) {
+  .hero-wave {
+    bottom: -160px;
+    width: 1200px;
   }
 }
 
@@ -426,4 +440,6 @@
     font-size: 12px;
   }
 }
+
+
 
