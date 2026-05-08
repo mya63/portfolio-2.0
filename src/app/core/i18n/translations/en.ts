@@ -64,6 +64,11 @@ skills: {
         name: 'Coderr',
         stack: 'JavaScript | Django | DRF | Render | GitHub Pages',
         desc: 'Fullstack marketplace application with authentication, user roles, API integration and instant guest login for easy testing.'
+      },
+      videoflix: {
+        name: 'Videoflix',
+        stack: 'Python | Django | DRF | Docker | HLS',
+        desc: 'Streaming platform with registration, login, email activation, video upload and automatic HLS video processing in the backend.'
       }
     }
   },
