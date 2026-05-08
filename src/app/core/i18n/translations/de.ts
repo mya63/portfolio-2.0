@@ -100,60 +100,79 @@ contact: {
   }
 },
 
-  legal: {
-    title: 'Impressum',
-    backToTop: 'Nach oben',
-    imprint: {
-      body: `Angaben gemäß § 5 TMG:<br><br>
-      Muhammed Yunus Amini<br>
-      63263 Neu-Isenburg<br>
-      Deutschland<br><br>
-      E-Mail: contact@yunusamini.dev<br><br>
-      Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:<br>
-      Muhammed Yunus Amini<br><br>
-      Haftungsausschluss:<br>
-      Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität kann jedoch keine Gewähr übernommen werden.<br>
-      Trotz sorgfältiger Kontrolle übernehmen wir keine Haftung für externe Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.<br><br>
-      Urheberrecht:<br>
-      Die durch den Betreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht.`
-    }
-  },
+legal: {
+  title: 'Impressum',
+  backToTop: 'Nach oben',
+  imprint: {
+    body: `Angaben gemäß § 5 TMG:<br><br>
 
-  privacy: {
-    title: 'Datenschutzerklärung',
-    backToTop: 'Nach oben',
-    section1: {
-      title: '1. Verantwortlicher',
-      body: `Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br>
-      Muhammed Yunus Amini<br>
-      63263 Neu-Isenburg<br>
-      E-mail: contact@yunusamini.dev`
-    },
-    section2: {
-      title: '2. Allgemeines zur Datenverarbeitung',
-      body: `Der Schutz Ihrer persönlichen Daten ist uns sehr wichtig. Diese Website kann grundsätzlich ohne Angabe personenbezogener Daten besucht werden.
-      Personenbezogene Daten (z. B. Name, E-Mail) werden nur erhoben, wenn Sie uns diese freiwillig mitteilen.`
-    },
-    section3: {
-      title: '3. Kontakt',
-      body: `Wenn Sie uns per E-Mail kontaktieren, werden Ihre Angaben zur Bearbeitung der Anfrage gespeichert.
-      Diese Daten werden ohne Ihre Einwilligung nicht an Dritte weitergegeben.`
-    },
-    section4: {
-      title: '4. Server-Logfiles',
-      body: `Der Provider erhebt automatisch Informationen (Browsertyp, Betriebssystem, Referrer, Hostname, Uhrzeit).
-      Diese Daten sind nicht bestimmten Personen zuordenbar.`
-    },
-    section5: {
-      title: '5. Rechte der betroffenen Person',
-      body: `Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer Daten
-      sowie das Recht auf Datenübertragbarkeit und Widerspruch.`
-    },
-    section6: {
-      title: '6. Datenschutzkontakt',
-      body: `Bei Fragen zum Datenschutz wenden Sie sich bitte an: contact@yunusamini.dev`
-    }
+    Muhammed Yunus Amini<br>
+    Frankfurter Straße 67<br>
+    63263 Neu-Isenburg<br>
+    Deutschland<br><br>
+
+    Kontakt:<br>
+    E-Mail: contact@yunusamini.dev<br><br>
+
+    Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:<br>
+    Muhammed Yunus Amini<br>
+    Frankfurter Straße 67<br>
+    63263 Neu-Isenburg<br><br>
+
+    Haftungsausschluss:<br>
+    Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden.<br>
+    Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.<br><br>
+
+    Urheberrecht:<br>
+    Die durch den Seitenbetreiber erstellten Inhalte und Werke auf dieser Website unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet.`
+  }
+},
+
+privacy: {
+  title: 'Datenschutzerklärung',
+  backToTop: 'Nach oben',
+  section1: {
+    title: '1. Datenschutz auf einen Blick',
+    body: `Der Schutz Ihrer persönlichen Daten ist uns wichtig. Diese Website kann grundsätzlich ohne Angabe personenbezogener Daten besucht werden. Personenbezogene Daten werden nur erhoben, wenn Sie uns diese freiwillig mitteilen, z. B. über das Kontaktformular oder per E-Mail.`
   },
+  section2: {
+    title: '2. Verantwortliche Stelle',
+    body: `Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br><br>
+    Muhammed Yunus Amini<br>
+    Frankfurter Straße 67<br>
+    63263 Neu-Isenburg<br>
+    Deutschland<br><br>
+    E-Mail: contact@yunusamini.dev`
+  },
+  section3: {
+    title: '3. Hosting',
+    body: `Diese Website wird bei IONOS gehostet. Beim Besuch der Website werden durch den Hosting-Anbieter automatisch technische Daten verarbeitet, z. B. IP-Adresse, Browsertyp, Betriebssystem, Referrer URL und Uhrzeit der Serveranfrage. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO, da ein berechtigtes Interesse an einer sicheren und zuverlässigen Bereitstellung der Website besteht.`
+  },
+  section4: {
+    title: '4. Kontaktformular und E-Mail-Kontakt',
+    body: `Wenn Sie uns über das Kontaktformular oder per E-Mail kontaktieren, werden Ihre Angaben zur Bearbeitung der Anfrage verarbeitet. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter. Die Verarbeitung erfolgt je nach Anfrage auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO oder Art. 6 Abs. 1 lit. f DSGVO.`
+  },
+  section5: {
+    title: '5. Server-Log-Dateien',
+    body: `Der Provider erhebt und speichert automatisch Informationen in sogenannten Server-Log-Dateien. Dazu gehören Browsertyp, Browserversion, verwendetes Betriebssystem, Referrer URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage und IP-Adresse. Eine Zusammenführung dieser Daten mit anderen Datenquellen erfolgt nicht.`
+  },
+  section6: {
+    title: '6. Google Fonts',
+    body: `Diese Website kann Google Fonts zur einheitlichen Darstellung von Schriftarten verwenden. Dabei kann Ihr Browser Verbindung zu Servern von Google aufnehmen. Falls Google Fonts lokal eingebunden sind, findet keine Verbindung zu Google-Servern statt.`
+  },
+  section7: {
+    title: '7. Speicherdauer',
+    body: `Personenbezogene Daten verbleiben nur so lange bei uns, wie es für den jeweiligen Zweck erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen.`
+  },
+  section8: {
+    title: '8. Ihre Rechte',
+    body: `Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen die Verarbeitung Ihrer personenbezogenen Daten. Außerdem haben Sie ein Beschwerderecht bei der zuständigen Aufsichtsbehörde.`
+  },
+  section9: {
+    title: '9. Datenschutzkontakt',
+    body: `Bei Fragen zum Datenschutz wenden Sie sich bitte an: contact@yunusamini.dev`
+  }
+},
 
   misc: { scrolldown: 'Runterscrollen' }
 };

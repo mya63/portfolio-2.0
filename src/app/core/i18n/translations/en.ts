@@ -100,56 +100,77 @@ contact: {
   }
 },
 
-  legal: {
-    title: 'Legal Notice',
-    backToTop: 'Back to top',
-    imprint: {
-      body: `Information according to § 5 TMG:<br><br>
-      Muhammed Yunus Amini<br>
-      63263 Neu-Isenburg<br>
-      Germany<br><br>
-      E-mail: contact@yunusamini.dev<br><br>
-      Responsible for content according to § 55 Abs. 2 RStV:<br>
-      Muhammed Yunus Amini<br><br>
-      Disclaimer:<br>
-      The contents of this website were created with great care. However, we cannot guarantee the accuracy, completeness or timeliness of the content.<br>
-      Despite careful content control, we assume no liability for the content of external links. The operators of linked pages are solely responsible for their content.<br><br>
-      Copyright:<br>
-      The content and works created by the website operator are subject to German copyright law.`
-    }
-  },
+legal: {
+  title: 'Legal Notice',
+  backToTop: 'Back to top',
+  imprint: {
+    body: `Information according to § 5 TMG:<br><br>
 
-  privacy: {
-    title: 'Privacy Policy',
-    backToTop: 'Back to top',
-    section1: {
-      title: '1. Controller',
-      body: `Responsible for data processing on this website:<br>
-      Muhammed Yunus Amini<br>
-      63263 Neu-Isenburg<br>
-      E-mail: contact@yunusamini.dev`
-    },
-    section2: {
-      title: '2. General Information',
-      body: `Protecting your personal data is very important to us. You can generally use this website without providing personal information. Personal data (e.g. name, e-mail) is only collected if you provide it voluntarily.`
-    },
-    section3: {
-      title: '3. Contact',
-      body: `If you contact us by e-mail, the data you provide will be stored for processing your inquiry. This data will not be passed on to third parties without your consent.`
-    },
-    section4: {
-      title: '4. Server Log Files',
-      body: `The provider automatically collects information (browser type, operating system, referrer, hostname, time). These data cannot be assigned to specific persons.`
-    },
-    section5: {
-      title: '5. Rights of the Data Subject',
-      body: `You have the right to access, rectify, erase and restrict processing of your personal data as well as the right to data portability and to object to processing.`
-    },
-    section6: {
-      title: '6. Privacy Contact',
-      body: `If you have any questions about data protection, please contact: contact@yunusamini.dev`
-    }
-  },
+    Muhammed Yunus Amini<br>
+    Frankfurter Straße 67<br>
+    63263 Neu-Isenburg<br>
+    Germany<br><br>
 
+    Contact:<br>
+    E-mail: contact@yunusamini.dev<br><br>
+
+    Responsible for content according to § 55 Abs. 2 RStV:<br>
+    Muhammed Yunus Amini<br>
+    Frankfurter Straße 67<br>
+    63263 Neu-Isenburg<br><br>
+
+    Disclaimer:<br>
+    The contents of this website were created with great care. However, no guarantee can be given for the accuracy, completeness or timeliness of the content.<br>
+    Despite careful control of external links, we assume no liability for their content. The operators of the linked pages are solely responsible for their content.<br><br>
+
+    Copyright:<br>
+    The content and works created by the website operator on this website are subject to German copyright law. Third-party content is marked as such.`
+  }
+},
+privacy: {
+  title: 'Privacy Policy',
+  backToTop: 'Back to top',
+  section1: {
+    title: '1. Privacy at a Glance',
+    body: `Protecting your personal data is important to us. This website can generally be used without providing personal data. Personal data is only collected if you voluntarily provide it, for example via the contact form or by e-mail.`
+  },
+  section2: {
+    title: '2. Controller',
+    body: `Responsible for data processing on this website:<br><br>
+    Muhammed Yunus Amini<br>
+    Frankfurter Straße 67<br>
+    63263 Neu-Isenburg<br>
+    Germany<br><br>
+    E-mail: contact@yunusamini.dev`
+  },
+  section3: {
+    title: '3. Hosting',
+    body: `This website is hosted by IONOS. When visiting this website, the hosting provider automatically processes technical data such as IP address, browser type, operating system, referrer URL and time of the server request. Processing is based on Art. 6(1)(f) GDPR, as there is a legitimate interest in the secure and reliable provision of this website.`
+  },
+  section4: {
+    title: '4. Contact Form and E-mail Contact',
+    body: `If you contact us via the contact form or by e-mail, the information you provide will be processed to handle your inquiry. This data will not be passed on without your consent. Processing is based on Art. 6(1)(b) GDPR or Art. 6(1)(f) GDPR, depending on the request.`
+  },
+  section5: {
+    title: '5. Server Log Files',
+    body: `The provider automatically collects and stores information in server log files. This includes browser type, browser version, operating system, referrer URL, hostname of the accessing computer, time of the server request and IP address. This data is not merged with other data sources.`
+  },
+  section6: {
+    title: '6. Google Fonts',
+    body: `This website may use Google Fonts for the uniform display of fonts. Your browser may connect to Google servers for this purpose. If Google Fonts are hosted locally, no connection to Google servers is established.`
+  },
+  section7: {
+    title: '7. Storage Duration',
+    body: `Personal data is stored only for as long as necessary for the respective purpose or as required by statutory retention obligations.`
+  },
+  section8: {
+    title: '8. Your Rights',
+    body: `You have the right to access, rectify, erase and restrict the processing of your personal data, as well as the right to data portability and objection. You also have the right to lodge a complaint with the competent supervisory authority.`
+  },
+  section9: {
+    title: '9. Privacy Contact',
+    body: `If you have any questions about data protection, please contact: contact@yunusamini.dev`
+  }
+},
   misc: { scrolldown: 'Scroll down' }
 };
