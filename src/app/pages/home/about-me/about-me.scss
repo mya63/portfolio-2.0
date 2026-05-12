@@ -18,21 +18,22 @@
   margin: 0 0 16px;
   font-size: clamp(40px, 6vw, 90px); /* ~90px bei Desktop */
 }
-.about .about-text > p{
+.about .about-text {
+  max-width: 650px;
+}
+
+.about .about-text > p {
   margin: 0 0 24px;
-  max-width: 471px;
 }
 
 /* Stichpunkte mit Icon links, Text rechts */
-.about .row{
+.about .row {
   display: grid;
   grid-template-columns: 48px 1fr;
   align-items: start;
   gap: 16px;
-  max-width: 471px;
   margin: 16px 0 0;
 }
-
 /* Icons – Farbe, Masken & Hover-Scale */
 .icon{
   width: 48px; height: 48px;
@@ -109,13 +110,21 @@
 }
 
 /* Responsive – unter 900px einspaltig, Foto centered */
-@media (max-width: 900px){
-  .about .about-grid{ grid-template-columns: 1fr; }
-  .about .about-photo{
+@media (max-width: 900px) {
+  .about .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about .about-text {
+    max-width: 100%;
+  }
+
+  .about .about-photo {
     justify-self: center;
     width: min(380px, 70vw);
   }
-  .about .about-text h2{
+
+  .about .about-text h2 {
     font-size: clamp(36px, 10vw, 60px);
   }
 }
