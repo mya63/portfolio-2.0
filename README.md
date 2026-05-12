@@ -3,7 +3,7 @@
 Personal developer portfolio of **Muhammed Yunus Amini**.
 
 Live Demo  
-https://mya63.github.io/portfolio-2.0/
+www.yunusamini.dev
 
 
 ## About
