@@ -40,12 +40,13 @@
   z-index: 1;
 }
 
-/* MYA CHANGED: Wave liegt über Foto-Unterkante */
+
+/* MYA CHANGED: Wave geht immer über komplette Bildschirmbreite */
 .hero-wave {
   position: absolute;
   left: 50%;
   bottom: -690px;
-  width: 1920px;
+  width: max(100vw, 1920px);
   max-width: none;
   height: auto;
   transform: translateX(-50%);
@@ -265,9 +266,10 @@
     width: min(420px, 88vw);
   }
 
-  .hero-wave {
+
+.hero-wave {
   bottom: -60px;
-  width: 900px;
+  width: max(100vw, 900px);
   max-width: none;
 }
 
@@ -346,10 +348,11 @@
 }
 
 /* Tablet / iPad Mini */
+
 @media (min-width: 601px) and (max-width: 900px) {
   .hero-wave {
     bottom: -160px;
-    width: 1200px;
+    width: max(100vw, 1200px);
   }
 }
 
