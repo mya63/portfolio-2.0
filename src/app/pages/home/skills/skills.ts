@@ -9,4 +9,11 @@ import { TranslatePipe } from '../../../core/i18n/translate.pipe';
   templateUrl: './skills.html',
   styleUrls: ['./skills.scss']
 })
-export class SkillsComponent {}
+export class SkillsComponent {
+  scrollToContact(): void {
+    document.getElementById('contact')?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+}

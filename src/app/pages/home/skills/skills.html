@@ -48,7 +48,9 @@
           {{ 'skills.cta.ask' | t }}<span class="highlight">{{ 'skills.cta.more' | t }}</span>
         </h3>
         <p class="desc">{{ 'skills.desc' | t }}</p>
-        <a class="btn" href="#contact">{{ 'hero.talk' | t }}</a>
+        <button class="btn" type="button" (click)="scrollToContact()">
+          {{ 'hero.talk' | t }}
+        </button>
       </div>
     </div>
   </div>
