@@ -13,9 +13,37 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
 })
 export class HeaderComponent {
   menuOpen = false;
+
   constructor(private router: Router) {}
-  toggleMenu(){ this.menuOpen = !this.menuOpen; }
-  closeMenu(){ this.menuOpen = false; }
-  navigate(fragment: string){ this.closeMenu(); this.router.navigate(['/'], { fragment }); }
-  @HostListener('window:resize') onResize(){ if (window.innerWidth > 860 && this.menuOpen) this.menuOpen = false; }
+
+  toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu(): void {
+    this.menuOpen = false;
+  }
+
+  navigate(fragment: string): void {
+    this.closeMenu();
+    this.router.navigate(['/']).then(() => {
+      setTimeout(() => this.scrollToSection(fragment), 100);
+    });
+  }
+
+  private scrollToSection(fragment: string): void {
+    const element = document.getElementById(fragment);
+    if (!element) return;
+
+    const header = document.querySelector('.header') as HTMLElement | null;
+    const offset = header?.offsetHeight ?? 96;
+    const top = element.getBoundingClientRect().top + window.scrollY - offset + 96;
+
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+
+  @HostListener('window:resize')
+  onResize(): void {
+    if (window.innerWidth > 860 && this.menuOpen) this.menuOpen = false;
+  }
 }

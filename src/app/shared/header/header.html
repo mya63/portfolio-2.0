@@ -6,9 +6,9 @@
 
     <nav class="nav" aria-label="Hauptmenü">
       <div class="links">
-        <a routerLink="/" fragment="about">{{ 'nav.about' | t }}</a>
-        <a routerLink="/" fragment="skills">{{ 'nav.skills' | t }}</a>
-        <a routerLink="/" fragment="portfolio">{{ 'nav.portfolio' | t }}</a>
+        <button type="button" (click)="navigate('about')">{{ 'nav.about' | t }}</button>
+        <button type="button" (click)="navigate('skills')">{{ 'nav.skills' | t }}</button>
+        <button type="button" (click)="navigate('portfolio')">{{ 'nav.portfolio' | t }}</button>
       </div>
 
       <div class="lang">
@@ -38,18 +38,21 @@
         </button>
       </div>
       <nav class="overlay-menu" aria-label="Mobile menu">
-        <a class="overlay-link" routerLink="/" fragment="about" (click)="closeMenu()">{{
-          'nav.about' | t
-        }}</a>
-        <a class="overlay-link" routerLink="/" fragment="skills" (click)="closeMenu()">{{
-          'nav.skills' | t
-        }}</a>
-        <a class="overlay-link" routerLink="/" fragment="portfolio" (click)="closeMenu()">{{
-          'nav.portfolio' | t
-        }}</a>
-        <a class="overlay-link" routerLink="/" fragment="contact" (click)="closeMenu()">{{
-          'nav.contact' | t
-        }}</a>
+        <button class="overlay-link" type="button" (click)="navigate('about')">
+          {{ 'nav.about' | t }}
+        </button>
+
+        <button class="overlay-link" type="button" (click)="navigate('skills')">
+          {{ 'nav.skills' | t }}
+        </button>
+
+        <button class="overlay-link" type="button" (click)="navigate('portfolio')">
+          {{ 'nav.portfolio' | t }}
+        </button>
+
+        <button class="overlay-link" type="button" (click)="navigate('contact')">
+          {{ 'nav.contact' | t }}
+        </button>
 
         <div class="overlay-lang" (click)="$event.stopPropagation()">
           <app-lang-toggle></app-lang-toggle>

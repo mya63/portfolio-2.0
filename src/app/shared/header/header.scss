@@ -56,7 +56,12 @@
 }
 
 /* Menülinks – simpel: weiß; beim Hover grün + lila Unterstreichung (Figma) */
-.links a {
+.links a,
+.links button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 23px;
@@ -87,7 +92,7 @@
 /* =========================
    Burger (mobil sichtbar)
    ========================= */
-.burger{
+.burger {
   display: none;
   width: 30px;
   height: 28px;
@@ -96,7 +101,7 @@
   padding: 0;
   cursor: pointer;
 
-  span{
+  span {
     display: block;
     width: 28px;
     height: 2px;
@@ -191,6 +196,10 @@
 }
 
 .overlay-link {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
   display: block;
   width: 100%;
   font-family: 'Poppins', sans-serif;
@@ -248,42 +257,42 @@
   }
 }
 
-@media (max-width: 860px){
-  .header{
-    background: #141D2F;
+@media (max-width: 860px) {
+  .header {
+    background: #141d2f;
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
   }
 
-  .bar{
+  .bar {
     min-height: 80px;
     padding: 20px 24px;
   }
 
-  .logo{
+  .logo {
     font-size: 28px;
   }
 
-  .nav{
+  .nav {
     display: none;
   }
 
-  .burger{
+  .burger {
     display: grid;
     place-content: center;
   }
 }
 
-@media (max-width: 420px){
-  .bar{
+@media (max-width: 420px) {
+  .bar {
     padding: 18px 20px;
   }
 
-  .overlay-header{
+  .overlay-header {
     padding: 20px 20px 18px;
   }
 
-  .overlay-link{
+  .overlay-link {
     font-size: 20px;
   }
 }
