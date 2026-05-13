@@ -30,7 +30,7 @@ export class AppComponent implements AfterViewInit {
     AOS.init({
       duration: 1200,
       once: true,
-      offset: 160,
+      offset: 80,
       easing: 'ease-in-out'
     });
 
