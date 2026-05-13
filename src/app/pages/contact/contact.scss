@@ -179,3 +179,25 @@
     justify-items: start;
   }
 }
+
+.pp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font: 400 14px/1.2 'Poppins', sans-serif;
+  cursor: pointer; // MYA CHANGED
+}
+
+.pp input[type='checkbox'] {
+  accent-color: #70E61C;
+  width: 24px;
+  height: 24px;
+  cursor: pointer; // MYA CHANGED
+}
+
+/* Link */
+.pp-link {
+  color: #9747ff;
+  text-decoration: none;
+  cursor: pointer; // MYA CHANGED
+}
