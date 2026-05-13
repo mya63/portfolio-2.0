@@ -9,7 +9,7 @@
 .hero {
   position: relative;
   min-height: calc(100dvh - var(--header-height));
-  padding: 40px 0 140px;
+  padding: 40px 0 220px;
   overflow: hidden;
   background: #141D2F;
 }
@@ -45,7 +45,7 @@
 .hero-wave {
   position: absolute;
   left: 50%;
-  bottom: -690px;
+  bottom: -620px; // MYA CHANGED: weniger hart abgeschnitten
   width: max(100vw, 1920px);
   max-width: none;
   height: auto;
@@ -53,7 +53,6 @@
   z-index: 2;
   pointer-events: none;
 }
-
 .hero-text,
 .hero-contact,
 .scrolldown {
