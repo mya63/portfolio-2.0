@@ -239,17 +239,8 @@
 /* =========================
    Responsive
    ========================= */
-@media (max-width: 860px) {
-  .nav {
-    display: none;
-  }
-  .burger {
-    display: grid;
-    place-content: center;
-  }
-}
 
-/* Optional: Blur im Header nur auf Desktop ausschalten (Deckblatt-Optik) */
+/* MYA CHANGED: Desktop Header ohne Blur */
 @media (min-width: 861px) {
   .header {
     -webkit-backdrop-filter: none;
@@ -257,6 +248,7 @@
   }
 }
 
+/* MYA CHANGED: Tablet/Mobile Header */
 @media (max-width: 860px) {
   .header {
     background: #141d2f;
@@ -283,6 +275,7 @@
   }
 }
 
+/* MYA CHANGED: Kleine Handys */
 @media (max-width: 420px) {
   .bar {
     padding: 18px 20px;
