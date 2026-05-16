@@ -251,12 +251,12 @@
 /* Mobile */
 @media (max-width: 900px) {
   .hero {
-    min-height: 100dvh;
+    min-height: 100svh;
     padding: 24px 0 90px; /* MYA CHANGED: weniger Padding unten */
   }
 
   .hero .container.hero-grid {
-    min-height: calc(100dvh - var(--header-height) - 40px); /* MYA CHANGED */
+    min-height: calc(100svh - var(--header-height) - 40px); /* MYA CHANGED */
     align-content: center; /* MYA ADDED: Content wieder mittiger */
     width: 100%;
     max-width: none;
@@ -390,10 +390,11 @@
 @media (min-width: 601px) and (max-width: 900px) {
   .hero {
     padding-bottom: 140px;
-    min-height: 100dvh;
+    min-height: 100svh;
   }
 
   .hero .container.hero-grid {
+    min-height: calc(100svh - var(--header-height) - 40px); /* MYA ADDED: stabilisiert Layout */
     row-gap: 28px;
     align-content: start;
     padding-top: 28px;
