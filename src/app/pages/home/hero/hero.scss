@@ -2036,3 +2036,89 @@
     bottom: -1850px; /* Wave bleibt tiefer und verdeckt nicht alles */
   }
 }
+/* MYA ADDED: 1280x720 kleiner Desktop */
+@media (min-width: 1240px) and (max-width: 1320px) and (min-height: 690px) and (max-height: 740px) {
+  .hero-wave {
+    bottom: -750px; /* MYA ADDED: Wave mehr runter */
+  }
+
+    .hero::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 180px;
+    background: linear-gradient(
+      to bottom,
+      rgba(20, 29, 47, 0) 0%,
+      rgba(20, 29, 47, 0.45) 45%,
+      #141d2f 100%
+    );
+    pointer-events: none;
+    z-index: 3;
+  }
+
+
+  .hero-contact {
+    margin-top: -230px; /* MYA ADDED: Contact höher */
+  }
+
+  .hero-text .iam {
+    font-size: 55px; /* MYA ADDED: I am kleiner */
+    transform: rotate(180deg) translateY(55px); /* MYA ADDED: I am tiefer */
+  }
+
+  .name {
+    font-size: 46px;
+  }
+
+  .role {
+    font-size: 21px;
+  }
+}
+
+/* MYA ADDED: 1536x864 Desktop */
+@media (min-width: 1500px) and (max-width: 1580px) and (min-height: 830px) and (max-height: 890px) {
+  .hero-wave {
+    bottom: -720px; /* MYA ADDED: Wave mehr runter */
+  }
+
+    .hero-contact {
+    margin-top: -230px; /* MYA ADDED: Contact höher */
+  }
+
+}
+
+/* MYA CHANGED: 3440x1440 Ultra-wide QHD */
+@media (min-width: 3300px) and (max-width: 3700px) and (min-height: 1350px) and (max-height: 1500px) {
+  .hero-wave {
+    bottom: clamp(-1250px, -38vw, -1180px);
+  }
+
+  .hero-photo-wrap {
+    transform: translateY(220px); /* MYA ADDED: Foto mehr nach unten */
+  }
+
+  .hero-text {
+    transform: translateY(160px); /* MYA ADDED: Text mehr nach unten */
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 360px;
+    background: linear-gradient(
+      to bottom,
+      rgba(20, 29, 47, 0) 0%,
+      rgba(20, 29, 47, 0.35) 35%,
+      rgba(20, 29, 47, 0.75) 70%,
+      #141d2f 100%
+    );
+    pointer-events: none;
+    z-index: 3;
+  }
+}
