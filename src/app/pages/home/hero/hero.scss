@@ -1790,8 +1790,64 @@
     transform-origin: bottom center;
   }
 
+
   .hero-text .iam {
     transform: rotate(180deg) translateY(64px); /* MYA ADDED: I am etwas tiefer */
+  }
+}
+
+/* MYA ADDED: 504x504 sehr niedriger Mobile/Responsive-Test */
+@media (min-width: 490px) and (max-width: 520px) and (min-height: 490px) and (max-height: 520px) {
+  .hero-wave {
+    bottom: -190px; /* MYA ADDED: Wave tiefer, weil sie bei 504x504 zu hoch war */
+    width: max(100vw, 900px);
+  }
+
+  .hero-photo-wrap {
+    width: min(230px, 48vw);
+    transform: translateY(-10px); /* MYA ADDED: Foto tiefer */
+  }
+
+  .hero-text {
+    margin-top: -28px;
+    transform: translateX(30px) translateY(-10px); /* MYA ADDED: Text höher und stabil */
+  }
+
+  .hero-text .iam {
+    font-size: 33px; /* MYA ADDED: I am kleiner */
+    transform: rotate(180deg) translateY(38px) translateX(-10px);
+  }
+
+  .name {
+    font-size: 27px; /* MYA ADDED: Name kleiner */
+    line-height: 0.95;
+  }
+
+  .role {
+    margin: 6px 0 8px;
+    font-size: 15px; /* MYA ADDED: Rolle kleiner */
+  }
+
+  .hero-sub {
+    margin-bottom: 8px;
+    font-size: 12px; /* MYA ADDED: Sub kleiner */
+    transform: translateX(-36px);
+  }
+
+  .hero-cta {
+    margin-top: 0;
+    transform: translateX(-60px);
+  }
+
+  .hero-text .btn {
+    height: 40px;
+    padding: 8px 18px;
+    font-size: 15px;
+  }
+
+  .hero-contact {
+    margin-top: -22px;
+    transform: translateX(-12px) translateY(10px);
   }
 }
 
