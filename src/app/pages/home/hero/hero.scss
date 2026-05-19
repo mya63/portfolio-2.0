@@ -2537,6 +2537,263 @@
   }
 }
 
+/* MYA ADDED: 320–420px Breite bei ca. 1080px Höhe */
+@media (min-width: 320px) and (max-width: 420px) and (min-height: 1040px) and (max-height: 1120px) {
+  .hero-wave {
+    bottom: clamp(10px, -10vw, 10px);
+    width: max(100vw, 950px);
+    transform: translateX(-50%) scaleY(1.18);
+    transform-origin: bottom center;
+  }
+
+  .hero-photo-wrap {
+    transform: translateY(-35px);
+  }
+
+  .hero-text {
+    margin-top: -30px;
+    transform: translateX(16px) translateY(-18px);
+  }
+
+  .hero-text .iam {
+    font-size: 38px;
+    transform: rotate(180deg) translateY(58px);
+  }
+
+  .name {
+    font-size: 31px;
+  }
+
+  .role {
+    font-size: 18px;
+    margin: 8px 0 12px;
+  }
+
+  .hero-sub {
+    font-size: 12px;
+    transform: translateX(-52px);
+    margin-bottom: 14px;
+  }
+
+  .hero-cta {
+    transform: translateX(-58px);
+  }
+
+  .hero-contact {
+    margin-top: 0;
+    transform: translateX(-12px) translateY(-24px);
+  }
+}
+
+/* MYA ADDED: 421–600px Breite bei ca. 1080px Höhe */
+@media (min-width: 421px) and (max-width: 600px) and (min-height: 1040px) and (max-height: 1120px) {
+  .hero-wave {
+    bottom: clamp(-45px, -11vw, -135px);
+    width: max(100vw, 1000px);
+    transform: translateX(-50%) scaleY(1.18);
+    transform-origin: bottom center;
+  }
+
+  .hero-photo-wrap {
+    transform: translateY(-30px);
+  }
+
+  .hero-text {
+    margin-top: -28px;
+    transform: translateX(12px) translateY(-18px);
+  }
+
+  .hero-text .iam {
+    font-size: 42px;
+    transform: rotate(180deg) translateY(58px);
+  }
+
+  .name {
+    font-size: 34px;
+  }
+
+  .role {
+    font-size: 20px;
+    margin: 8px 0 12px;
+  }
+
+  .hero-sub {
+    font-size: 13px;
+    transform: translateX(-48px);
+    margin-bottom: 14px;
+  }
+
+  .hero-cta {
+    transform: translateX(-55px);
+  }
+
+  .hero-contact {
+    margin-top: 0;
+    transform: translateX(-12px) translateY(-24px);
+  }
+}
+
+/* MYA ADDED: 601–900px Breite bei ca. 1080px Höhe */
+@media (min-width: 601px) and (max-width: 900px) and (min-height: 1040px) and (max-height: 1120px) {
+  .hero-wave {
+    bottom: clamp(-260px, -12vw, -80px);
+    width: max(100vw, 1200px);
+    transform: translateX(-50%) scaleY(1.15);
+    transform-origin: bottom center;
+  }
+
+  .hero-photo-wrap {
+    transform: translateY(-20px);
+  }
+
+  .hero-text {
+    margin-top: -20px;
+    transform: translateX(10px) translateY(-16px);
+  }
+
+  .hero-text .iam {
+    font-size: 48px;
+    transform: rotate(180deg) translateY(58px);
+  }
+
+  .name {
+    font-size: 42px;
+  }
+
+  .role {
+    font-size: 22px;
+    margin: 8px 0 12px;
+  }
+
+  .hero-sub {
+    transform: translateX(-50px);
+    margin-bottom: 14px;
+  }
+
+  .hero-cta {
+    transform: translateX(-55px);
+  }
+
+  .hero-contact {
+    margin-top: 0;
+    transform: translateX(-14px) translateY(-24px);
+  }
+}
+
+/* MYA ADDED: 901–1023px Breite bei ca. 1080px Höhe */
+@media (min-width: 901px) and (max-width: 1023px) and (min-height: 1040px) and (max-height: 1120px) {
+  .hero-wave {
+    bottom: clamp(-330px, -18vw, -180px);
+    width: max(100vw, 1400px);
+    transform: translateX(-50%) scaleY(1.12);
+    transform-origin: bottom center;
+  }
+
+  .hero-photo-wrap {
+    transform: translateY(-80px) translateX(200px);
+  }
+
+  .hero-text {
+    margin-top: -10px;
+    transform: translateX(-220px) translateY(120px);
+  }
+
+  .hero-text .iam {
+    font-size: 56px;
+    transform: rotate(180deg) translateY(58px);
+  }
+
+  .name {
+    font-size: 48px;
+  }
+
+  .role {
+    font-size: 24px;
+    margin: 8px 0 14px;
+  }
+
+  .hero-sub {
+    transform: translateX(-46px);
+    margin-bottom: 14px;
+  }
+
+  .hero-cta {
+    transform: translateX(40px);
+  }
+
+  .hero-contact {
+    margin-top: 0;
+    transform: translateX(180px) translateY(-22px);
+  }
+
+  .scrolldown {
+    bottom: 120px; /* Scroll down höher */
+  }
+}
+
+/* MYA ADDED: 1024–1439px Breite bei ca. 1080px Höhe */
+@media (min-width: 1024px) and (max-width: 1439px) and (min-height: 1040px) and (max-height: 1120px) {
+  .hero-wave {
+    bottom: clamp(-700px, -37vw, -420px);
+  }
+
+  .hero-photo-wrap {
+    transform: translateY(-30px);
+  }
+
+  .hero-text {
+    transform: translateX(0) translateY(-10px);
+  }
+
+  .hero-contact {
+    margin-top: -450px;
+  }
+
+  .hero-text .iam {
+    font-size: clamp(40px, 5.5vw, 72px);
+    transform: rotate(180deg) translateY(55px);
+  }
+
+  .scrolldown {
+    bottom: 160px;
+  }
+}
+
+/* MYA ADDED: 2305–3000px Breite bei ca. 1080px Höhe */
+@media (min-width: 2305px) and (max-width: 3000px) and (min-height: 1040px) and (max-height: 1120px) {
+  .hero-wave {
+    bottom: clamp(-1100px, -33.5vw, -700px);
+  }
+
+    .hero-photo-wrap {
+    transform: translateY(20px);
+  }
+
+
+  .hero-contact {
+    margin-top: -280px;
+  }
+
+  .scrolldown {
+    bottom: 135px;
+  }
+}
+
+/* MYA ADDED: 3001–3799px Breite bei ca. 1080px Höhe */
+@media (min-width: 3001px) and (max-width: 3799px) and (min-height: 1040px) and (max-height: 1120px) {
+  .hero-wave {
+    bottom: clamp(-1650px, -36vw, -800px);
+  }
+
+  .hero-contact {
+    margin-top: -280px;
+  }
+
+  .scrolldown {
+    bottom: 135px;
+  }
+}
+
 /* MYA ADDED: 1024x768 kleiner Desktop / Tablet Landscape */
 @media (min-width: 1000px) and (max-width: 1060px) and (min-height: 740px) and (max-height: 790px) {
   .hero-wave {
