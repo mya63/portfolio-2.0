@@ -1970,6 +1970,51 @@
   }
 }
 
+/* MYA ADDED: 360x600 kleines Mobile */
+@media (min-width: 351px) and (max-width: 370px) and (min-height: 585px) and (max-height: 615px) {
+  .hero-photo-wrap {
+    transform: translateY(30px); /* MYA ADDED: Foto tiefer, weil es zu hoch war */
+  }
+
+  .hero-text {
+    margin-top: -6px;
+    transform: translateX(); /* MYA ADDED: Text etwas weiter nach links */
+  }
+
+  .hero-text .iam {
+    font-size: 38px;
+    transform: rotate(180deg) translateY(58px) translateX(-8px); /* MYA ADDED: I am leicht höher */
+  }
+
+  .name {
+    font-size: 29px;
+    transform: translateX(0); /* MYA ADDED: Name weiter links */
+  }
+
+  .hero-wave {
+    bottom: -140px; /* MYA ADDED: Wave höher, weil sie bei 360x600 zu tief war */
+  }
+
+  .role {
+    font-size: 15px;
+    transform: translateX(0); /* MYA ADDED: Rolle weiter links */
+  }
+
+  .hero-sub {
+    font-size: 12px;
+    transform: translateX(-48px); /* MYA ADDED: Sub weiter links */
+  }
+
+  .hero-cta {
+    transform: translateX(-58px) translateY(-25px);
+  }
+
+  .hero-contact {
+    margin-top: -4px;
+    transform: translateX(-16px) translateY(-35px);
+  }
+}
+
 
 /* MYA ADDED: 991x1280 Tablet Portrait */
 @media (min-width: 970px) and (max-width: 999px) and (min-height: 1240px) and (max-height: 1310px) {
