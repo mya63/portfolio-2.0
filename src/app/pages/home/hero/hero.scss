@@ -2080,6 +2080,21 @@
   }
 }
 
+/* MYA ADDED: 600x960 Tablet Portrait */
+@media (min-width: 580px) and (max-width: 620px) and (min-height: 940px) and (max-height: 980px) {
+  .hero-wave {
+    bottom: -140px; /* MYA ADDED: Wave höher, weil sie bei 600x960 zu tief war */
+    width: max(100vw, 1100px);
+    transform: translateX(-50%) scaleY(1.15);
+    transform-origin: bottom center;
+  }
+
+  .hero-text .iam {
+    font-size: 48px;
+    transform: rotate(180deg) translateY(55px); /* MYA ADDED: I am tiefer, weil es nach oben verrutscht war */
+  }
+}
+
 /* MYA ADDED: 600x1024 Tablet Portrait */
 @media (min-width: 580px) and (max-width: 620px) and (min-height: 990px) and (max-height: 1050px) {
   .hero-wave {
