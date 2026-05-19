@@ -1925,6 +1925,52 @@
   }
 }
 
+/* MYA ADDED: 350x640 kleines Mobile */
+@media (min-width: 340px) and (max-width: 360px) and (min-height: 620px) and (max-height: 660px) {
+  .hero-wave {
+    bottom: -120px; /* MYA ADDED: Wave tiefer, weil sie bei 350x640 zu hoch war */
+  }
+
+  .hero-photo-wrap {
+    transform: translateY(18px); /* MYA ADDED: Foto etwas tiefer */
+  }
+
+  .hero-text {
+    margin-top: -8px;
+    transform: translateX(12px); /* MYA ADDED: Textposition stabil halten */
+  }
+
+  .hero-text .iam {
+    font-size: 38px;
+    transform: rotate(180deg) translateY(58px) translateX(-8px); /* MYA ADDED: I am etwas höher */
+  }
+
+  .name {
+    font-size: 28px;
+    transform: translateX(8px);
+  }
+
+  .role {
+    font-size: 15px;
+    transform: translateX(8px);
+  }
+
+  .hero-sub {
+    font-size: 12px;
+    transform: translateX(-42px);
+  }
+
+  .hero-cta {
+    transform: translateX(-50px) translateY(-10px);
+  }
+
+  .hero-contact {
+    margin-top: -4px;
+    transform: translateX(-16px) translateY(-14px);
+  }
+}
+
+
 /* MYA ADDED: 991x1280 Tablet Portrait */
 @media (min-width: 970px) and (max-width: 999px) and (min-height: 1240px) and (max-height: 1310px) {
   .hero .container.hero-grid {
