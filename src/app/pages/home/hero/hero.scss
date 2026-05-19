@@ -609,6 +609,39 @@
   }
 }
 
+
+/* MYA ADDED: 375x667 iPhone SE / kleine Höhe */
+@media (min-width: 371px) and (max-width: 390px) and (min-height: 650px) and (max-height: 680px) {
+  .hero-text {
+    margin-top: -5px; /* MYA ADDED: Textblock etwas tiefer als im allgemeinen kleinen Block */
+  }
+
+  .hero-text .iam {
+    transform: rotate(180deg) translateY(70px) translateX(-20px); /* MYA ADDED: I am etwas tiefer */
+    font-size: 35px;
+  }
+
+  .name {
+    transform: translateY(-10px) translateX(25px); /* MYA ADDED: Name tiefer */
+  }
+
+  .role {
+    transform: translateY(-8px) translateX(25px); /* MYA ADDED: Rolle tiefer */
+  }
+
+  .hero-sub {
+    transform: translateY(-12px) translateX(-40px); /* MYA ADDED: Sub tiefer */
+  }
+
+  .hero-cta {
+    transform: translateY(-15px) translateX(-65px); /* MYA ADDED: Button passend mitziehen */
+  }
+
+  .hero-contact {
+    transform: translateY(-18px) translateX(-20px); /* MYA ADDED: Contact passend mitziehen */
+  }
+}
+
 /* MYA ADDED: 540x720 Mobile */
 @media (min-width: 520px) and (max-width: 560px) and (min-height: 700px) and (max-height: 740px) {
   .hero-text .iam {
@@ -1780,6 +1813,55 @@
     justify-content: center;
     gap: 16px;
     margin-top: 14px;
+  }
+}
+
+/* MYA ADDED: 320x568 kleines Mobile */
+@media (min-width: 300px) and (max-width: 330px) and (min-height: 555px) and (max-height: 585px) {
+  .hero-photo-wrap {
+    width: min(250px, 78vw);
+    transform: translateY(30px); /* MYA ADDED: Foto weiter nach unten */
+  }
+
+  .hero-text {
+    margin-top: -4px;
+    transform: translateX(50px); /* MYA ADDED: Textblock weiter nach links */
+  }
+
+  .hero-text .iam {
+    font-size: 30px;
+    transform: rotate(180deg) translateY(50px) translateX(20px); /* MYA ADDED: I am weiter links */
+  }
+
+  .name {
+    font-size: 25px;
+    text-align: center;
+    transform: translateX(-25px) translateY(20px); /* MYA ADDED: Name weiter links */
+  }
+
+  .role {
+    font-size: 14px;
+    text-align: center;
+    transform: translateX(-20px) translateY(10px); /* MYA ADDED: Rolle weiter links */
+  }
+
+  .hero-sub {
+    display: block;
+    font-size: 12px;
+    transform: translateX(-75px); /* MYA ADDED: Sub weiter links */
+  }
+
+  .hero-cta {
+    transform: translateX(-80px) translateY(-20px);
+  }
+
+  .hero-contact {
+    margin-top: -8px;
+    transform: translateX(-10px) translateY(-20px);
+  }
+
+  .hero-wave {
+    bottom: -145px;
   }
 }
 
