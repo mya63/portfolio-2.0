@@ -3165,6 +3165,21 @@
   }
 }
 
+/* MYA ADDED: 3701–4300px Breite bei ca. 1440px Höhe */
+@media (min-width: 3701px) and (max-width: 4300px) and (min-height: 1350px) and (max-height: 1500px) {
+  .hero-wave {
+    bottom: clamp(-1450px, -31.5vw, -1000px); /* MYA CHANGED: Wave höher bei 4000x1440 */
+  }
+
+  .hero-contact {
+    margin-top: -360px;
+  }
+
+  .scrolldown {
+    bottom: 170px;
+  }
+}
+
 /* MYA ADDED: Desktop hohe Ansicht 1200px bis 1500px */
 @media (min-width: 1200px) and (max-width: 2200px) and (min-height: 1200px) and (max-height: 1500px) {
   .hero {
