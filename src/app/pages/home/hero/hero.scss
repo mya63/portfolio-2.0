@@ -2,18 +2,39 @@
   --header-height: 96px;
   --purple: #9747ff;
   --green: #70e61c;
+  --bg: #141d2f;
 }
 
-/* MYA CHANGED: stabilerer Hero */
+/* Basis */
 .hero {
   --wave-bottom: -620px;
+  --wave-width: 1920px;
+  --wave-scale-y: 1;
   position: relative;
-  height: 100dvh; /* MYA CHANGED: Hero nimmt komplette Bildschirmhöhe */
-  min-height: 100dvh; /* MYA CHANGED */
-  padding: 0; /* MYA CHANGED */
+  height: 100dvh;
+  min-height: 100dvh;
+  padding: 0;
   overflow: hidden;
-  background: #141d2f;
+  background: var(--bg);
 }
+
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: var(--hero-fade-height, 180px);
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 29, 47, 0) 0%,
+    rgba(20, 29, 47, 0.45) 45%,
+    #141d2f 100%
+  );
+  pointer-events: none;
+  z-index: 3;
+}
+
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -23,10 +44,6 @@
 .hero .container.hero-grid {
   position: relative;
   z-index: auto;
-  height: 100%; /* MYA CHANGED */
-  min-height: 0; /* MYA CHANGED */
-  padding-top: var(--header-height); /* MYA ADDED: Inhalt unter Header */
-  box-sizing: border-box; /* MYA ADDED */
   display: grid;
   grid-template-columns: minmax(340px, 520px) minmax(360px, 560px);
   grid-template-areas:
@@ -36,6 +53,10 @@
   align-items: center;
   column-gap: clamp(24px, 5vw, 80px);
   row-gap: 16px;
+  height: 100%;
+  min-height: 0;
+  padding-top: var(--header-height);
+  box-sizing: border-box;
 }
 
 .hero-photo-wrap {
@@ -47,10 +68,11 @@
   position: absolute;
   left: 50%;
   bottom: var(--wave-bottom);
-  width: max(100vw, 1920px);
+  width: max(100vw, var(--wave-width));
   max-width: none;
   height: auto;
-  transform: translateX(-50%);
+  transform: translateX(-50%) scaleY(var(--wave-scale-y));
+  transform-origin: bottom center;
   z-index: 2;
   pointer-events: none;
 }
@@ -62,6 +84,7 @@
   z-index: 5;
 }
 
+/* Foto */
 .photo-purple,
 .photo-green {
   position: absolute;
@@ -95,6 +118,7 @@
   object-fit: contain;
 }
 
+/* Text */
 .hero-text {
   grid-area: text;
   display: grid;
@@ -111,15 +135,12 @@
   font-weight: 400;
   font-size: clamp(62px, 6.2vw, 75px);
   line-height: 1;
-  letter-spacing: 0;
-  opacity: 1;
 }
 
 .hero-text .title {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-left: 0;
 }
 
 .name {
@@ -166,10 +187,9 @@
   font-size: 23px;
 }
 
+/* Kontakt */
 .hero-contact {
   grid-area: contact;
-  position: relative;
-  z-index: 5;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -222,7 +242,6 @@
     500 14px/1 'Poppins',
     sans-serif;
   opacity: 0.85;
-  z-index: 5;
 }
 
 .scrolldown .arrow {
@@ -245,41 +264,34 @@
   }
 }
 
-/* Mobile */
+/* Mobile Basis */
 @media (max-width: 900px) {
   .hero {
-    height: 100svh; /* MYA CHANGED */
-    min-height: 100svh; /* MYA CHANGED */
-    padding: 0; /* MYA CHANGED */
+    --wave-bottom: -90px;
+    --wave-width: 900px;
+    height: 100svh;
+    min-height: 100svh;
   }
+
   .hero .container.hero-grid {
-    height: 100%; /* MYA CHANGED */
-    min-height: 0; /* MYA CHANGED */
-    padding: var(--header-height) 16px 0; /* MYA CHANGED */
-    align-content: center;
-    width: 100%;
-    max-width: none;
     grid-template-columns: 1fr;
     grid-template-areas:
       'photo'
       'text'
       'contact';
     justify-items: center;
+    align-content: center;
     row-gap: 20px;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    min-height: 0;
+    padding: var(--header-height) 16px 0;
     box-sizing: border-box;
-    margin-bottom: 0; /* MYA CHANGED */
-  }
-  .hero-photo-wrap {
-    z-index: 1;
-    width: min(420px, 88vw);
   }
 
-  .hero-wave {
-    z-index: 2;
-    bottom: -90px;
-    width: max(100vw, 900px);
-    max-width: none;
-    transform: translateX(-50%);
+  .hero-photo-wrap {
+    width: min(420px, 88vw);
   }
 
   .hero-photo {
@@ -303,37 +315,20 @@
   }
 
   .hero-text {
-    margin-top: 10px;
-    margin-bottom: 0;
-    z-index: 5;
-    max-width: 560px;
-    width: 100%;
-    display: grid;
     grid-template-columns: auto auto;
     justify-content: center;
-    align-items: center;
     column-gap: 10px;
+    max-width: 560px;
     text-align: left;
     transform: translateX(24px);
   }
 
   .hero-text .iam {
-    z-index: 5;
-    writing-mode: vertical-rl;
     transform: rotate(180deg) translateY(70px);
     font-size: clamp(32px, 9vw, 44px);
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: 0;
-  }
-
-  .hero-text .title {
-    z-index: 5;
-    align-items: flex-start;
   }
 
   .name {
-    z-index: 5;
     text-align: left;
     font-size: clamp(30px, 8vw, 46px);
     line-height: 1;
@@ -348,27 +343,23 @@
   .hero-sub {
     width: 100%;
     margin: 0 0 22px;
-    align-self: center;
     text-align: center;
     transform: translateX(-40px);
   }
 
   .hero-cta {
     margin-top: 4px;
-    align-self: center;
     text-align: center;
     transform: translateX(-50px);
   }
 
   .hero-text .btn {
-    z-index: 5;
     height: 52px;
     padding: 12px 24px;
     font-size: 18px;
   }
 
   .hero-contact {
-    z-index: 5;
     flex-direction: column;
     gap: 14px;
     margin-top: 18px;
@@ -376,12 +367,8 @@
     transform: translateX(-12px);
   }
 
-  .hero-mail {
-    display: none;
-  }
-
+  .hero-mail,
   .scrolldown {
-    z-index: 5;
     display: none;
   }
 
@@ -390,23 +377,17 @@
   }
 }
 
-/* Tablet / iPad Mini */
+/* Tablet Portrait */
 @media (min-width: 601px) and (max-width: 900px) {
   .hero {
-    padding-bottom: 140px;
-    min-height: 100svh;
+    --wave-bottom: -40px;
+    --wave-width: 1200px;
   }
 
   .hero .container.hero-grid {
-    min-height: calc(100svh - var(--header-height) - 40px);
-    row-gap: 28px;
     align-content: start;
+    row-gap: 28px;
     padding-top: 28px;
-  }
-
-  .hero-wave {
-    bottom: -40px;
-    width: max(100vw, 1200px);
   }
 
   .hero-photo-wrap {
@@ -456,12 +437,8 @@
   }
 }
 
-/* Small mobile */
+/* Small Mobile */
 @media (max-width: 600px) {
-  .hero {
-    padding: 16px 0 48px;
-  }
-
   .hero .container.hero-grid {
     padding: 0 12px;
     row-gap: 16px;
@@ -519,7 +496,7 @@
   }
 }
 
-/* Extra small */
+/* Sehr kleine Displays */
 @media (max-width: 380px) {
   .hero-photo-wrap {
     width: 86vw;
@@ -534,23 +511,14 @@
   }
 }
 
-/* MYA ADDED: iPhone SE / niedrige kleine Geräte */
+/* Mobile niedrige Höhe */
 @media (max-width: 390px) and (max-height: 700px) {
   .hero {
-    padding-bottom: 110px;
-  }
-
-  .hero-wave {
-    bottom: -90px;
-    transform: translateX(-50%);
+    --wave-bottom: -90px;
   }
 
   .hero-text {
     margin-top: -20px;
-  }
-
-  .hero-contact {
-    margin-top: -6px;
   }
 
   .hero-text .iam {
@@ -559,194 +527,232 @@
   }
 
   .name {
-    font-size: 26px;
-    transform: translateY(-25px) translateX(25px); /* MYA ADDED: I am auf iPhone SE weiter nach unten */
+    transform: translateY(-25px) translateX(25px);
   }
 
   .role {
-    font-size: 15px;
-    transform: translateY(-23px) translateX(25px); /* MYA ADDED: I am auf iPhone SE weiter nach unten */
+    transform: translateY(-23px) translateX(25px);
   }
 
   .hero-sub {
-    transform: translateY(-30px) translateX(-40px); /* MYA ADDED: Sub etwas weiter links */
+    transform: translateY(-30px) translateX(-40px);
   }
 
   .hero-cta {
-    transform: translateY(-30px) translateX(-65px); /* MYA ADDED: Let’s talk etwas weiter links */
+    transform: translateY(-30px) translateX(-65px);
   }
 
   .hero-contact {
-    transform: translateY(-30px) translateX(-20px); /* MYA ADDED: Kontakt etwas weiter links */
+    margin-top: -6px;
+    transform: translateY(-30px) translateX(-20px);
   }
 }
 
-/* MYA ADDED: 344x882 schmaler hoher Mobile-Screen */
-@media (min-width: 330px) and (max-width: 350px) and (min-height: 860px) and (max-height: 900px) {
-  .hero-wave {
-    bottom: 10px; /* MYA ADDED: Wave etwas höher */
+/* Mobile 320px */
+@media (min-width: 300px) and (max-width: 330px) and (min-height: 460px) and (max-height: 585px) {
+  .hero-photo-wrap {
+    width: min(245px, 78vw);
   }
 
   .hero-text {
-    transform: translateX(35px); /* MYA ADDED: Text etwas weiter links */
+    margin-top: -14px;
+    transform: translateX(30px);
   }
 
   .hero-text .iam {
-    font-size: 33px; /* MYA ADDED: I am etwas größer */
-    transform: rotate(180deg) translateY(67px);
-  }
-
-  .hero-sub {
-    transform: translateX(-50px); /* MYA ADDED: Sub wieder zentrierter */
-  }
-
-  .hero-cta {
-    transform: translateX(-55px); /* MYA ADDED */
-  }
-
-  .hero-contact {
-    transform: translateX(-5px); /* MYA ADDED: Kontakt etwas weiter links */
-  }
-}
-
-
-/* MYA ADDED: 375x667 iPhone SE / kleine Höhe */
-@media (min-width: 371px) and (max-width: 390px) and (min-height: 650px) and (max-height: 680px) {
-  .hero-text {
-    margin-top: -5px; /* MYA ADDED: Textblock etwas tiefer als im allgemeinen kleinen Block */
-  }
-
-  .hero-text .iam {
-    transform: rotate(180deg) translateY(70px) translateX(-20px); /* MYA ADDED: I am etwas tiefer */
-    font-size: 35px;
+    font-size: 30px;
+    transform: rotate(180deg) translateY(38px) translateX(25px);
   }
 
   .name {
-    transform: translateY(-10px) translateX(25px); /* MYA ADDED: Name tiefer */
+    font-size: 24px;
+    text-align: center;
+    transform: translateX(-35px);
   }
 
   .role {
-    transform: translateY(-8px) translateX(25px); /* MYA ADDED: Rolle tiefer */
+    font-size: 14px;
+    text-align: center;
+    transform: translateX(-35px);
   }
 
   .hero-sub {
-    transform: translateY(-12px) translateX(-40px); /* MYA ADDED: Sub tiefer */
+    display: none;
   }
 
   .hero-cta {
-    transform: translateY(-15px) translateX(-65px); /* MYA ADDED: Button passend mitziehen */
+    transform: translateX(-55px) translateY(-10px);
   }
 
   .hero-contact {
-    transform: translateY(-18px) translateX(-20px); /* MYA ADDED: Contact passend mitziehen */
-  }
-}
-
-/* MYA ADDED: 540x720 Mobile */
-@media (min-width: 520px) and (max-width: 560px) and (min-height: 700px) and (max-height: 740px) {
-  .hero-text .iam {
-    transform: rotate(180deg) translateY(58px); /* MYA ADDED: I am etwas tiefer */
-    font-size: 48px;
-  }
-}
-
-/* MYA ADDED: 360x740 */
-@media (min-width: 351px) and (max-width: 370px) and (min-height: 700px) and (max-height: 760px) {
-  .hero {
-    padding-bottom: 110px;
+    margin-top: -14px;
+    transform: translateX(-8px) translateY(-16px);
   }
 
   .hero-wave {
-    bottom: -40px;
+    --wave-bottom: -165px;
+  }
+}
+
+/* Mobile 320x568 Feintuning */
+@media (min-width: 300px) and (max-width: 330px) and (min-height: 540px) and (max-height: 585px) {
+  .hero-photo-wrap {
+    width: min(245px, 78vw);
+    transform: translateY(-30px);
+  }
+
+  .hero-text {
+    transform: translateX(18px) translateY(-30px);
+  }
+
+  .hero-text .iam {
+    font-size: 33px;
+    transform: rotate(180deg) translateY(30px) translateX(25px);
+  }
+
+  .hero-cta {
+    transform: translateX(-15px) translateY(-10px);
+  }
+
+  .hero-text .btn {
+    width: auto;
+    max-width: 180px;
+    height: 40px;
+    padding: 8px 18px;
+    font-size: 15px;
+  }
+
+  .hero-contact {
+    margin-top: -22px;
+    transform: translateX(-8px) translateY(-30px);
+  }
+}
+
+/* Mobile 350-370px */
+@media (min-width: 340px) and (max-width: 370px) and (min-height: 585px) and (max-height: 760px) {
+  .hero {
+    --wave-bottom: -130px;
+  }
+
+  .hero-photo-wrap {
+    transform: translateY(20px);
   }
 
   .hero-text {
     margin-top: -8px;
+    transform: translateX(12px);
+  }
+
+  .hero-text .iam {
+    font-size: 38px;
+    transform: rotate(180deg) translateY(58px) translateX(-8px);
   }
 
   .name {
-    font-size: 31px;
-    transform: translateX(10px);
-  }
-
-  .hero-text .iam {
-    transform: rotate(180deg) translateY(70px) translateX(-10px);
-    font-size: 39px;
+    font-size: 28px;
+    transform: translateX(8px);
   }
 
   .role {
-    font-size: clamp(16px, 5vw, 20px);
-    transform: translateX(10px) translateY(-5px); /* MYA ADDED: I am auf iPhone SE weiter nach unten */
+    font-size: 15px;
+    transform: translateX(8px);
+  }
+
+  .hero-sub {
+    font-size: 12px;
+    transform: translateX(-44px);
+  }
+
+  .hero-cta {
+    transform: translateX(-54px) translateY(-12px);
+  }
+
+  .hero-contact {
+    margin-top: -4px;
+    transform: translateX(-16px) translateY(-18px);
   }
 }
 
-/* MYA ADDED: 375x750 */
-@media (min-width: 371px) and (max-width: 390px) and (min-height: 720px) and (max-height: 780px) {
-  .hero-wave {
-    bottom: -65px;
+/* Mobile 360x740 Feintuning */
+@media (min-width: 350px) and (max-width: 370px) and (min-height: 720px) and (max-height: 760px) {
+  .hero {
+    --wave-bottom: -80px;
+  }
+
+  .hero-photo-wrap {
+    transform: translateY(-10px);
+  }
+
+  .hero-text {
+    transform: translateX(20px) translateY(-25px);
+  }
+
+  .hero-sub {
+    transform: translateX(-44px) translateY(-12px);
+  }
+
+  .hero-cta {
+    transform: translateX(20px) translateY(-12px);
+  }
+  .hero-contact {
+    transform: translateX(-10px) translateY(-18px);
+  }
+}
+
+/* Mobile 375x812 Feintuning */
+@media (min-width: 371px) and (max-width: 384px) and (min-height: 790px) and (max-height: 830px) {
+  .hero {
+    --wave-bottom: -35px;
+  }
+
+  .hero-photo-wrap {
+    transform: translateY(-35px);
+  }
+
+  .hero-text {
+    transform: translateX(40px) translateY(-50px);
   }
 
   .hero-text .iam {
     transform: rotate(180deg) translateY(58px);
-    margin-top: 3px;
-  }
-}
-
-
-/* MYA ADDED: 375x812 iPhone X / iPhone 11 Pro */
-@media (min-width: 371px) and (max-width: 390px) and (min-height: 790px) and (max-height: 825px) {
-  .hero-wave {
-    bottom: -120px; /* MYA ADDED: Wave höher, weil sie bei 375x812 zu tief war */
-    transform: translateX(-50%) scaleY(1.15);
-    transform-origin: bottom center;
   }
 
-  .hero-text {
-    margin-top: -18px; /* MYA ADDED: Text leicht höher passend zur Wave */
+  .hero-sub {
+    transform: translateX(-70px);
   }
 
-  .hero-text .iam {
-    transform: rotate(180deg) translateY(58px);
+  .hero-cta {
+    transform: translateX(15px);
   }
 
   .hero-contact {
-    margin-top: 10px;
+    margin-top: -20px;
   }
 }
 
-/* MYA ADDED: 393x786 Mobile */
-@media (min-width: 391px) and (max-width: 399px) and (min-height: 770px) and (max-height: 800px) {
-  .hero-wave {
-    bottom: -140px; /* MYA ADDED: Wave höher, weil sie bei 393x786 zu tief war */
-    transform: translateX(-50%) scaleY(1.15);
-    transform-origin: bottom center;
+/* Mobile ca. 390-430px */
+@media (min-width: 385px) and (max-width: 435px) and (min-height: 780px) and (max-height: 945px) {
+  .hero {
+    --wave-bottom: -80px;
+    --wave-scale-y: 1.25;
   }
 
-  .hero-text .iam {
-    transform: rotate(180deg) translateY(68px); /* MYA ADDED: I am tiefer, weil es nach oben verrutscht war */
+  .hero .container.hero-grid {
+    row-gap: 24px;
+    align-content: space-evenly;
   }
 
-  .hero-contact {
-    margin-top: -4px; /* MYA ADDED: Contact höher */
-    transform: translateX(-12px) translateY(-12px);
-  }
-}
-
-/* MYA ADDED: 390x844 */
-@media (min-width: 385px) and (max-width: 395px) and (min-height: 830px) and (max-height: 860px) {
-  .hero-wave {
-    bottom: -105px;
-    transform: translateX(-50%) scaleY(1.25);
-    transform-origin: bottom center;
+  .hero-photo-wrap {
+    transform: translateY(-80px);
   }
 
   .hero-text {
-    column-gap: 10px;
+    margin-top: -155px;
   }
 
   .hero-text .iam {
-    font-size: 40px;
-    transform: rotate(180deg) translateY(60px);
+    font-size: 46px;
+    transform: rotate(180deg) translateY(56px);
   }
 
   .name {
@@ -758,18 +764,46 @@
   }
 
   .hero-cta {
-    transform: translateX(-60px);
+    transform: translateX(20px);
   }
 
   .hero-contact {
-    transform: translateX(-10px);
+    margin-top: -50px;
+    transform: translateX(-12px);
   }
 }
 
-/* MYA ADDED: 414x896 / 412x915 Bereich */
-@media (min-width: 400px) and (max-width: 430px) and (min-height: 850px) and (max-height: 930px) {
+/* Mobile 412x915 Feintuning */
+@media (min-width: 400px) and (max-width: 420px) and (min-height: 900px) and (max-height: 930px) {
   .hero {
-    padding-bottom: 80px;
+    --wave-bottom: -55px;
+  }
+
+  .hero-photo-wrap {
+    transform: translateY(-55px);
+  }
+}
+
+/* Mobile 430x932 Feintuning */
+@media (min-width: 421px) and (max-width: 435px) and (min-height: 920px) and (max-height: 945px) {
+  .hero {
+    --wave-bottom: -55px;
+  }
+
+  .hero-photo-wrap {
+    transform: translateY(-55px);
+  }
+
+  .hero-text .iam {
+    font-size: 42px;
+  }
+}
+
+/* Mobile ca. 480px */
+@media (min-width: 460px) and (max-width: 500px) and (min-height: 830px) and (max-height: 920px) {
+  .hero {
+    --wave-bottom: -90px;
+    --wave-scale-y: 1.25;
   }
 
   .hero .container.hero-grid {
@@ -777,717 +811,181 @@
     align-content: space-evenly;
   }
 
-  .hero-wave {
-    bottom: -90px;
-    transform: translateX(-50%) scaleY(1.35);
-    transform-origin: bottom center;
-  }
-
   .hero-text {
-    margin-top: -50px;
+    margin-top: -35px;
+    transform: translateX(24px);
   }
 
   .hero-text .iam {
-    transform: rotate(180deg) translateY(55px);
-    font-size: 48px;
+    font-size: 46px;
+    transform: rotate(180deg) translateY(60px);
+  }
+
+  .name {
+    font-size: 36px;
+  }
+
+  .role {
+    font-size: 21px;
   }
 
   .hero-sub {
-    margin-bottom: 18px;
-    transform: translateX(-32px);
+    transform: translateX(-45px);
   }
 
   .hero-cta {
-    margin-top: 4px;
-    transform: translateX(-38px);
+    transform: translateX(-52px);
   }
 
   .hero-contact {
-    margin-top: 30px;
+    margin-top: 34px;
+    transform: translateX(-12px);
   }
 }
 
-/* MYA ADDED: 412x915 */
-@media (min-width: 405px) and (max-width: 418px) and (min-height: 900px) and (max-height: 925px) {
-  .hero-wave {
-    bottom: -55px;
-    transform: translateX(-50%) scaleY(1.25);
-    transform-origin: bottom center;
+/* Tablet 600-900px bei ca. 900-1080 Höhe */
+@media (min-width: 580px) and (max-width: 900px) and (min-height: 870px) and (max-height: 1120px) {
+  .hero {
+    --wave-bottom: -130px;
+    --wave-width: 1200px;
+    --wave-scale-y: 1.15;
   }
 
-  .hero-cta {
-    transform: translateX(-65px); /* MYA ADDED: Let’s talk etwas weiter links */
-  }
-}
-
-/* MYA ADDED: 430x800 */
-@media (min-width: 425px) and (max-width: 435px) and (min-height: 780px) and (max-height: 820px) {
-  .hero-wave {
-    bottom: -35px;
+  .hero-photo-wrap {
+    transform: translateY(-20px);
   }
 
-  .hero-text .iam {
-    transform: rotate(180deg) translateY(58px);
-    margin-top: -18px;
-  }
-}
-
-/* MYA ADDED: 430x932 */
-@media (min-width: 425px) and (max-width: 435px) and (min-height: 920px) and (max-height: 945px) {
-  .hero .container.hero-grid {
-    row-gap: 30px;
-    align-content: space-evenly;
-  }
-
-  .hero-wave {
-    bottom: -10px;
-    transform: translateX(-50%) scaleY(1.25);
-    transform-origin: bottom center;
+  .hero-text {
+    margin-top: -20px;
+    transform: translateX(10px) translateY(-20px);
   }
 
   .hero-text .iam {
     font-size: 48px;
-    transform: rotate(180deg) translateY(55px);
-  }
-
-  .hero-sub {
-    transform: translateX(-65px);
-  }
-
-  .hero-cta {
-    transform: translateX(-68px);
-  }
-
-  .hero-contact {
-    margin-top: 68px;
-    transform: translateX(-15px) translateY(-30px);
-  }
-}
-
-/* MYA ADDED: 768x900 */
-@media (min-width: 760px) and (max-width: 780px) and (min-height: 880px) and (max-height: 930px) {
-  .hero .container.hero-grid {
-    padding-top: 0;
-    row-gap: 18px;
-  }
-
-  .hero-photo {
-    margin-bottom: -58px;
-  }
-
-  .hero-wave {
-    bottom: -120px;
-  }
-
-  .hero-text {
-    margin-top: 6px;
-    transform: translateX(-20px);
-  }
-
-  .hero-text .iam {
-    transform: rotate(180deg) translateY(70px);
-  }
-
-  .hero-sub,
-  .hero-cta,
-  .hero-contact {
-    transform: translateX(-40px);
-    margin-top: -3px;
-  }
-
-  .hero-contact {
-    margin-top: 8px;
-  }
-}
-
-/* MYA ADDED: 768x1024 */
-@media (min-width: 760px) and (max-width: 780px) and (min-height: 1000px) and (max-height: 1050px) {
-  .hero .container.hero-grid {
-    padding-top: 8px;
-    row-gap: 22px;
-  }
-
-  .hero-wave {
-    bottom: -90px;
-  }
-
-  .hero-photo {
-    margin-bottom: -46px;
-  }
-
-  .hero-text {
-    margin-top: 24px;
-  }
-
-  .hero-sub {
-    transform: translateX(-40px);
-    margin-top: -3px;
-  }
-
-  .hero-cta {
-    transform: translateX(-70px);
-    margin-top: -3px;
-  }
-
-  .hero-contact {
-    margin-top: 12px;
-  }
-
-  .hero-text .iam {
-    transform: rotate(180deg) translateY(55px);
-    font-size: 68px;
-  }
-}
-
-/* MYA ADDED: 820x1180 iPad Air */
-@media (min-width: 810px) and (max-width: 830px) and (min-height: 1160px) and (max-height: 1200px) {
-  .hero .container.hero-grid {
-    row-gap: 36px;
-  }
-
-  .hero-wave {
-    bottom: -85px;
-    transform: translateX(-50%) scaleY(1.15);
-    transform-origin: bottom center;
-  }
-
-  .hero-text {
-    transform: translateX(-35px) translateY(25px);
-    margin-top: 20px;
-  }
-
-  .hero-text .iam {
-    transform: rotate(180deg) translateY(65px);
-    font-size: 66px;
-  }
-
-  .name {
-    font-size: clamp(46px, 6.8vw, 62px);
-    line-height: 0.95;
-  }
-
-  .hero-sub {
-    transform: translateX(-38px);
-    margin-bottom: 18px;
-  }
-
-  .hero-cta {
-    transform: translateX(-45px);
-    margin-top: 6px;
-  }
-
-  .hero-text .btn {
-    height: 58px;
-    padding: 14px 34px;
-    font-size: 20px;
-  }
-
-  .hero-contact {
-    transform: translateX(-45px);
-    margin-top: 54px;
-  }
-
-  .hero-socials .ico img {
-    width: 32px;
-    height: 32px;
-  }
-}
-
-/* MYA ADDED: 853x1280 Tablet Portrait */
-@media (min-width: 840px) and (max-width: 870px) and (min-height: 1260px) and (max-height: 1300px) {
-  .hero-photo-wrap {
-    transform: translateY(85px); /* MYA ADDED: Foto etwas tiefer */
-  }
-
-  .hero-wave {
-    bottom: 10px; /* MYA ADDED: Wave etwas höher */
-  }
-
-  .hero-contact {
-    transform: translateX(-25px) translateY(120px); /* MYA CHANGED: weniger links als vorher */
-  }
-
-  .name {
-    transform: translateX(-45px) translateY(80px);
-  }
-
-  .role {
-    transform: translateX(-30px) translateY(80px);
-  }
-
-  .hero-sub {
-    transform: translateX(-75px) translateY(100px); /* MYA CHANGED: weniger links */
-  }
-
-  .hero-cta {
-    transform: translateX(-75px) translateY(120px);
-  }
-
-  .hero-text .iam {
-    font-size: 70px; /* MYA ADDED: I am größer */
-    transform: rotate(180deg) translateY(-20px) translateX(45px); /* MYA CHANGED: I am höher */
-  }
-}
-
-/* MYA ADDED: 1024x600 kleiner Desktop / Landscape Tablet */
-@media (min-width: 1000px) and (max-width: 1060px) and (min-height: 580px) and (max-height: 630px) {
-  .hero-wave {
-    bottom: -760px; /* MYA ADDED: Wave tiefer */
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 180px;
-    background: linear-gradient(
-      to bottom,
-      rgba(20, 29, 47, 0) 0%,
-      rgba(20, 29, 47, 0.45) 45%,
-      #141d2f 100%
-    );
-    pointer-events: none;
-    z-index: 3;
-  }
-
-  .hero-contact {
-    margin-top: -180px; /* MYA ADDED: Contact höher */
-  }
-
-  .scrolldown {
-    bottom: 115px; /* MYA ADDED: Scroll down höher */
-  }
-
-  .hero-text .iam {
-    font-size: 55px; /* MYA ADDED: I am kleiner */
-    transform: rotate(180deg) translateY(55px); /* MYA ADDED: I am etwas runter */
-  }
-
-  .name {
-    font-size: 48px; /* MYA ADDED: Name stabiler bei niedriger Höhe */
-  }
-
-  .role {
-    font-size: 22px;
-  }
-}
-
-/* MYA ADDED: 1280x800 kleiner Desktop */
-@media (min-width: 1240px) and (max-width: 1320px) and (min-height: 760px) and (max-height: 830px) {
-  .hero-wave {
-    bottom: -760px; /* MYA ADDED: Wave tiefer */
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 180px;
-    background: linear-gradient(
-      to bottom,
-      rgba(20, 29, 47, 0) 0%,
-      rgba(20, 29, 47, 0.45) 45%,
-      #141d2f 100%
-    );
-    pointer-events: none;
-    z-index: 3;
-  }
-
-  .hero-contact {
-    margin-top: -180px; /* MYA ADDED: Contact höher */
-  }
-
-  .scrolldown {
-    bottom: 115px; /* MYA ADDED: Scroll down höher */
-  }
-
-  .hero-text .iam {
-    font-size: 55px; /* MYA ADDED: I am kleiner */
-    transform: rotate(180deg) translateY(55px); /* MYA ADDED: I am etwas runter */
-  }
-
-  .name {
-    font-size: 48px; /* MYA ADDED: Name stabiler bei niedriger Höhe */
-  }
-
-  .role {
-    font-size: 22px;
-  }
-}
-
-/* MYA ADDED: Desktop niedrige Höhe */
-@media (min-width: 1440px) and (min-height: 850px) and (max-height: 1150px) {
-  .hero {
-    margin-bottom: 20px;
-  }
-
-  .hero-wave {
-    bottom: clamp(-2000px, -30vw, -520px);
-  }
-
-  .hero-contact {
-    margin-top: -300px;
-  }
-
-  .scrolldown {
-    bottom: 150px;
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 180px;
-    background: linear-gradient(
-      to bottom,
-      rgba(20, 29, 47, 0) 0%,
-      rgba(20, 29, 47, 0.45) 45%,
-      #141d2f 100%
-    );
-    pointer-events: none;
-    z-index: 3;
-  }
-}
-
-/* MYA ADDED: Full-HD 1920x1080 Foto etwas tiefer/kleiner */
-@media (min-width: 1800px) and (max-width: 2100px) and (min-height: 1000px) and (max-height: 1150px) {
-  .hero-photo-wrap {
-    width: 500px; /* MYA ADDED */
-    transform: translateY(35px); /* MYA ADDED: Bild tiefer */
-  }
-
-  .hero-photo {
-    max-height: 760px; /* MYA ADDED: Bild nicht zu hoch */
-  }
-
-  .photo-purple {
-    transform: translateY(20px); /* MYA ADDED: Schatten bleibt am Foto */
-  }
-
-  .photo-green {
-    transform: translate(20px, 25px); /* MYA ADDED */
-  }
-}
-
-/* MYA ADDED: Ultra-wide mit niedriger/mittlerer Höhe */
-/* MYA ADDED: Ultra-wide niedrige Höhe */
-@media (min-width: 3800px) and (max-width: 4300px) and (min-height: 850px) and (max-height: 1150px) {
-  .hero-wave {
-    bottom: clamp(-1650px, -40vw, -1350px);
-  }
-}
-
-/* MYA ADDED: Ultra-wide mittlere Höhe */
-@media (min-width: 3800px) and (max-width: 4300px) and (min-height: 1151px) and (max-height: 1500px) {
-  .hero::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -1px;
-    width: 100%;
-    height: 420px; /* MYA CHANGED: stärkerer Übergang */
-    background: linear-gradient(
-      to bottom,
-      rgba(20, 29, 47, 0) 0%,
-      rgba(20, 29, 47, 0.35) 35%,
-      rgba(20, 29, 47, 0.75) 70%,
-      #141d2f 100%
-    );
-    pointer-events: none;
-    z-index: 3;
-  }
-
-  .hero-wave {
-    bottom: clamp(-1850px, -41vw, -1480px);
-  }
-}
-
-/* MYA ADDED: Ultra-wide QHD 3440x1440 */
-@media (min-width: 3300px) and (max-width: 3700px) and (min-height: 1350px) and (max-height: 1500px) {
-  .hero-wave {
-    bottom: clamp(-1450px, -38vw, -1180px); /* MYA CHANGED: Wave tiefer bei 3440x1440 */
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -1px;
-    width: 100%;
-    height: 360px;
-    background: linear-gradient(
-      to bottom,
-      rgba(20, 29, 47, 0) 0%,
-      rgba(20, 29, 47, 0.35) 35%,
-      rgba(20, 29, 47, 0.75) 70%,
-      #141d2f 100%
-    );
-    pointer-events: none;
-    z-index: 3;
-  }
-}
-
-/* MYA ADDED: Extrem breit mit niedriger Höhe */
-@media (min-width: 4800px) and (max-width: 5300px) and (min-height: 950px) and (max-height: 1150px) {
-  .hero-wave {
-    bottom: clamp(-2100px, -44vw, -1900px); /* MYA CHANGED: Wave deutlich tiefer bei 5048x1080 */
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -1px;
-    width: 100%;
-    height: 300px;
-    background: linear-gradient(
-      to bottom,
-      rgba(20, 29, 47, 0) 0%,
-      rgba(20, 29, 47, 0.35) 35%,
-      rgba(20, 29, 47, 0.75) 70%,
-      #141d2f 100%
-    );
-    pointer-events: none;
-    z-index: 3;
-  }
-}
-/* MYA ADDED: QHD / hohe Desktop-Höhen */
-@media (min-width: 2200px) and (max-width: 2999px) and (min-height: 1151px) and (max-height: 1599px) {
-  .hero {
-    margin-bottom: 20px;
-  }
-
-  .hero-wave {
-    bottom: clamp(-700px, -26vw, -520px);
-  }
-
-  .hero-contact {
-    margin-top: -300px;
-  }
-
-  .hero-socials {
-    gap: 34px;
-  }
-
-  .hero-socials .ico {
-    width: 50px;
-    height: 50px;
-  }
-
-  .hero-socials .ico img {
-    width: 34px;
-    height: 34px;
-  }
-
-  .hero-mail {
-    font-size: 16px;
-  }
-
-  .scrolldown {
-    right: 34px;
-    bottom: 150px;
-    font-size: 16px;
-    gap: 10px;
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 260px;
-    background: linear-gradient(
-      to bottom,
-      rgba(20, 29, 47, 0) 0%,
-      rgba(20, 29, 47, 0.45) 45%,
-      rgba(20, 29, 47, 0.85) 78%,
-      #141d2f 100%
-    );
-    pointer-events: none;
-    z-index: 3;
-  }
-
-  .hero-photo-wrap {
-    width: 560px; /* MYA ADDED: QHD Foto kontrolliert */
-    transform: translateY(70px); /* MYA ADDED: Foto tiefer */
-  }
-
-  .hero-photo {
-    max-height: 900px; /* MYA ADDED: verhindert zu hohes Foto */
-  }
-
-  .photo-purple {
-    transform: translateY(35px); /* MYA ADDED */
-  }
-
-  .photo-green {
-    transform: translate(30px, 45px); /* MYA ADDED */
-  }
-}
-
-/* MYA CHANGED: 2001–2199px bei ca. 1440px Höhe */
-@media (min-width: 2001px) and (max-width: 2199px) and (min-height: 1350px) and (max-height: 1500px) {
-  .hero-wave {
-    bottom: clamp(-380px, -16vw, -300px);
-  }
-}
-
-/* MYA CHANGED: 2200–2499px bei ca. 1440px Höhe */
-@media (min-width: 2200px) and (max-width: 2499px) and (min-height: 1350px) and (max-height: 1500px) {
-  .hero-wave {
-    bottom: clamp(-650px, -24vw, -480px);
-  }
-}
-
-/* MYA CHANGED: 2500–3000px Breite bei ca. 1440px Höhe */
-@media (min-width: 2500px) and (max-width: 3000px) and (min-height: 1350px) and (max-height: 1500px) {
-  .hero-wave {
-    bottom: clamp(-930px, -27vw, -620px); /* MYA CHANGED: 3000 bleibt gut */
-  }
-
-  .hero-contact {
-    margin-top: -360px;
-  }
-
-  .scrolldown {
-    bottom: 170px;
-  }
-}
-
-
-/* MYA ADDED: 1440x900 Feinjustierung */
-@media (min-width: 1400px) and (max-width: 1500px) and (min-height: 850px) and (max-height: 950px) {
-  .hero-wave {
-    bottom: -620px; /* MYA CHANGED: Wave bei 1440x900 etwas tiefer */
-  }
-}
-
-/* MYA CHANGED: 1501–1999px Breite bei ca. 900px Höhe */
-@media (min-width: 1501px) and (max-width: 1999px) and (min-height: 870px) and (max-height: 930px) {
-  .hero-wave {
-    bottom: -680px;
-  }
-
-  .hero-contact {
-    margin-top: -260px;
-  }
-
-  .scrolldown {
-    bottom: 135px;
-  }
-}
-
-/* MYA ADDED: 2000–2179px Breite bei ca. 900px Höhe */
-@media (min-width: 2000px) and (max-width: 2179px) and (min-height: 870px) and (max-height: 930px) {
-  .hero-wave {
-    bottom: -730px; /* MYA ADDED: Wave tiefer bei 2000–2179x900 */
-  }
-
-  .hero-contact {
-    margin-top: -280px;
-  }
-
-  .scrolldown {
-    bottom: 135px;
-  }
-}
-/* MYA ADDED: 2190x900 Feinjustierung */
-@media (min-width: 2180px) and (max-width: 2199px) and (min-height: 870px) and (max-height: 930px) {
-  .hero-wave {
-    bottom: -760px; /* MYA ADDED: Wave tiefer bei 2190x900 */
-  }
-
-  .hero-contact {
-    margin-top: -280px;
-  }
-
-  .scrolldown {
-    bottom: 135px;
-  }
-}
-
-/* MYA CHANGED: 2200–2700px Breite bei ca. 900px Höhe */
-@media (min-width: 2200px) and (max-width: 2700px) and (min-height: 870px) and (max-height: 930px) {
-  .hero-wave {
-    bottom: clamp(-1100px, -38vw, -700px);
-  }
-
-  .hero-contact {
-    margin-top: -300px;
-  }
-
-  .scrolldown {
-    bottom: 135px;
-  }
-}
-
-/* MYA ADDED: 2701–3799px Breite bei ca. 900px Höhe */
-@media (min-width: 2701px) and (max-width: 3799px) and (min-height: 870px) and (max-height: 930px) {
-  .hero-wave {
-    bottom: clamp(-1450px, -40vw, -900px); /* MYA CHANGED: ab 2701 deutlich tiefer */
-  }
-
-  .hero-contact {
-    margin-top: -300px;
-  }
-
-  .scrolldown {
-    bottom: 135px;
-  }
-}
-
-/* MYA ADDED: 4117px+ Breite bei ca. 900px Höhe */
-@media (min-width: 4117px) and (min-height: 870px) and (max-height: 930px) {
-  .hero-wave {
-    bottom: clamp(-2600px, -44vw, -1750px); /* MYA ADDED: Wave tiefer für extreme Breite bei 900 Höhe */
-  }
-
-  .hero-contact {
-    margin-top: -320px;
-  }
-
-  .scrolldown {
-    bottom: 135px;
-  }
-}
-
-
-
-/* MYA ADDED: 1024–1439px Breite bei ca. 900px Höhe */
-@media (min-width: 1024px) and (max-width: 1439px) and (min-height: 870px) and (max-height: 930px) {
-  .hero-contact {
-    margin-top: -220px; /* MYA ADDED: Contact höher */
-  }
-
-  .hero-text .iam {
-    font-size: 55px; /* MYA ADDED: I am dünner/kleiner */
     transform: rotate(180deg) translateY(56px);
   }
 
   .name {
-    font-size: 50px;
+    font-size: 42px;
   }
 
   .role {
-    font-size: 23px;
+    font-size: 22px;
+  }
+
+  .hero-sub {
+    transform: translateX(-50px);
+  }
+
+  .hero-cta {
+    transform: translateX(-55px);
+  }
+
+  .hero-contact {
+    margin-top: 0;
+    transform: translateX(-14px) translateY(-24px);
   }
 }
 
-/* MYA ADDED: 901–1023px Breite bei ca. 900px Höhe */
-@media (min-width: 901px) and (max-width: 1023px) and (min-height: 870px) and (max-height: 930px) {
-  .hero-contact {
-    margin-top: -160px; /* MYA ADDED: Contact höher */
+/* Tablet Portrait groß */
+@media (min-width: 900px) and (max-width: 1060px) and (min-height: 1240px) and (max-height: 1400px) {
+  .hero {
+    --wave-bottom: -70px;
+    --wave-width: 1300px;
+    --wave-scale-y: 1.15;
+  }
+
+  .hero .container.hero-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'photo'
+      'text'
+      'contact';
+    justify-items: center;
+    align-content: center;
+    row-gap: 24px;
+    padding: var(--header-height) 16px 0;
+  }
+
+  .hero-photo-wrap {
+    width: min(510px, 70vw);
+    transform: translateY(-60px);
+  }
+
+  .hero-text {
+    margin-top: 18px;
+    transform: translateX(75px) translateY(-60px);
+    column-gap: 10px;
   }
 
   .hero-text .iam {
-    font-size: 52px; /* MYA ADDED: I am kleiner */
+    font-size: 63px;
+    transform: rotate(180deg) translateY(58px);
+  }
+
+  .name {
+    font-size: 55px;
+  }
+
+  .role {
+    font-size: 28px;
+  }
+
+  .hero-sub {
+    transform: translateX(-32px);
+    margin-bottom: 16px;
+  }
+
+  .hero-cta {
+    transform: translateX(50px);
+  }
+
+  .hero-contact {
+    margin-top: 20px;
+    transform: translateX(-14px);
+  }
+
+  .scrolldown {
+    bottom: 180px;
+  }
+}
+
+/* Kleine Desktop-Höhen */
+@media (min-width: 970px) and (max-width: 1390px) and (min-height: 540px) and (max-height: 830px) {
+  .hero {
+    --wave-bottom: -750px;
+  }
+
+  .hero-contact {
+    margin-top: -200px;
+  }
+
+  .scrolldown {
+    bottom: 125px;
+  }
+
+  .hero-text .iam {
+    font-size: 55px;
+    transform: rotate(180deg) translateY(55px);
+  }
+
+  .name {
+    font-size: 48px;
+  }
+
+  .role {
+    font-size: 22px;
+  }
+}
+
+/* 900px Höhe */
+@media (min-width: 901px) and (max-width: 1439px) and (min-height: 870px) and (max-height: 930px) {
+  .hero-contact {
+    margin-top: -200px;
+  }
+
+  .hero-text .iam {
+    font-size: 52px;
     transform: rotate(180deg) translateY(55px);
   }
 
@@ -1500,85 +998,305 @@
   }
 }
 
-/* MYA ADDED: 901–1000px Breite bei ca. 900px Höhe */
-@media (min-width: 901px) and (max-width: 1008px) and (min-height: 870px) and (max-height: 930px) {
-  .hero-photo-wrap {
-    transform: translateY(50px); /* MYA ADDED: Bild tiefer, weil es bei 901–1000x900 zu hoch war */
-  }
-
-  .hero-contact {
-    margin-top: -200px; /* MYA ADDED: Contact weiterhin höher halten */
-  }
-
-  .hero-text .iam {
-    font-size: 50px; /* MYA ADDED: I am kleiner/dünner */
-    transform: rotate(180deg) translateY(55px);
-  }
-
-  .name {
-    font-size: 46px;
-  }
-
-  .role {
-    font-size: 21px;
+@media (min-width: 1400px) and (max-width: 1500px) and (min-height: 850px) and (max-height: 950px) {
+  .hero {
+    --wave-bottom: -620px;
   }
 }
 
-/* MYA ADDED: echte 4K Ansicht */
-/* MYA CHANGED: echte 4K Ansicht 3840x2160 */
-@media (min-width: 3000px) and (min-height: 1600px) {
+@media (min-width: 1501px) and (max-width: 1999px) and (min-height: 870px) and (max-height: 930px) {
   .hero {
-    padding: 0; /* MYA CHANGED: 100vh nicht kaputt machen */
-  }
-
-  .hero-photo-wrap {
-    width: 620px; /* MYA ADDED: Foto-Größe bei 4K kontrolliert */
-    transform: translateY(200px); /* MYA ADDED: Bild tiefer */
-  }
-
-  .hero-photo {
-    max-height: 980px; /* MYA ADDED: Bild nicht zu hoch */
+    --wave-bottom: -680px;
   }
 
   .hero-contact {
-    margin-top: -700px;
-  }
-
-  .photo-purple {
-    transform: translateY(45px); /* MYA ADDED: Schatten bleibt am Foto */
-  }
-
-  .photo-green {
-    transform: translate(35px, 55px); /* MYA ADDED */
-  }
-
-  .hero-wave {
-    bottom: clamp(-950px, -44vw, -480px); /* MYA CHANGED: Wave höher als vorher */
+    margin-top: -260px;
   }
 
   .scrolldown {
-    right: 34px;
-    bottom: 150px;
-    font-size: 16px;
-    gap: 10px;
+    bottom: 135px;
+  }
+}
+
+@media (min-width: 2000px) and (max-width: 2199px) and (min-height: 870px) and (max-height: 930px) {
+  .hero {
+    --wave-bottom: -745px;
   }
 
-  .hero::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 320px;
-    background: linear-gradient(
-      to bottom,
-      rgba(20, 29, 47, 0) 0%,
-      rgba(20, 29, 47, 0.35) 35%,
-      rgba(20, 29, 47, 0.75) 70%,
-      #141d2f 100%
-    );
-    pointer-events: none;
-    z-index: 3;
+  .hero-contact {
+    margin-top: -280px;
+  }
+
+  .scrolldown {
+    bottom: 135px;
+  }
+}
+
+@media (min-width: 2200px) and (max-width: 2700px) and (min-height: 870px) and (max-height: 930px) {
+  .hero {
+    --wave-bottom: clamp(-1100px, -38vw, -700px);
+  }
+
+  .hero-contact {
+    margin-top: -300px;
+  }
+
+  .scrolldown {
+    bottom: 135px;
+  }
+}
+
+@media (min-width: 2701px) and (max-width: 3799px) and (min-height: 870px) and (max-height: 930px) {
+  .hero {
+    --wave-bottom: clamp(-1450px, -40vw, -900px);
+  }
+
+  .hero-contact {
+    margin-top: -300px;
+  }
+
+  .scrolldown {
+    bottom: 135px;
+  }
+}
+
+@media (min-width: 3800px) and (min-height: 870px) and (max-height: 930px) {
+  .hero {
+    --wave-bottom: clamp(-2600px, -44vw, -1750px);
+  }
+
+  .hero-contact {
+    margin-top: -320px;
+  }
+
+  .scrolldown {
+    bottom: 135px;
+  }
+}
+
+/* 1080px Höhe */
+@media (min-width: 1024px) and (max-width: 1439px) and (min-height: 1040px) and (max-height: 1120px) {
+  .hero {
+    --wave-bottom: clamp(-700px, -37vw, -420px);
+  }
+
+  .hero-photo-wrap {
+    transform: translateY(-30px);
+  }
+
+  .hero-text {
+    transform: translateX(0) translateY(-10px);
+  }
+
+  .hero-contact {
+    margin-top: -450px;
+  }
+
+  .hero-text .iam {
+    font-size: clamp(40px, 5.5vw, 72px);
+    transform: rotate(180deg) translateY(55px);
+  }
+
+  .scrolldown {
+    bottom: 160px;
+  }
+}
+
+@media (min-width: 1800px) and (max-width: 2100px) and (min-height: 1000px) and (max-height: 1150px) {
+  .hero-photo-wrap {
+    width: 500px;
+    transform: translateY(35px);
+  }
+
+  .hero-photo {
+    max-height: 760px;
+  }
+
+  .photo-purple {
+    transform: translateY(20px);
+  }
+
+  .photo-green {
+    transform: translate(20px, 25px);
+  }
+}
+
+@media (min-width: 2305px) and (max-width: 3000px) and (min-height: 1040px) and (max-height: 1120px) {
+  .hero {
+    --wave-bottom: clamp(-1100px, -33.5vw, -700px);
+  }
+
+  .hero-photo-wrap {
+    transform: translateY(20px);
+  }
+
+  .hero-contact {
+    margin-top: -280px;
+  }
+
+  .scrolldown {
+    bottom: 135px;
+  }
+}
+
+@media (min-width: 3001px) and (max-width: 3799px) and (min-height: 1040px) and (max-height: 1120px) {
+  .hero {
+    --wave-bottom: clamp(-1650px, -36vw, -800px);
+  }
+
+  .hero-contact {
+    margin-top: -280px;
+  }
+
+  .scrolldown {
+    bottom: 135px;
+  }
+}
+
+@media (min-width: 3800px) and (max-width: 4499px) and (min-height: 1040px) and (max-height: 1120px) {
+  .hero {
+    --wave-bottom: clamp(-2200px, -39vw, -900px);
+  }
+
+  .hero-contact {
+    margin-top: -300px;
+  }
+
+  .scrolldown {
+    bottom: 135px;
+  }
+}
+
+@media (min-width: 4500px) and (min-height: 1040px) and (max-height: 1120px) {
+  .hero {
+    --wave-bottom: clamp(-2350px, -40.8vw, -1600px);
+  }
+
+  .hero-contact {
+    margin-top: -300px;
+  }
+
+  .scrolldown {
+    bottom: 135px;
+  }
+}
+
+/* Hohe Desktop-Ansichten */
+@media (min-width: 1200px) and (max-width: 2200px) and (min-height: 1200px) and (max-height: 1500px) {
+  .hero {
+    --wave-bottom: -370px;
+  }
+
+  .hero-photo-wrap {
+    transform: translateY(60px);
+  }
+
+  .hero-contact {
+    margin-top: -430px;
+  }
+
+  .scrolldown {
+    bottom: 170px;
+  }
+}
+
+@media (min-width: 2001px) and (max-width: 2199px) and (min-height: 1350px) and (max-height: 1500px) {
+  .hero {
+    --wave-bottom: clamp(-380px, -16vw, -300px);
+  }
+}
+
+@media (min-width: 2200px) and (max-width: 2499px) and (min-height: 1350px) and (max-height: 1500px) {
+  .hero {
+    --wave-bottom: clamp(-650px, -24vw, -480px);
+  }
+}
+
+@media (min-width: 2500px) and (max-width: 3000px) and (min-height: 1350px) and (max-height: 1500px) {
+  .hero {
+    --wave-bottom: clamp(-930px, -27vw, -620px);
+  }
+
+  .hero-contact {
+    margin-top: -360px;
+  }
+
+  .scrolldown {
+    bottom: 170px;
+  }
+}
+
+@media (min-width: 3300px) and (max-width: 3700px) and (min-height: 1350px) and (max-height: 1500px) {
+  .hero {
+    --wave-bottom: clamp(-1250px, -38vw, -1180px);
+    --hero-fade-height: 360px;
+  }
+
+  .hero-photo-wrap {
+    transform: translateY(220px);
+  }
+
+  .hero-text {
+    transform: translateY(160px);
+  }
+}
+
+@media (min-width: 3701px) and (max-width: 4300px) and (min-height: 1350px) and (max-height: 1500px) {
+  .hero {
+    --wave-bottom: clamp(-1450px, -31.5vw, -1000px);
+  }
+
+  .hero-contact {
+    margin-top: -360px;
+  }
+
+  .scrolldown {
+    bottom: 170px;
+  }
+}
+
+@media (min-width: 4301px) and (max-width: 4650px) and (min-height: 1350px) and (max-height: 1500px) {
+  .hero {
+    --wave-bottom: clamp(-1650px, -34vw, -1450px);
+  }
+
+  .hero-contact {
+    margin-top: -380px;
+  }
+
+  .scrolldown {
+    bottom: 170px;
+  }
+}
+
+@media (min-width: 4651px) and (max-width: 5000px) and (min-height: 1350px) and (max-height: 1500px) {
+  .hero {
+    --wave-bottom: clamp(-1900px, -35vw, -1300px);
+  }
+
+  .hero-contact {
+    margin-top: -400px;
+  }
+
+  .scrolldown {
+    bottom: 170px;
+  }
+}
+
+/* 4K+ */
+@media (min-width: 3000px) and (min-height: 1600px) {
+  .hero {
+    --wave-bottom: clamp(-950px, -44vw, -480px);
+    --hero-fade-height: 320px;
+  }
+
+  .hero-photo-wrap {
+    width: 620px;
+    transform: translateY(200px);
+  }
+
+  .hero-photo {
+    max-height: 980px;
   }
 
   .hero-text {
@@ -1588,12 +1306,16 @@
 
   .hero-text .iam {
     transform: rotate(180deg) translateY(58px);
-    font-size: 70px; /* MYA CHANGED: I am kleiner */
+    font-size: 70px;
   }
 
   .name {
     font-size: clamp(46px, 6.8vw, 62px);
     line-height: 0.95;
+  }
+
+  .role {
+    font-size: 28px;
   }
 
   .hero-sub {
@@ -1611,36 +1333,28 @@
     padding: 14px 34px;
     font-size: 20px;
   }
-}
-/* MYA ADDED: 1920x1080 bei Browser-Zoom 90% */
-@media (min-width: 2000px) and (max-width: 2190px) and (min-height: 1150px) and (max-height: 1250px) {
-  .hero-wave {
-    bottom: -720px;
+
+  .hero-contact {
+    margin-top: -700px;
+  }
+
+  .scrolldown {
+    right: 34px;
+    bottom: 150px;
+    font-size: 16px;
+    gap: 10px;
+  }
+
+  .photo-purple {
+    transform: translateY(45px);
+  }
+
+  .photo-green {
+    transform: translate(35px, 55px);
   }
 }
 
-/* MYA ADDED: 4K bei Browser-Zoom 90% */
-@media (min-width: 4100px) and (max-width: 4400px) and (min-height: 2300px) and (max-height: 2500px) {
-  .hero-wave {
-    bottom: -1660px;
-  }
-}
-
-/* MYA ADDED: 4K bei Browser-Zoom 110% */
-@media (min-width: 3400px) and (max-width: 3600px) and (min-height: 1900px) and (max-height: 2050px) {
-  .hero-wave {
-    bottom: -1280px;
-  }
-}
-
-/* MYA ADDED: 4K bei Browser-Zoom 125% */
-@media (min-width: 3000px) and (max-width: 3200px) and (min-height: 1650px) and (max-height: 1800px) {
-  .hero-wave {
-    bottom: -1080px;
-  }
-}
-
-/* MYA ADDED: Mobile Landscape Schutz */
+/* Mobile Landscape */
 @media (max-width: 950px) and (max-height: 500px) and (orientation: landscape) {
   .hero {
     min-height: auto;
@@ -1661,181 +1375,10 @@
   }
 }
 
-/* MYA ADDED: 1024x1366 iPad Pro Portrait */
-@media (min-width: 1000px) and (max-width: 1060px) and (min-height: 1300px) and (max-height: 1400px) {
-  .hero .container.hero-grid {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      'photo'
-      'text'
-      'contact';
-    justify-items: center;
-    align-content: center;
-    row-gap: 22px;
-    padding: var(--header-height) 16px 0;
-  }
-
-  .hero-photo-wrap {
-    width: min(520px, 70vw);
-    transform: translateY(-80px); /* Foto tiefer */
-  }
-
-  .hero-wave {
-    bottom: -40px; /* Wave höher */
-    width: max(100vw, 1300px);
-    transform: translateX(-50%) scaleY(1.15);
-    transform-origin: bottom center;
-  }
-
-  .hero-text {
-    margin-top: 20px;
-    transform: translateX(80px) translateY(-80px); /* weiter rechts */
-    column-gap: 10px;
-  }
-
-  .hero-text .iam {
-    font-size: 65px; /* kleiner */
-    transform: rotate(180deg) translateY(56px); /* tiefer */
-  }
-
-  .name {
-    font-size: 56px;
-  }
-
-  .role {
-    font-size: 28px;
-  }
-
-  .hero-sub {
-    transform: translateX(-28px); /* weiter links */
-    margin-bottom: 16px;
-  }
-
-  .hero-cta {
-    transform: translateX(60px);
-  }
-
-  .hero-contact {
-    margin-top: 20px;
-    transform: translateX(-16px);
-  }
-
-  .scrolldown {
-    bottom: 170px; /* höher */
-  }
-}
-
-/* MYA ADDED: 912x1368 Tablet Portrait */
-@media (min-width: 900px) and (max-width: 940px) and (min-height: 1340px) and (max-height: 1390px) {
-  .hero .container.hero-grid {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      'photo'
-      'text'
-      'contact';
-    justify-items: center;
-    align-content: center;
-    row-gap: 24px;
-    padding: var(--header-height) 16px 0;
-  }
-
-  .hero-photo-wrap {
-    width: min(500px, 72vw);
-    transform: translateY(-55px); /* MYA ADDED: Foto tiefer */
-  }
-
-  .hero-wave {
-    bottom: -35px; /* MYA ADDED: Wave höher */
-    width: max(100vw, 1250px);
-    transform: translateX(-50%) scaleY(1.15);
-    transform-origin: bottom center;
-  }
-
-  .hero-text {
-    margin-top: 20px;
-    transform: translateX(80px) translateY(-55px);
-    column-gap: 10px;
-  }
-
-  .hero-text .iam {
-    font-size: 65px; /* MYA ADDED: I am kleiner */
-    transform: rotate(180deg) translateY(55px); /* MYA ADDED: I am tiefer */
-  }
-
-  .name {
-    font-size: 54px;
-  }
-
-  .role {
-    font-size: 27px;
-  }
-
-  .hero-sub {
-    transform: translateX(-28px);
-  }
-
-  .hero-cta {
-    transform: translateX(60px); /* MYA ADDED: Button etwas nach rechts */
-  }
-
-  .hero-contact {
-    margin-top: 22px;
-    transform: translateX(-14px);
-  }
-
-  .scrolldown {
-    bottom: 170px; /* MYA ADDED: Scrolldown höher */
-  }
-}
-
-/* MYA ADDED: 991x568 kleiner Desktop / Landscape */
-@media (min-width: 970px) and (max-width: 999px) and (min-height: 540px) and (max-height: 590px) {
-  .hero-wave {
-    bottom: -760px; /* Wave tiefer */
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 180px;
-    background: linear-gradient(
-      to bottom,
-      rgba(20, 29, 47, 0) 0%,
-      rgba(20, 29, 47, 0.45) 45%,
-      #141d2f 100%
-    );
-    pointer-events: none;
-    z-index: 3;
-  }
-
-  .hero-contact {
-    margin-top: -220px; /* Contact höher */
-  }
-
-  .scrolldown {
-    bottom: 110px; /* Scroll down höher */
-  }
-
-  .hero-text .iam {
-    font-size: 52px; /* I am kleiner */
-    transform: rotate(180deg) translateY(55px); /* etwas tiefer */
-  }
-
-  .name {
-    font-size: 45px;
-  }
-
-  .role {
-    font-size: 21px;
-  }
-}
-
-/* MYA ADDED: 768x360 Mobile Landscape */
 @media (min-width: 740px) and (max-width: 790px) and (min-height: 340px) and (max-height: 380px) and (orientation: landscape) {
   .hero {
+    --wave-bottom: -320px;
+    --wave-width: 900px;
     height: 100svh;
     min-height: 100svh;
     padding: 0;
@@ -1844,7 +1387,6 @@
   .hero .container.hero-grid {
     height: 100%;
     padding: 10px 16px 0;
-    align-content: start;
     row-gap: 4px;
   }
 
@@ -1890,1435 +1432,9 @@
     font-size: 15px;
   }
 
-  .hero-wave {
-    bottom: -320px;
-    width: max(100vw, 900px);
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 180px;
-    background: linear-gradient(
-      to bottom,
-      rgba(20, 29, 47, 0) 0%,
-      rgba(20, 29, 47, 0.45) 45%,
-      #141d2f 100%
-    );
-    pointer-events: none;
-    z-index: 3;
-  }
-
   .hero-contact {
     display: flex;
     margin-top: -45px;
     transform: translateX(-200px) translateY(-90px);
-  }
-  .scrolldown {
-    display: none;
-  }
-}
-
-/* MYA ADDED: 480x896 Mobile */
-@media (min-width: 460px) and (max-width: 500px) and (min-height: 870px) and (max-height: 920px) {
-  .hero .container.hero-grid {
-    row-gap: 24px;
-    align-content: space-evenly;
-  }
-
-  .hero-wave {
-    bottom: -75px; /* Wave höher, weil sie vorher zu tief war */
-    transform: translateX(-50%) scaleY(1.25);
-    transform-origin: bottom center;
-  }
-
-  .hero-text {
-    margin-top: -35px;
-    transform: translateX(24px);
-  }
-
-  .hero-text .iam {
-    font-size: 46px;
-    transform: rotate(180deg) translateY(58px); /* I am tiefer */
-  }
-
-  .name {
-    font-size: 36px;
-  }
-
-  .role {
-    font-size: 21px;
-  }
-
-  .hero-sub {
-    transform: translateX(-45px);
-  }
-
-  .hero-cta {
-    transform: translateX(-52px);
-  }
-
-  .hero-contact {
-    margin-top: 34px;
-    transform: translateX(-12px);
-  }
-}
-
-/* MYA ADDED: 480x853 Mobile */
-@media (min-width: 460px) and (max-width: 500px) and (min-height: 830px) and (max-height: 865px) {
-  .hero-wave {
-    bottom: -120px; /* MYA ADDED: Wave höher, weil sie bei 480x853 zu tief war */
-    transform: translateX(-50%) scaleY(1.25);
-    transform-origin: bottom center;
-  }
-
-
-  .hero-text .iam {
-    transform: rotate(180deg) translateY(64px); /* MYA ADDED: I am etwas tiefer */
-  }
-}
-
-/* MYA ADDED: 504x504 sehr niedriger Mobile/Responsive-Test */
-@media (min-width: 490px) and (max-width: 520px) and (min-height: 490px) and (max-height: 520px) {
-  .hero-wave {
-    bottom: -190px; /* MYA ADDED: Wave tiefer, weil sie bei 504x504 zu hoch war */
-    width: max(100vw, 900px);
-  }
-
-  .hero-photo-wrap {
-    width: min(230px, 48vw);
-    transform: translateY(-10px); /* MYA ADDED: Foto tiefer */
-  }
-
-  .hero-text {
-    margin-top: -28px;
-    transform: translateX(30px) translateY(-10px); /* MYA ADDED: Text höher und stabil */
-  }
-
-  .hero-text .iam {
-    font-size: 33px; /* MYA ADDED: I am kleiner */
-    transform: rotate(180deg) translateY(38px) translateX(-10px);
-  }
-
-  .name {
-    font-size: 27px; /* MYA ADDED: Name kleiner */
-    line-height: 0.95;
-  }
-
-  .role {
-    margin: 6px 0 8px;
-    font-size: 15px; /* MYA ADDED: Rolle kleiner */
-  }
-
-  .hero-sub {
-    margin-bottom: 8px;
-    font-size: 12px; /* MYA ADDED: Sub kleiner */
-    transform: translateX(-36px);
-  }
-
-  .hero-cta {
-    margin-top: 0;
-    transform: translateX(-60px);
-  }
-
-  .hero-text .btn {
-    height: 40px;
-    padding: 8px 18px;
-    font-size: 15px;
-  }
-
-  .hero-contact {
-    margin-top: -22px;
-    transform: translateX(-12px) translateY(10px);
-  }
-}
-
-/* MYA ADDED: 320x533 sehr kleines Mobile */
-@media (min-width: 300px) and (max-width: 330px) and (min-height: 510px) and (max-height: 550px) {
-  .hero-wave {
-    bottom: -160px; /* Wave weiter nach unten */
-  }
-
-  .hero-text {
-    margin-top: -18px;
-    transform: translateX(12px); /* Textblock mittiger */
-  }
-
-  .hero-text .iam {
-    font-size: 33px;
-    transform: rotate(180deg) translateY(37px) translateX(20px); /* I am höher */
-  }
-
-  .name {
-    font-size: 25px;
-    text-align: center;
-    transform: translateX(-25px);
-  }
-
-  .hero-photo-wrap {
-    width: min(245px, 78vw); /* MYA ADDED: Foto kleiner */
-  }
-
-  .role {
-    font-size: 14px;
-    text-align: center;
-    transform: translateX(-25px);
-  }
-
-  .hero-sub {
-    display: none;
-  }
-
-  .hero-cta {
-    transform: translateX(-40px);
-  }
-
-  .hero-contact {
-    margin-top: -14px;
-    transform: translateX(-8px) translateY(-16px);
-  }
-
-  .hero-socials {
-    justify-content: center;
-    gap: 16px;
-    margin-top: 14px;
-  }
-}
-
-/* MYA ADDED: 320x568 kleines Mobile */
-@media (min-width: 300px) and (max-width: 330px) and (min-height: 555px) and (max-height: 585px) {
-  .hero-photo-wrap {
-    width: min(250px, 78vw);
-    transform: translateY(30px); /* MYA ADDED: Foto weiter nach unten */
-  }
-
-  .hero-text {
-    margin-top: -4px;
-    transform: translateX(50px); /* MYA ADDED: Textblock weiter nach links */
-  }
-
-  .hero-text .iam {
-    font-size: 30px;
-    transform: rotate(180deg) translateY(50px) translateX(20px); /* MYA ADDED: I am weiter links */
-  }
-
-  .name {
-    font-size: 25px;
-    text-align: center;
-    transform: translateX(-25px) translateY(20px); /* MYA ADDED: Name weiter links */
-  }
-
-  .role {
-    font-size: 14px;
-    text-align: center;
-    transform: translateX(-20px) translateY(10px); /* MYA ADDED: Rolle weiter links */
-  }
-
-  .hero-sub {
-    display: block;
-    font-size: 12px;
-    transform: translateX(-75px); /* MYA ADDED: Sub weiter links */
-  }
-
-  .hero-cta {
-    transform: translateX(-80px) translateY(-20px);
-  }
-
-  .hero-contact {
-    margin-top: -8px;
-    transform: translateX(-10px) translateY(-20px);
-  }
-
-  .hero-wave {
-    bottom: -145px;
-  }
-}
-
-/* MYA ADDED: 320x480 sehr kleines Mobile */
-@media (min-width: 300px) and (max-width: 330px) and (min-height: 460px) and (max-height: 500px) {
-  .hero-wave {
-    bottom: -180px; /* MYA ADDED: Wave tiefer, weil sie bei 320x480 zu hoch war */
-  }
-
-  .hero-photo-wrap {
-    width: min(220px, 74vw); /* MYA ADDED: Foto kompakter für sehr kleine Höhe */
-    transform: translateY(6px);
-  }
-
-  .hero-text {
-    margin-top: -14px;
-    transform: translateX(30px); /* MYA ADDED: Textblock weiter nach links */
-  }
-
-  .hero-text .iam {
-    font-size: 30px;
-    transform: rotate(180deg) translateY(36px) translateX(40px); /* MYA ADDED: I am weiter links */
-  }
-
-  .name {
-    font-size: 23px;
-    text-align: center;
-    transform: translateX(-52px); /* MYA ADDED: Name weiter links */
-  }
-
-  .role {
-    font-size: 13px;
-    text-align: center;
-    transform: translateX(-52px); /* MYA ADDED: Rolle weiter links */
-  }
-
-  .hero-sub {
-    display: none; /* MYA ADDED: Bei 320x480 zu wenig Höhe */
-  }
-
-  .hero-cta {
-    transform: translateX(-60px) translateY(-10px);
-  }
-
-  .hero-contact {
-    margin-top: -18px;
-    transform: translateX(-10px) translateY(-12px);
-  }
-}
-
-/* MYA ADDED: 350x640 kleines Mobile */
-@media (min-width: 340px) and (max-width: 360px) and (min-height: 620px) and (max-height: 660px) {
-  .hero-wave {
-    bottom: -120px; /* MYA ADDED: Wave tiefer, weil sie bei 350x640 zu hoch war */
-  }
-
-  .hero-photo-wrap {
-    transform: translateY(18px); /* MYA ADDED: Foto etwas tiefer */
-  }
-
-  .hero-text {
-    margin-top: -8px;
-    transform: translateX(12px); /* MYA ADDED: Textposition stabil halten */
-  }
-
-  .hero-text .iam {
-    font-size: 38px;
-    transform: rotate(180deg) translateY(58px) translateX(-8px); /* MYA ADDED: I am etwas höher */
-  }
-
-  .name {
-    font-size: 28px;
-    transform: translateX(8px);
-  }
-
-  .role {
-    font-size: 15px;
-    transform: translateX(8px);
-  }
-
-  .hero-sub {
-    font-size: 12px;
-    transform: translateX(-42px);
-  }
-
-  .hero-cta {
-    transform: translateX(-50px) translateY(-10px);
-  }
-
-  .hero-contact {
-    margin-top: -4px;
-    transform: translateX(-16px) translateY(-14px);
-  }
-}
-
-/* MYA ADDED: 360x600 kleines Mobile */
-@media (min-width: 351px) and (max-width: 370px) and (min-height: 585px) and (max-height: 615px) {
-  .hero-photo-wrap {
-    transform: translateY(30px); /* MYA ADDED: Foto tiefer, weil es zu hoch war */
-  }
-
-  .hero-text {
-    margin-top: -6px;
-    transform: translateX(); /* MYA ADDED: Text etwas weiter nach links */
-  }
-
-  .hero-text .iam {
-    font-size: 38px;
-    transform: rotate(180deg) translateY(58px) translateX(-8px); /* MYA ADDED: I am leicht höher */
-  }
-
-  .name {
-    font-size: 29px;
-    transform: translateX(0); /* MYA ADDED: Name weiter links */
-  }
-
-  .hero-wave {
-    bottom: -140px; /* MYA ADDED: Wave höher, weil sie bei 360x600 zu tief war */
-  }
-
-  .role {
-    font-size: 15px;
-    transform: translateX(0); /* MYA ADDED: Rolle weiter links */
-  }
-
-  .hero-sub {
-    font-size: 12px;
-    transform: translateX(-48px); /* MYA ADDED: Sub weiter links */
-  }
-
-  .hero-cta {
-    transform: translateX(-58px) translateY(-25px);
-  }
-
-  .hero-contact {
-    margin-top: -4px;
-    transform: translateX(-16px) translateY(-35px);
-  }
-}
-
-
-/* MYA ADDED: 991x1280 Tablet Portrait */
-@media (min-width: 970px) and (max-width: 999px) and (min-height: 1240px) and (max-height: 1310px) {
-  .hero .container.hero-grid {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      'photo'
-      'text'
-      'contact';
-    justify-items: center;
-    align-content: center;
-    row-gap: 24px;
-    padding: var(--header-height) 16px 0;
-  }
-
-  .hero-photo-wrap {
-    width: min(510px, 70vw);
-    transform: translateY(-60px);
-  }
-
-  .hero-wave {
-    bottom: -90px; /* Wave höher, weil sie vorher zu tief war */
-    width: max(100vw, 1300px);
-    transform: translateX(-50%) scaleY(1.15);
-    transform-origin: bottom center;
-  }
-
-  .hero-text {
-    margin-top: 18px;
-    transform: translateX(75px) translateY(-60px);
-    column-gap: 10px;
-  }
-
-  .hero-text .iam {
-    font-size: 63px;
-    transform: rotate(180deg) translateY(58px); /* I am etwas tiefer */
-  }
-
-  .name {
-    font-size: 55px;
-  }
-
-  .role {
-    font-size: 28px;
-  }
-
-  .hero-sub {
-    transform: translateX(-32px);
-    margin-bottom: 16px;
-  }
-
-  .hero-cta {
-    transform: translateX(50px);
-  }
-
-  .hero-contact {
-    margin-top: 20px;
-    transform: translateX(-14px);
-  }
-
-  .scrolldown {
-    bottom: 185px; /* Scroll down höher */
-  }
-}
-
-/* MYA ADDED: 600x960 Tablet Portrait */
-@media (min-width: 580px) and (max-width: 620px) and (min-height: 940px) and (max-height: 980px) {
-  .hero-wave {
-    bottom: -140px; /* MYA ADDED: Wave höher, weil sie bei 600x960 zu tief war */
-    width: max(100vw, 1100px);
-    transform: translateX(-50%) scaleY(1.15);
-    transform-origin: bottom center;
-  }
-
-  .hero-text .iam {
-    font-size: 48px;
-    transform: rotate(180deg) translateY(55px); /* MYA ADDED: I am tiefer, weil es nach oben verrutscht war */
-  }
-}
-
-/* MYA ADDED: 600x1024 Tablet Portrait */
-@media (min-width: 580px) and (max-width: 620px) and (min-height: 990px) and (max-height: 1050px) {
-  .hero-wave {
-    bottom: -120px; /* Wave höher */
-    width: max(100vw, 1100px);
-    transform: translateX(-50%) scaleY(1.15);
-    transform-origin: bottom center;
-  }
-
-  .hero-text .iam {
-    font-size: 48px;
-    transform: rotate(180deg) translateY(58px); /* I am etwas tiefer */
-  }
-}
-
-/* MYA ADDED: 601–900px Breite bei ca. 900px Höhe */
-@media (min-width: 601px) and (max-width: 900px) and (min-height: 870px) and (max-height: 930px) {
-  .hero-wave {
-    bottom: -270px;
-    width: max(100vw, 1200px);
-    transform: translateX(-50%) scaleY(1.15);
-    transform-origin: bottom center;
-  }
-
-  .hero-photo-wrap {
-    transform: translateY(-20px);
-  }
-
-  .hero-text {
-    margin-top: -20px;
-    transform: translateX(10px) translateY(-25px);
-  }
-
-  .hero-text .iam {
-    font-size: 48px;
-    transform: rotate(180deg) translateY(50px);
-  }
-
-  .name {
-    font-size: 42px;
-  }
-
-  .role {
-    font-size: 22px;
-    margin: 8px 0 12px;
-  }
-
-  .hero-sub {
-    transform: translateX(-50px);
-    margin-bottom: 12px;
-  }
-
-  .hero-cta {
-    transform: translateX(-55px);
-  }
-
-  .hero-contact {
-    margin-top: 0;
-    transform: translateX(-14px) translateY(-30px);
-  }
-}
-
-/* MYA ADDED: 760–780px Breite bei ca. 900px Höhe */
-@media (min-width: 760px) and (max-width: 780px) and (min-height: 870px) and (max-height: 930px) {
-  .hero-text {
-    margin-top: 18px; /* MYA ADDED: Text tiefer, weil er zu weit oben war */
-    transform: translateX(-20px) translateY(-10px);
-  }
-
-  .hero-text .iam {
-    font-size: 50px;
-    transform: rotate(180deg) translateY(50px); /* MYA ADDED: I am tiefer */
-  }
-
-  .name {
-    font-size: 44px;
-  }
-
-  .role {
-    font-size: 22px;
-    margin: 10px 0 16px;
-  }
-
-  .hero-sub {
-    transform: translateX(-45px) translateY(24px); /* MYA ADDED: Sub tiefer */
-    margin-bottom: 14px;
-  }
-
-  .hero-cta {
-    transform: translateX(-50px) translateY(24px); /* MYA ADDED: Button tiefer */
-  }
-
-  .hero-contact {
-    margin-top: 22px;
-    transform: translateX(-16px) translateY(30px); /* MYA ADDED: Contact tiefer */
-  }
-}
-
-/* MYA ADDED: 421–600px Breite bei ca. 900px Höhe */
-@media (min-width: 421px) and (max-width: 600px) and (min-height: 870px) and (max-height: 930px) {
-  .hero-wave {
-    bottom: -80px;
-    width: max(100vw, 1000px);
-    transform: translateX(-50%) scaleY(1.2);
-    transform-origin: bottom center;
-  }
-
-  .hero-photo-wrap {
-    transform: translateY(-40px);
-  }
-
-  .hero-text {
-    margin-top: -28px;
-    transform: translateX(12px) translateY(-20px);
-  }
-
-  .hero-text .iam {
-    font-size: 42px;
-    transform: rotate(180deg) translateY(50px);
-  }
-
-  .name {
-    font-size: 34px;
-  }
-
-  .role {
-    font-size: 20px;
-    margin: 8px 0 12px;
-  }
-
-  .hero-sub {
-    font-size: 13px;
-    transform: translateX(-48px);
-    margin-bottom: 14px;
-  }
-
-  .hero-cta {
-    transform: translateX(-55px);
-  }
-
-  .hero-contact {
-    margin-top: 8px;
-    transform: translateX(-12px) translateY(-25px);
-  }
-}
-
-/* MYA ADDED: 320–420px Breite bei ca. 900px Höhe */
-@media (min-width: 320px) and (max-width: 420px) and (min-height: 870px) and (max-height: 930px) {
-  .hero-wave {
-    bottom: -45px;
-    width: max(100vw, 950px);
-    transform: translateX(-50%) scaleY(1.2);
-    transform-origin: bottom center;
-  }
-
-  .hero-photo-wrap {
-    transform: translateY(-60px);
-  }
-
-  .hero-text {
-    margin-top: -35px;
-    transform: translateX(18px) translateY(-25px);
-  }
-
-  .hero-text .iam {
-    font-size: 38px;
-    transform: rotate(180deg) translateY(58px);
-  }
-
-  .name {
-    font-size: 31px;
-  }
-
-  .role {
-    font-size: 18px;
-    margin: 8px 0 12px;
-  }
-
-  .hero-sub {
-    font-size: 12px;
-    transform: translateX(-52px);
-    margin-bottom: 14px;
-  }
-
-  .hero-cta {
-    transform: translateX(-58px);
-  }
-
-  .hero-contact {
-    margin-top: 0;
-    transform: translateX(-12px) translateY(-28px);
-  }
-}
-
-/* MYA ADDED: 350–420px Breite bei ca. 900px Höhe */
-@media (min-width: 350px) and (max-width: 420px) and (min-height: 870px) and (max-height: 930px) {
-  .hero-wave {
-    bottom: -35px; /* MYA ADDED: Wave kontrollierter für 350–420x900 */
-    width: max(100vw, 950px);
-    transform: translateX(-50%) scaleY(1.18);
-    transform-origin: bottom center;
-  }
-
-  .hero-photo-wrap {
-    transform: translateY(-60px); /* MYA ADDED: Foto stabiler */
-  }
-
-  .hero-text {
-    margin-top: -42px;
-    transform: translateX(14px) translateY(-28px); /* MYA ADDED: Text höher und mittiger */
-  }
-
-  .hero-text .iam {
-    font-size: 37px;
-    transform: rotate(180deg) translateY(50px);
-  }
-
-  .name {
-    font-size: 30px;
-  }
-
-  .role {
-    font-size: 18px;
-    margin: 8px 0 12px;
-  }
-
-  .hero-sub {
-    font-size: 12px;
-    transform: translateX(-52px);
-    margin-bottom: 12px;
-  }
-
-  .hero-cta {
-    transform: translateX(-58px) translateY(10px);
-  }
-
-  .hero-contact {
-    margin-top: -4px;
-    transform: translateX(-20px) translateY(10px);
-  }
-}
-
-/* MYA ADDED: 320–420px Breite bei ca. 1080px Höhe */
-@media (min-width: 320px) and (max-width: 420px) and (min-height: 1040px) and (max-height: 1120px) {
-  .hero-wave {
-    bottom: clamp(10px, -10vw, 10px);
-    width: max(100vw, 950px);
-    transform: translateX(-50%) scaleY(1.18);
-    transform-origin: bottom center;
-  }
-
-  .hero-photo-wrap {
-    transform: translateY(-35px);
-  }
-
-  .hero-text {
-    margin-top: -30px;
-    transform: translateX(16px) translateY(-18px);
-  }
-
-  .hero-text .iam {
-    font-size: 38px;
-    transform: rotate(180deg) translateY(58px);
-  }
-
-  .name {
-    font-size: 31px;
-  }
-
-  .role {
-    font-size: 18px;
-    margin: 8px 0 12px;
-  }
-
-  .hero-sub {
-    font-size: 12px;
-    transform: translateX(-52px);
-    margin-bottom: 14px;
-  }
-
-  .hero-cta {
-    transform: translateX(-58px);
-  }
-
-  .hero-contact {
-    margin-top: 0;
-    transform: translateX(-12px) translateY(-24px);
-  }
-}
-
-/* MYA ADDED: 421–600px Breite bei ca. 1080px Höhe */
-@media (min-width: 421px) and (max-width: 600px) and (min-height: 1040px) and (max-height: 1120px) {
-  .hero-wave {
-    bottom: clamp(-45px, -11vw, -135px);
-    width: max(100vw, 1000px);
-    transform: translateX(-50%) scaleY(1.18);
-    transform-origin: bottom center;
-  }
-
-  .hero-photo-wrap {
-    transform: translateY(-30px);
-  }
-
-  .hero-text {
-    margin-top: -28px;
-    transform: translateX(12px) translateY(-18px);
-  }
-
-  .hero-text .iam {
-    font-size: 42px;
-    transform: rotate(180deg) translateY(58px);
-  }
-
-  .name {
-    font-size: 34px;
-  }
-
-  .role {
-    font-size: 20px;
-    margin: 8px 0 12px;
-  }
-
-  .hero-sub {
-    font-size: 13px;
-    transform: translateX(-48px);
-    margin-bottom: 14px;
-  }
-
-  .hero-cta {
-    transform: translateX(-55px);
-  }
-
-  .hero-contact {
-    margin-top: 0;
-    transform: translateX(-12px) translateY(-24px);
-  }
-}
-
-/* MYA ADDED: 601–900px Breite bei ca. 1080px Höhe */
-@media (min-width: 601px) and (max-width: 900px) and (min-height: 1040px) and (max-height: 1120px) {
-  .hero-wave {
-    bottom: clamp(-260px, -12vw, -80px);
-    width: max(100vw, 1200px);
-    transform: translateX(-50%) scaleY(1.15);
-    transform-origin: bottom center;
-  }
-
-  .hero-photo-wrap {
-    transform: translateY(-20px);
-  }
-
-  .hero-text {
-    margin-top: -20px;
-    transform: translateX(10px) translateY(-16px);
-  }
-
-  .hero-text .iam {
-    font-size: 48px;
-    transform: rotate(180deg) translateY(58px);
-  }
-
-  .name {
-    font-size: 42px;
-  }
-
-  .role {
-    font-size: 22px;
-    margin: 8px 0 12px;
-  }
-
-  .hero-sub {
-    transform: translateX(-50px);
-    margin-bottom: 14px;
-  }
-
-  .hero-cta {
-    transform: translateX(-55px);
-  }
-
-  .hero-contact {
-    margin-top: 0;
-    transform: translateX(-14px) translateY(-24px);
-  }
-}
-
-/* MYA ADDED: 901–1023px Breite bei ca. 1080px Höhe */
-@media (min-width: 901px) and (max-width: 1023px) and (min-height: 1040px) and (max-height: 1120px) {
-  .hero-wave {
-    bottom: clamp(-330px, -18vw, -180px);
-    width: max(100vw, 1400px);
-    transform: translateX(-50%) scaleY(1.12);
-    transform-origin: bottom center;
-  }
-
-  .hero-photo-wrap {
-    transform: translateY(-80px) translateX(200px);
-  }
-
-  .hero-text {
-    margin-top: -10px;
-    transform: translateX(-220px) translateY(120px);
-  }
-
-  .hero-text .iam {
-    font-size: 56px;
-    transform: rotate(180deg) translateY(58px);
-  }
-
-  .name {
-    font-size: 48px;
-  }
-
-  .role {
-    font-size: 24px;
-    margin: 8px 0 14px;
-  }
-
-  .hero-sub {
-    transform: translateX(-46px);
-    margin-bottom: 14px;
-  }
-
-  .hero-cta {
-    transform: translateX(40px);
-  }
-
-  .hero-contact {
-    margin-top: 0;
-    transform: translateX(180px) translateY(-22px);
-  }
-
-  .scrolldown {
-    bottom: 120px; /* Scroll down höher */
-  }
-}
-
-/* MYA ADDED: 1024–1439px Breite bei ca. 1080px Höhe */
-@media (min-width: 1024px) and (max-width: 1439px) and (min-height: 1040px) and (max-height: 1120px) {
-  .hero-wave {
-    bottom: clamp(-700px, -37vw, -420px);
-  }
-
-  .hero-photo-wrap {
-    transform: translateY(-30px);
-  }
-
-  .hero-text {
-    transform: translateX(0) translateY(-10px);
-  }
-
-  .hero-contact {
-    margin-top: -450px;
-  }
-
-  .hero-text .iam {
-    font-size: clamp(40px, 5.5vw, 72px);
-    transform: rotate(180deg) translateY(55px);
-  }
-
-  .scrolldown {
-    bottom: 160px;
-  }
-}
-
-/* MYA ADDED: 2305–3000px Breite bei ca. 1080px Höhe */
-@media (min-width: 2305px) and (max-width: 3000px) and (min-height: 1040px) and (max-height: 1120px) {
-  .hero-wave {
-    bottom: clamp(-1100px, -33.5vw, -700px);
-  }
-
-    .hero-photo-wrap {
-    transform: translateY(20px);
-  }
-
-
-  .hero-contact {
-    margin-top: -280px;
-  }
-
-  .scrolldown {
-    bottom: 135px;
-  }
-}
-
-/* MYA ADDED: 3001–3799px Breite bei ca. 1080px Höhe */
-@media (min-width: 3001px) and (max-width: 3799px) and (min-height: 1040px) and (max-height: 1120px) {
-  .hero-wave {
-    bottom: clamp(-1650px, -36vw, -800px);
-  }
-
-  .hero-contact {
-    margin-top: -280px;
-  }
-
-  .scrolldown {
-    bottom: 135px;
-  }
-}
-
-/* MYA ADDED: 3800–4499px Breite bei ca. 1080px Höhe */
-@media (min-width: 3800px) and (max-width: 4499px) and (min-height: 1040px) and (max-height: 1120px) {
-  .hero-wave {
-    bottom: clamp(-2200px, -39vw, -900px);
-  }
-
-  .hero-contact {
-    margin-top: -300px;
-  }
-
-  .scrolldown {
-    bottom: 135px;
-  }
-}
-
-/* MYA ADDED: 4500px+ Breite bei ca. 1080px Höhe */
-@media (min-width: 4500px) and (min-height: 1040px) and (max-height: 1120px) {
-  .hero-wave {
-    bottom: clamp(-2350px, -40.8vw, -1600px);
-  }
-
-  .hero-contact {
-    margin-top: -300px;
-  }
-
-  .scrolldown {
-    bottom: 135px;
-  }
-}
-
-/* MYA ADDED: 1024x768 kleiner Desktop / Tablet Landscape */
-@media (min-width: 1000px) and (max-width: 1060px) and (min-height: 740px) and (max-height: 790px) {
-  .hero-wave {
-    bottom: -720px; /* Wave etwas tiefer */
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 180px;
-    background: linear-gradient(
-      to bottom,
-      rgba(20, 29, 47, 0) 0%,
-      rgba(20, 29, 47, 0.45) 45%,
-      #141d2f 100%
-    );
-    pointer-events: none;
-    z-index: 3;
-  }
-
-  .hero-contact {
-    margin-top: -170px; /* Contact höher */
-  }
-
-  .scrolldown {
-    bottom: 135px; /* Scroll down höher */
-  }
-
-  .hero-text .iam {
-    font-size: 55px; /* I am kleiner */
-    transform: rotate(180deg) translateY(55px); /* I am tiefer */
-  }
-
-  .name {
-    font-size: 48px;
-  }
-
-  .role {
-    font-size: 22px;
-  }
-}
-
-/* MYA ADDED: 1366x768 kleiner Desktop */
-@media (min-width: 1340px) and (max-width: 1390px) and (min-height: 740px) and (max-height: 790px) {
-  .hero-wave {
-    bottom: -760px; /* Wave tiefer */
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 180px;
-    background: linear-gradient(
-      to bottom,
-      rgba(20, 29, 47, 0) 0%,
-      rgba(20, 29, 47, 0.45) 45%,
-      #141d2f 100%
-    );
-    pointer-events: none;
-    z-index: 3;
-  }
-
-  .hero-contact {
-    margin-top: -190px; /* Contact höher sichtbar machen */
-  }
-
-  .scrolldown {
-    bottom: 135px; /* Scroll down höher */
-  }
-
-  .hero-text .iam {
-    font-size: 57px; /* I am kleiner */
-    transform: rotate(180deg) translateY(54px); /* I am tiefer */
-  }
-
-  .name {
-    font-size: 50px;
-  }
-
-  .role {
-    font-size: 23px;
-  }
-}
-
-/* MYA ADDED: 1920x1200 bei Browser-Zoom 50% / großer Tablet-Viewport */
-@media (min-width: 1880px) and (max-width: 1960px) and (min-height: 1160px) and (max-height: 1240px) {
-  .hero-wave {
-    bottom: -460px; /* Wave etwas tiefer */
-  }
-
-  .hero-contact {
-    margin-top: -340px; /* Contact höher */
-  }
-
-  .scrolldown {
-    bottom: 175px; /* Scroll down höher */
-  }
-
-  .hero-text .iam {
-    font-size: 77px; /* I am etwas kleiner */
-    transform: rotate(180deg) translateY(56px); /* I am etwas tiefer */
-  }
-}
-
-/* MYA ADDED: 5120x2880 Ultra 5K / Zoom 50% */
-@media (min-width: 5000px) and (max-width: 5250px) and (min-height: 2800px) and (max-height: 2950px) {
-  .hero-photo-wrap {
-    transform: translateY(350px); /* Foto höher */
-  }
-
-  .hero-text {
-    transform: translateX(-35px) translateY(300px); /* Name, I am, Role, Sub, CTA höher */
-  }
-
-  .hero-text .iam {
-    font-size: 70px;
-    transform: rotate(180deg) translateY(58px);
-  }
-
-  .name {
-    font-size: clamp(46px, 6.8vw, 62px);
-  }
-
-  .role {
-    font-size: 28px;
-  }
-
-  .hero-sub {
-    transform: translateX(-38px);
-  }
-
-  .hero-cta {
-    transform: translateX(5px);
-  }
-
-  .hero-contact {
-    margin-top: -1350px; /* Contact deutlich höher */
-  }
-
-  .scrolldown {
-    bottom: 1120px; /* Scroll down deutlich höher */
-  }
-
-  .hero-wave {
-    bottom: -1200px; /* Wave bleibt tief genug */
-  }
-}
-
-/* MYA ADDED: 7680x4320 Ultra 8K / Zoom 50% */
-@media (min-width: 7500px) and (max-width: 7900px) and (min-height: 4200px) and (max-height: 4450px) {
-  .hero-photo-wrap {
-    transform: translateY(820px); /* Foto höher als vorher im 8K-Viewport */
-  }
-
-  .hero-text {
-    transform: translateX(-35px) translateY(460px); /* Name, I am, Role, Sub, CTA höher */
-  }
-
-  .hero-text .iam {
-    font-size: 70px;
-    transform: rotate(180deg) translateY(58px);
-  }
-
-  .name {
-    font-size: clamp(46px, 6.8vw, 62px);
-  }
-
-  .role {
-    font-size: 28px;
-  }
-
-  .hero-sub {
-    transform: translateX(-38px);
-  }
-
-  .hero-cta {
-    transform: translateX(5px);
-  }
-
-  .hero-contact {
-    margin-top: -1900px; /* Contact deutlich höher */
-  }
-
-  .scrolldown {
-    bottom: 1800px; /* Scroll down deutlich höher */
-  }
-
-  .hero-wave {
-    bottom: -1850px; /* Wave bleibt tiefer und verdeckt nicht alles */
-  }
-}
-/* MYA ADDED: 1280x720 kleiner Desktop */
-@media (min-width: 1240px) and (max-width: 1320px) and (min-height: 690px) and (max-height: 740px) {
-  .hero-wave {
-    bottom: -750px; /* MYA ADDED: Wave mehr runter */
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 180px;
-    background: linear-gradient(
-      to bottom,
-      rgba(20, 29, 47, 0) 0%,
-      rgba(20, 29, 47, 0.45) 45%,
-      #141d2f 100%
-    );
-    pointer-events: none;
-    z-index: 3;
-  }
-
-  .hero-contact {
-    margin-top: -230px; /* MYA ADDED: Contact höher */
-  }
-
-  .hero-text .iam {
-    font-size: 55px; /* MYA ADDED: I am kleiner */
-    transform: rotate(180deg) translateY(55px); /* MYA ADDED: I am tiefer */
-  }
-
-  .name {
-    font-size: 46px;
-  }
-
-  .role {
-    font-size: 21px;
-  }
-}
-
-/* MYA ADDED: 1536x864 Desktop */
-@media (min-width: 1500px) and (max-width: 1580px) and (min-height: 830px) and (max-height: 890px) {
-  .hero-wave {
-    bottom: -720px; /* MYA ADDED: Wave mehr runter */
-  }
-
-  .hero-contact {
-    margin-top: -230px; /* MYA ADDED: Contact höher */
-  }
-}
-
-/* MYA CHANGED: 3440x1440 Ultra-wide QHD */
-@media (min-width: 3300px) and (max-width: 3700px) and (min-height: 1350px) and (max-height: 1500px) {
-  .hero-wave {
-    bottom: clamp(-1250px, -38vw, -1180px);
-  }
-
-  .hero-photo-wrap {
-    transform: translateY(220px); /* MYA ADDED: Foto mehr nach unten */
-  }
-
-  .hero-text {
-    transform: translateY(160px); /* MYA ADDED: Text mehr nach unten */
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -1px;
-    width: 100%;
-    height: 360px;
-    background: linear-gradient(
-      to bottom,
-      rgba(20, 29, 47, 0) 0%,
-      rgba(20, 29, 47, 0.35) 35%,
-      rgba(20, 29, 47, 0.75) 70%,
-      #141d2f 100%
-    );
-    pointer-events: none;
-    z-index: 3;
-  }
-}
-
-/* MYA ADDED: 3701–4300px Breite bei ca. 1440px Höhe */
-@media (min-width: 3701px) and (max-width: 4300px) and (min-height: 1350px) and (max-height: 1500px) {
-  .hero-wave {
-    bottom: clamp(-1450px, -31.5vw, -1000px); /* MYA CHANGED: Wave höher bei 4000x1440 */
-  }
-
-  .hero-contact {
-    margin-top: -360px;
-  }
-
-  .scrolldown {
-    bottom: 170px;
-  }
-}
-
-/* MYA ADDED: Desktop hohe Ansicht 1200px bis 1500px */
-@media (min-width: 1200px) and (max-width: 2200px) and (min-height: 1200px) and (max-height: 1500px) {
-  .hero {
-    --wave-bottom: -370px;
-  }
-
-  .hero-photo-wrap {
-    transform: translateY(60px);
-  }
-
-  .hero-contact {
-    margin-top: -430px; /* MYA ADDED: Contact höher */
-  }
-
-  .scrolldown {
-    bottom: 170px; /* MYA ADDED: Scroll down höher */
-  }
-}
-
-/* MYA ADDED: 1061–1199px bei hoher Ansicht stabilisieren */
-@media (min-width: 1061px) and (max-width: 1199px) and (min-height: 1300px) and (max-height: 1450px) {
-  .hero {
-    --wave-bottom: -10px;
-  }
-
-  .hero-wave {
-    width: max(100vw, 1300px);
-    transform: translateX(-50%) scaleY(1.15);
-    transform-origin: bottom center;
-  }
-
-  .hero-photo-wrap {
-    transform: translateY(-10px);
-  }
-
-  .hero-text {
-    margin-top: 18px;
-    transform: translateX(-40px) translateY(-140px);
-    column-gap: 10px;
-  }
-
-  .hero-text .iam {
-    font-size: 63px;
-    transform: rotate(180deg) translateY(58px); /* I am etwas tiefer */
-  }
-
-  .name {
-    font-size: 55px;
-  }
-
-  .role {
-    font-size: 28px;
-  }
-
-  .hero-sub {
-    transform: translateX(-32px);
-    margin-bottom: 16px;
-  }
-
-  .hero-cta {
-    transform: translateX(50px);
-  }
-
-  .hero-contact {
-    margin-top: 20px;
-    transform: translateX(-14px) translateY(-460px);
-  }
-
-  .scrolldown {
-    bottom: 500px; /* Scroll down höher */
-  }
-}
-
-/* MYA ADDED: Mobile/Tablet sehr hohe Ansicht bei 1400px stabilisieren */
-@media (min-width: 320px) and (max-width: 999px) and (min-height: 1350px) and (max-height: 1450px) {
-  .hero {
-    --wave-bottom: 80px;
-  }
-
-  .hero-wave {
-    width: max(100vw, 1250px);
-    transform: translateX(-50%) scaleY(1.15);
-    transform-origin: bottom center;
-  }
-
-  .hero-photo-wrap {
-    transform: translateY(-50px);
-  }
-
-  .hero-text {
-    transform: translateX(45px) translateY(-50px);
-  }
-
-  .hero-contact {
-    margin-top: 10px;
-    transform: translateX(-12px) translateY(-40px);
-  }
-}
-
-/* MYA ADDED: 4301–4650px Breite bei ca. 1440px Höhe */
-@media (min-width: 4301px) and (max-width: 4650px) and (min-height: 1350px) and (max-height: 1500px) {
-  .hero-wave {
-    bottom: clamp(-1650px, -34vw, -1450px); /* MYA ADDED: Wave tiefer ab 4301px */
-  }
-
-  .hero-contact {
-    margin-top: -380px;
-  }
-
-  .scrolldown {
-    bottom: 170px;
-  }
-}
-
-/* MYA ADDED: 4651–5000px Breite bei ca. 1440px Höhe */
-@media (min-width: 4651px) and (max-width: 5000px) and (min-height: 1350px) and (max-height: 1500px) {
-  .hero-wave {
-    bottom: clamp(-1900px, -35vw, -1300px); /* MYA ADDED: Wave noch tiefer bis 5000px */
-  }
-
-  .hero-contact {
-    margin-top: -400px;
-  }
-
-  .scrolldown {
-    bottom: 170px;
-  }
-}
-
-/* MYA ADDED: 412x914/915 Foto wieder etwas höher */
-@media (min-width: 405px) and (max-width: 418px) and (min-height: 900px) and (max-height: 925px) {
-  .hero-photo-wrap {
-    transform: translateY(-40px); /* MYA CHANGED: Foto etwas höher */
-  }
-}
-
-/* MYA ADDED: 853x1280 Foto wieder etwas höher */
-@media (min-width: 840px) and (max-width: 870px) and (min-height: 1260px) and (max-height: 1300px) {
-  .hero-photo-wrap {
-    transform: translateY(90px); /* MYA CHANGED: vorher 85px, jetzt höher */
   }
 }
