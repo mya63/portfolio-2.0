@@ -1403,6 +1403,17 @@
   }
 }
 
+/* Ultra-wide 3000x1440 Feintuning */
+@media (min-width: 2950px) and (max-width: 3050px) and (min-height: 1400px) and (max-height: 1480px) {
+  .hero-text {
+    transform: translateY(-100px);
+  }
+
+  .hero-contact {
+    margin-top: -730px;
+  }
+}
+
 @media (min-width: 3300px) and (max-width: 3700px) and (min-height: 1350px) and (max-height: 1500px) {
   .hero {
     --wave-bottom: clamp(-1250px, -38vw, -1180px);
@@ -1432,6 +1443,21 @@
   }
 }
 
+/* Ultra-wide 4300x1440 Feintuning */
+@media (min-width: 4250px) and (max-width: 4350px) and (min-height: 1400px) and (max-height: 1480px) {
+  .hero-photo-wrap {
+    transform: translateY(-100px);
+  }
+
+  .hero-text {
+    transform: translateY(-160px);
+  }
+
+  .hero-contact {
+    margin-top: -820px;
+  }
+}
+
 @media (min-width: 4301px) and (max-width: 4650px) and (min-height: 1350px) and (max-height: 1500px) {
   .hero {
     --wave-bottom: clamp(-1650px, -34vw, -1450px);
@@ -1457,6 +1483,21 @@
 
   .scrolldown {
     bottom: 170px;
+  }
+}
+
+/* Ultra-wide 5000x1440 Feintuning */
+@media (min-width: 4950px) and (max-width: 5050px) and (min-height: 1400px) and (max-height: 1480px) {
+  .hero-photo-wrap {
+    transform: translateY(-60px);
+  }
+
+  .hero-text {
+    transform: translateY(-160px);
+  }
+
+  .hero-contact {
+    margin-top: -820px;
   }
 }
 
@@ -1528,6 +1569,38 @@
 
   .photo-green {
     transform: translate(35px, 55px);
+  }
+}
+
+/* 5K 5120x2880 Feintuning */
+@media (min-width: 5000px) and (max-width: 5250px) and (min-height: 2800px) and (max-height: 2950px) {
+  .hero-photo-wrap {
+    transform: translateY(80px);
+  }
+
+  .hero-text {
+    transform: translateX(-35px) translateY(100px);
+    margin-top: -700px;
+  }
+
+  .hero-contact {
+    margin-top: -1850px;
+  }
+}
+
+/* 8K 7680x4320 Feintuning */
+@media (min-width: 7600px) and (max-width: 7750px) and (min-height: 4250px) and (max-height: 4400px) {
+  .hero-photo-wrap {
+    transform: translateY(-60px);
+  }
+
+  .hero-text {
+    transform: translateX(-35px) translateY(-450px);
+    margin-top: -700px;
+  }
+
+  .hero-contact {
+    margin-top: -3650px;
   }
 }
 
