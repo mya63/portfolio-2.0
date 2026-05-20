@@ -3278,3 +3278,33 @@
     transform: translateX(-12px) translateY(-40px);
   }
 }
+
+/* MYA ADDED: 4301–4650px Breite bei ca. 1440px Höhe */
+@media (min-width: 4301px) and (max-width: 4650px) and (min-height: 1350px) and (max-height: 1500px) {
+  .hero-wave {
+    bottom: clamp(-1650px, -34vw, -1450px); /* MYA ADDED: Wave tiefer ab 4301px */
+  }
+
+  .hero-contact {
+    margin-top: -380px;
+  }
+
+  .scrolldown {
+    bottom: 170px;
+  }
+}
+
+/* MYA ADDED: 4651–5000px Breite bei ca. 1440px Höhe */
+@media (min-width: 4651px) and (max-width: 5000px) and (min-height: 1350px) and (max-height: 1500px) {
+  .hero-wave {
+    bottom: clamp(-1900px, -35vw, -1300px); /* MYA ADDED: Wave noch tiefer bis 5000px */
+  }
+
+  .hero-contact {
+    margin-top: -400px;
+  }
+
+  .scrolldown {
+    bottom: 170px;
+  }
+}
