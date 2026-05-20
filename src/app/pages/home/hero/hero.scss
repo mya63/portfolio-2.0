@@ -930,6 +930,54 @@
   }
 }
 
+/* Tablet 820x1180 Feintuning */
+@media (min-width: 800px) and (max-width: 829px) and (min-height: 1150px) and (max-height: 1210px) {
+  .hero {
+    --wave-bottom: 10px;
+  }
+
+  .hero-text {
+    transform: translateX(-10px) translateY(-20px);
+  }
+
+  .hero-text .iam {
+    transform: rotate(180deg) translateY(58px) translateX(-5px);
+    font-size: 69px;
+  }
+
+  .hero-sub {
+    transform: translateX(-50px);
+  }
+
+  .hero-cta {
+    transform: translateX(70px);
+  }
+}
+
+/* Tablet 834x1194 Feintuning */
+@media (min-width: 830px) and (max-width: 845px) and (min-height: 1170px) and (max-height: 1210px) {
+  .hero {
+    --wave-bottom: 10px;
+  }
+
+  .hero-text {
+    transform: translateX(-10px) translateY(-20px);
+  }
+
+  .hero-text .iam {
+    transform: rotate(180deg) translateY(58px) translateX(-5px);
+    font-size: 69px;
+  }
+
+  .hero-sub {
+    transform: translateX(-50px);
+  }
+
+  .hero-cta {
+    transform: translateX(70px);
+  }
+}
+
 /* Tablet 853x1280 Feintuning */
 @media (min-width: 830px) and (max-width: 870px) and (min-height: 1240px) and (max-height: 1310px) {
   .hero {
