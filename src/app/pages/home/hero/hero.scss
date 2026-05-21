@@ -1341,6 +1341,30 @@
   }
 }
 
+/* MYA ADDED: 1440 Breite niedrige Höhen */
+@media (min-width: 1400px) and (max-width: 1500px) and (min-height: 580px) and (max-height: 850px) {
+  .hero {
+    --wave-bottom: clamp(-960px, -65vh, -750px);
+  }
+
+  .hero-contact {
+    margin-top: -240px;
+    transform: translateY(120px);
+  }
+}
+
+/* MYA ADDED: 1440x1000 Feintuning */
+@media (min-width: 1400px) and (max-width: 1500px) and (min-height: 960px) and (max-height: 1040px) {
+  .hero {
+    --wave-bottom: -560px;
+  }
+
+  .hero-contact {
+    margin-top: -240px;
+    transform: translateY(25px);
+  }
+}
+
 /* Desktop 1536x864 Feintuning */
 @media (min-width: 1500px) and (max-width: 1600px) and (min-height: 830px) and (max-height: 880px) {
   .hero {
