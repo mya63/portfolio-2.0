@@ -982,7 +982,7 @@
     transform: translateX(10px) translateY(-60px);
   }
 
-    .hero-contact {
+  .hero-contact {
     transform: translateX(-25px) translateY(-35px);
   }
 }
@@ -1384,6 +1384,13 @@
   }
 }
 
+/* MYA ADDED: 2200x900 Contact leicht tiefer */
+@media (min-width: 2180px) and (max-width: 2220px) and (min-height: 870px) and (max-height: 930px) {
+  .hero-contact {
+    transform: translateY(25px);
+  }
+}
+
 @media (min-width: 2200px) and (max-width: 2700px) and (min-height: 870px) and (max-height: 930px) {
   .hero {
     --wave-bottom: clamp(-1100px, -38vw, -700px);
@@ -1454,6 +1461,17 @@
   }
 }
 
+/* MYA ADDED: 1600x1080 Feintuning */
+@media (min-width: 1550px) and (max-width: 1650px) and (min-height: 1040px) and (max-height: 1120px) {
+  .hero {
+    --wave-bottom: -530px;
+  }
+
+  .hero-contact {
+    transform: translateY(-35px);
+  }
+}
+
 /* Desktop 1920x1080 Feintuning */
 @media (min-width: 1800px) and (max-width: 2100px) and (min-height: 1000px) and (max-height: 1150px) {
   .hero-photo-wrap {
@@ -1482,9 +1500,16 @@
   }
 }
 
+/* MYA ADDED: 2200x1080 Contact höher */
+@media (min-width: 2150px) and (max-width: 2250px) and (min-height: 1040px) and (max-height: 1120px) {
+  .hero-contact {
+    transform: translateY(-235px);
+  }
+}
+
 @media (min-width: 2305px) and (max-width: 3000px) and (min-height: 1040px) and (max-height: 1120px) {
   .hero {
-    --wave-bottom: clamp(-1200px, -36vw, -800px);
+    --wave-bottom: clamp(-1050px, -32vw, -760px);
   }
 
   .hero-photo-wrap {
@@ -1561,6 +1586,17 @@
   }
 }
 
+/* MYA ADDED: 1400-2200x1440 Wave höher */
+@media (min-width: 1350px) and (max-width: 2200px) and (min-height: 1400px) and (max-height: 1480px) {
+  .hero {
+    --wave-bottom: -300px;
+  }
+
+  .hero-contact {
+    transform: translateY(-160px);
+  }
+}
+
 /* MYA ADDED: 1200x1262 Kante - I am kleiner und sauberer */
 @media (min-width: 1180px) and (max-width: 1230px) and (min-height: 1220px) and (max-height: 1300px) {
   .hero-text .iam {
@@ -1603,13 +1639,21 @@
 
 @media (min-width: 2200px) and (max-width: 2499px) and (min-height: 1350px) and (max-height: 1500px) {
   .hero {
-    --wave-bottom: clamp(-650px, -24vw, -480px);
+    --wave-bottom: clamp(-480px, -18vw, -380px);
+  }
+
+  .hero-contact {
+    margin-top: -320px;
+    transform: translateY(-230px);
   }
 }
-
 @media (min-width: 2500px) and (max-width: 3000px) and (min-height: 1350px) and (max-height: 1500px) {
   .hero {
     --wave-bottom: clamp(-930px, -27vw, -620px);
+  }
+
+  .hero-photo-wrap {
+    transform: translateY(80px);
   }
 
   .hero-contact {
@@ -1658,11 +1702,15 @@
   }
 
   .hero-photo-wrap {
-    transform: translateY(220px);
+    transform: translateY(260px);
   }
 
   .hero-text {
     transform: translateY(160px);
+  }
+
+  .hero-contact {
+    margin-top: -360px;
   }
 }
 
@@ -1677,6 +1725,13 @@
 
   .scrolldown {
     bottom: 170px;
+  }
+}
+
+/* MYA ADDED: 3800-4800x1440 Text höher */
+@media (min-width: 3800px) and (max-width: 4800px) and (min-height: 1350px) and (max-height: 1500px) {
+  .hero-text {
+    transform: translateY(-160px);
   }
 }
 
