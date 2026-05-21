@@ -935,7 +935,7 @@
 /* Tablet 600-900px bei ca. 900-1080 Höhe */
 @media (min-width: 580px) and (max-width: 900px) and (min-height: 870px) and (max-height: 1120px) {
   .hero {
-    --wave-bottom: -130px;
+    --wave-bottom: -210px;
     --wave-width: 1200px;
     --wave-scale-y: 1.15;
   }
@@ -950,8 +950,8 @@
   }
 
   .hero-text .iam {
-    font-size: 48px;
-    transform: rotate(180deg) translateY(56px);
+    font-size: 50px;
+    transform: rotate(180deg) translateY(58px);
   }
 
   .name {
@@ -967,12 +967,65 @@
   }
 
   .hero-cta {
-    transform: translateX(-55px);
+    transform: translateX(35px);
   }
 
   .hero-contact {
     margin-top: 0;
-    transform: translateX(-14px) translateY(-24px);
+    transform: translateX(-12px) translateY(-24px);
+  }
+}
+
+/* MYA ADDED: 601x900 Kante - Text etwas höher */
+@media (min-width: 601px) and (max-width: 700px) and (min-height: 870px) and (max-height: 930px) {
+  .hero-text {
+    transform: translateX(10px) translateY(-60px);
+  }
+
+    .hero-contact {
+    transform: translateX(-25px) translateY(-35px);
+  }
+}
+
+/* MYA ADDED: 900x1000 Kante - Contact leicht nach links */
+@media (min-width: 880px) and (max-width: 900px) and (min-height: 970px) and (max-height: 1030px) {
+  .hero-contact {
+    transform: translateX(-28px) translateY(-24px);
+  }
+}
+
+/* MYA ADDED: 900px Breite bei ca. 1200px Höhe stabilisieren */
+@media (min-width: 880px) and (max-width: 900px) and (min-height: 1130px) and (max-height: 1230px) {
+  .hero {
+    --wave-bottom: -20px;
+    --wave-width: 1300px;
+    --wave-scale-y: 1.15;
+  }
+
+  .hero-photo-wrap {
+    width: min(500px, 66vw);
+    transform: translateY(-50px);
+  }
+
+  .hero-text {
+    transform: translateX(35px) translateY(-40px);
+  }
+
+  .hero-text .iam {
+    font-size: 58px;
+    transform: rotate(180deg) translateY(58px);
+  }
+
+  .hero-sub {
+    transform: translateX(-55px);
+  }
+
+  .hero-cta {
+    transform: translateX(35px);
+  }
+
+  .hero-contact {
+    transform: translateX(-14px) translateY(-20px);
   }
 }
 
@@ -1089,6 +1142,69 @@
 
   .hero-cta {
     transform: translateX(80px);
+  }
+}
+
+/* MYA ADDED: Tablet Portrait Kante 901px - verhindert Desktop-Sprung */
+@media (min-width: 901px) and (max-width: 1060px) and (min-height: 950px) and (max-height: 1239px) {
+  .hero {
+    --wave-bottom: -260px;
+    --wave-width: 1300px;
+    --wave-scale-y: 1.15;
+  }
+
+  .hero .container.hero-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'photo'
+      'text'
+      'contact';
+    justify-items: center;
+    align-content: center;
+    row-gap: 20px;
+    padding: 50px 16px 0;
+  }
+
+  .hero-photo-wrap {
+    width: min(500px, 68vw);
+    transform: translateY(-55px);
+  }
+
+  .hero-text {
+    margin-top: 10px;
+    transform: translateX(90px) translateY(-115px);
+    column-gap: 10px;
+  }
+
+  .hero-text .iam {
+    font-size: 58px;
+    transform: rotate(180deg) translateY(58px);
+  }
+
+  .name {
+    font-size: 52px;
+  }
+
+  .role {
+    font-size: 26px;
+  }
+
+  .hero-sub {
+    transform: translateX(-45px);
+    margin-bottom: 16px;
+  }
+
+  .hero-cta {
+    transform: translateX(35px);
+  }
+
+  .hero-contact {
+    margin-top: 8px;
+    transform: translateX(-14px) translateY(-100px);
+  }
+
+  .scrolldown {
+    bottom: 160px;
   }
 }
 
@@ -1445,6 +1561,22 @@
   }
 }
 
+/* MYA ADDED: 1200x1262 Kante - I am kleiner und sauberer */
+@media (min-width: 1180px) and (max-width: 1230px) and (min-height: 1220px) and (max-height: 1300px) {
+  .hero-text .iam {
+    font-size: 58px;
+    transform: rotate(180deg) translateY(52px);
+  }
+
+  .name {
+    font-size: 54px;
+  }
+
+  .role {
+    font-size: 25px;
+  }
+}
+
 /* Desktop 1920x1440 Feintuning */
 @media (min-width: 1880px) and (max-width: 1960px) and (min-height: 1400px) and (max-height: 1480px) {
   .hero {
@@ -1497,6 +1629,25 @@
 
   .hero-contact {
     margin-top: -730px;
+  }
+}
+
+/* MYA ADDED: 3001-3299x1440 Übergang nach perfektem 3000er Zustand */
+@media (min-width: 3001px) and (max-width: 3299px) and (min-height: 1350px) and (max-height: 1500px) {
+  .hero {
+    --wave-bottom: clamp(-950px, -27vw, -810px);
+  }
+
+  .hero-text {
+    transform: translateY(-80px);
+  }
+
+  .hero-contact {
+    margin-top: -700px;
+  }
+
+  .scrolldown {
+    bottom: 170px;
   }
 }
 
