@@ -1425,6 +1425,67 @@
 }
 
 
+/* MYA ADDED: 2560 niedrige Höhen - Wave tiefer */
+@media (min-width: 2500px) and (max-width: 2620px) and (min-height: 570px) and (max-height: 700px) {
+  .hero {
+    --wave-bottom: clamp(-1350px, -140vh, -1050px);
+  }
+
+  .hero-contact {
+    margin-top: -260px;
+  }
+
+  .scrolldown {
+    bottom: 130px;
+  }
+}
+
+/* MYA ADDED: 2560x800 niedrige Höhe - Wave weniger tief */
+@media (min-width: 2500px) and (max-width: 2620px) and (min-height: 760px) and (max-height: 840px) {
+  .hero {
+    --wave-bottom: -1040px;
+  }
+
+  .hero-contact {
+    margin-top: -260px;
+  }
+
+  .scrolldown {
+    bottom: 130px;
+  }
+}
+
+/* MYA ADDED: 3000x600 niedrige Höhe - Wave tiefer */
+@media (min-width: 2950px) and (max-width: 3050px) and (min-height: 570px) and (max-height: 700px) {
+  .hero {
+    --wave-bottom: -1250px;
+  }
+
+  .hero-contact {
+    margin-top: -300px;
+  }
+
+  .scrolldown {
+    bottom: 130px;
+  }
+}
+
+/* MYA ADDED: 3000x800 niedrige Höhe - Wave tiefer */
+@media (min-width: 2950px) and (max-width: 3050px) and (min-height: 760px) and (max-height: 840px) {
+  .hero {
+    --wave-bottom: -1250px;
+  }
+
+  .hero-contact {
+    margin-top: -300px;
+  }
+
+  .scrolldown {
+    bottom: 130px;
+  }
+}
+
+
 /* Desktop 1536x864 Feintuning */
 @media (min-width: 1500px) and (max-width: 1600px) and (min-height: 830px) and (max-height: 880px) {
   .hero {
@@ -1608,6 +1669,22 @@
     bottom: 135px;
   }
 }
+
+/* MYA ADDED: 3000x1080 - Wave leicht tiefer */
+@media (min-width: 3000px) and (max-width: 3050px) and (min-height: 1040px) and (max-height: 1120px) {
+  .hero {
+    --wave-bottom: -1080px;
+  }
+
+  .hero-contact {
+    margin-top: -340px;
+  }
+
+  .scrolldown {
+    bottom: 135px;
+  }
+}
+
 
 @media (min-width: 3001px) and (max-width: 3799px) and (min-height: 1040px) and (max-height: 1120px) {
   .hero {
