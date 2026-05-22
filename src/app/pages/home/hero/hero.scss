@@ -2213,6 +2213,302 @@
   }
 }
 
+
+/* MYA FIX: 1119x822 - Wave tiefer */
+@media (min-width: 1000px) and (max-width: 1350px) and (min-height: 800px) and (max-height: 840px) {
+  .hero {
+    --wave-bottom: -680px;
+  }
+
+  .hero-contact {
+    margin-top: -240px;
+  }
+}
+
+/* MYA FIX: 1119-1549 bei ca. 1031px - Wave tiefer, Text höher */
+@media (min-width: 1080px) and (max-width: 1600px) and (min-height: 1000px) and (max-height: 1060px) {
+  .hero {
+    --wave-bottom: -520px;
+  }
+
+  .hero-text {
+    transform: translateY(-35px);
+  }
+
+  .hero-contact {
+    margin-top: -360px;
+  }
+}
+
+/* MYA FIX: 1883x1130 - Wave höher */
+@media (min-width: 1800px) and (max-width: 1950px) and (min-height: 1100px) and (max-height: 1160px) {
+  .hero {
+    --wave-bottom: -540px;
+  }
+
+  .hero-contact {
+    margin-top: -380px;
+  }
+}
+
+/* MYA FIX: 885x1252 Tablet - eigenes Layout stabilisieren */
+@media (min-width: 860px) and (max-width: 900px) and (min-height: 1220px) and (max-height: 1280px) {
+  .hero {
+    --wave-bottom: 80px;
+  }
+
+  .hero-text {
+    transform: translateX(20px) translateY(-40px);
+  }
+
+  .hero-text .iam {
+    font-size: 68px;
+    transform: rotate(180deg) translateY(58px);
+  }
+
+  .hero-cta {
+    transform: translateX(35px);
+  }
+
+  .hero-contact {
+    margin-top: 0;
+    transform: translateX(-35px) translateY(-20px);
+  }
+}
+
+/* MYA FIX: 2216x1252 - Wave und Contact höher */
+@media (min-width: 2150px) and (max-width: 2250px) and (min-height: 1220px) and (max-height: 1280px) {
+  .hero {
+    --wave-bottom: -500px;
+  }
+
+  .hero-text {
+    transform: translateY(-80px);
+  }
+
+  .hero-contact {
+    margin-top: -360px;
+    transform: translateY(-150px);
+  }
+}
+
+/* MYA FIX: 2347x864 - Wave tiefer, Text kleiner/höher, Contact sichtbar */
+@media (min-width: 2290px) and (max-width: 2380px) and (min-height: 840px) and (max-height: 890px) {
+  .hero {
+    --wave-bottom: -880px;
+  }
+
+  .hero-text {
+    transform: translateY(-40px);
+  }
+
+  .hero-text .iam {
+    font-size: 54px;
+  }
+
+  .name {
+    font-size: 50px;
+  }
+
+  .role {
+    font-size: 23px;
+  }
+
+  .hero-contact {
+    margin-top: -360px;
+  }
+}
+
+/* MYA FIX: Nachbarpunkte 1700-1900 hohe Ansicht */
+@media (min-width: 1680px) and (max-width: 1900px) and (min-height: 1000px) and (max-height: 1210px) {
+  .hero {
+    --wave-bottom: -470px;
+  }
+
+  .hero-contact {
+    margin-top: -460px;
+  }
+}
+
+/* MYA FIX: 800-900x1252 - Wave höher */
+@media (min-width: 800px) and (max-width: 900px) and (min-height: 1220px) and (max-height: 1280px) {
+  .hero {
+    --wave-bottom: 70px;
+  }
+  
+}
+
+/* MYA FIX: 901-1190x1252 - Wave tiefer */
+@media (min-width: 901px) and (max-width: 1190px) and (min-height: 1220px) and (max-height: 1280px) {
+  .hero {
+    --wave-bottom: -360px;
+  }
+
+  .hero-contact {
+    margin-top: -700px;
+  }
+
+  .hero-text {
+    transform: translateX(-40px) translateY(-80px);
+  }
+
+  .hero-text .iam {
+    font-size: 68px;
+    transform: rotate(180deg) translateY(55px);
+  }
+}
+/* MYA FIX: Nachbarpunkte 1600-2100x864 - Contact höher, Text kleiner */
+@media (min-width: 1500px) and (max-width: 2120px) and (min-height: 840px) and (max-height: 890px) {
+  .hero-contact {
+    margin-top: -340px;
+  }
+
+  .hero-text .iam {
+    font-size: 50px;
+  }
+
+  .name {
+    font-size: 48px;
+  }
+
+  .role {
+    font-size: 22px;
+  }
+}
+
+/* MYA FIX: 2095x864 - Wave etwas tiefer */
+@media (min-width: 2050px) and (max-width: 2120px) and (min-height: 840px) and (max-height: 890px) {
+  .hero {
+    --wave-bottom: -790px;
+  }
+
+  .hero-contact {
+    margin-top: -340px;
+    transform: translateY(60px);
+  }
+}
+
+/* MYA FIX: Lehrer-Test weitere Zwischenhöhen */
+
+/* 1543-1668 breite, 1062-1198 höhe - Wave höher */
+@media (min-width: 1500px) and (max-width: 1680px) and (min-height: 1060px) and (max-height: 1200px) {
+  .hero {
+    --wave-bottom: -470px;
+  }
+
+  .hero-contact {
+    margin-top: -430px;
+  }
+}
+
+/* 1543x1362 - Wave etwas höher */
+@media (min-width: 1500px) and (max-width: 1600px) and (min-height: 1320px) and (max-height: 1380px) {
+  .hero {
+    --wave-bottom: -360px;
+  }
+
+  .hero-contact {
+    margin-top: -430px;
+  }
+}
+
+/* 1543x600-826 - Contact höher */
+@media (min-width: 1500px) and (max-width: 1600px) and (min-height: 600px) and (max-height: 830px) {
+  .hero-contact {
+    margin-top: -360px;
+  }
+
+  .scrolldown {
+    bottom: 125px;
+  }
+}
+
+/* 320-1676 breite bei ca. 1198 höhe */
+/* 320-1499 breite bei ca. 1198 höhe */
+@media (min-width: 320px) and (max-width: 1499px) and (min-height: 1160px) and (max-height: 1220px) {
+  .hero {
+    --wave-bottom: -400px;
+  }
+
+  .hero-contact {
+    margin-top: -600px;
+  }
+}
+
+/* 1016x1253 - Text stabilisieren, Contact runter, Wave höher */
+@media (min-width: 980px) and (max-width: 1050px) and (min-height: 1220px) and (max-height: 1280px) {
+  .hero {
+    --wave-bottom: -160px;
+  }
+
+  .hero-text {
+    transform: translateX(40px) translateY(-70px);
+  }
+
+  .hero-text .iam {
+    font-size: 58px;
+    transform: rotate(180deg) translateY(55px);
+  }
+
+  .name {
+    font-size: 52px;
+  }
+
+  .role {
+    font-size: 25px;
+  }
+
+  .hero-cta {
+    transform: translateX(40px);
+  }
+
+  .hero-contact {
+    margin-top: -120px;
+    transform: translateX(-80px) translateY(20px);
+  }
+}
+
+/* 1902-2191x1196 - Wave höher */
+@media (min-width: 1900px) and (max-width: 2191px) and (min-height: 1160px) and (max-height: 1220px) {
+  .hero {
+    --wave-bottom: -420px;
+  }
+
+  .hero-contact {
+    margin-top: -420px;
+  }
+}
+
+/* 1902x933-993 - Contact höher */
+@media (min-width: 1880px) and (max-width: 1930px) and (min-height: 930px) and (max-height: 1000px) {
+  .hero-contact {
+    margin-top: -360px;
+  }
+}
+
+/* 1902x631-768 - Wave tiefer, Contact höher */
+@media (min-width: 1880px) and (max-width: 1930px) and (min-height: 630px) and (max-height: 770px) {
+  .hero {
+    --wave-bottom: -760px;
+  }
+
+  .hero-contact {
+    margin-top: -220px;
+  }
+
+  .hero-text .iam {
+    font-size: 50px;
+  }
+
+  .name {
+    font-size: 46px;
+  }
+
+  .role {
+    font-size: 21px;
+  }
+}
+
 /* Mobile Landscape */
 @media (max-width: 950px) and (max-height: 500px) and (orientation: landscape) {
   .hero {
