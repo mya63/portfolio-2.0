@@ -1685,6 +1685,35 @@
   }
 }
 
+/* MYA ADDED: 3440x600 niedrige Höhe - Wave tiefer */
+@media (min-width: 3350px) and (max-width: 3520px) and (min-height: 570px) and (max-height: 700px) {
+  .hero {
+    --wave-bottom: -1470px;
+  }
+
+  .hero-contact {
+    margin-top: -280px;
+  }
+
+  .scrolldown {
+    bottom: 130px;
+  }
+}
+
+/* MYA ADDED: 3440x800 niedrige Höhe - Wave tiefer */
+@media (min-width: 3350px) and (max-width: 3520px) and (min-height: 760px) and (max-height: 840px) {
+  .hero {
+    --wave-bottom: -1450px;
+  }
+
+  .hero-contact {
+    margin-top: -280px;
+  }
+
+  .scrolldown {
+    bottom: 130px;
+  }
+}
 
 @media (min-width: 3001px) and (max-width: 3799px) and (min-height: 1040px) and (max-height: 1120px) {
   .hero {
