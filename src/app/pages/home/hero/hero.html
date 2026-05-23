@@ -1,51 +1,36 @@
 <section class="hero" id="hero">
-  <div class="hero-bg"></div>
-
-  <img
-  class="hero-wave"
-  src="assets/hero-wave.svg"
-  alt=""
-  aria-hidden="true"
-/>
+  <div class="hero-bg" aria-hidden="true"></div>
+  <img class="hero-wave" src="assets/Vector.svg" alt="" aria-hidden="true" />
 
   <div class="container hero-grid">
-    <!-- LINKES COL: Foto + Icons + Mail -->
-    <div class="hero-photo-wrap">
+    <div class="hero-photo-wrap" aria-hidden="true">
       <div class="photo-purple"></div>
       <div class="photo-green"></div>
-      <img class="hero-photo" src="assets/hero.png" alt="Hero photo" />
+      <img class="hero-photo" src="assets/hero.png" alt="" />
     </div>
 
-    <!-- RECHTES COL: Textblock -->
     <div class="hero-text">
-      <span class="iam" aria-hidden="true">I am</span>
+      <span class="iam">{{ 'hero.iam' | t }}</span>
 
-      <div class="title">
+      <div class="hero-copy">
         <h1 class="name">
-          <span class="name-row">Muhammed</span>
-          <span class="name-row">Yunus <span class="accent">Amini</span></span>
+          <span>Muhammed Yunus</span>
+          <span><span class="accent">Amini</span></span>
         </h1>
 
-        <h2 class="role">FULLSTACK DEVELOPER</h2>
-
-        <p class="hero-sub">Clean Code · Responsive Design · Real Projects</p>
+        <h2 class="role">{{ 'hero.role' | t }}</h2>
 
         <div class="hero-cta">
-          <button
-            class="btn btn--primary"
-            type="button"
-            (click)="scrollTo('contact')"
-          >
-            Let’s talk!
+          <button class="btn btn--primary" type="button" (click)="scrollTo('contact')">
+            {{ 'hero.talk' | t }}
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Icons + Mail -->
-    <div class="hero-contact">
+    <div class="hero-contact" aria-label="Social links">
       <div class="hero-socials">
-        <a class="ico" href="https://github.com/mya63" target="_blank">
+        <a class="ico" href="https://github.com/mya63" target="_blank" rel="noopener">
           <img src="assets/giticon.png" alt="GitHub" />
         </a>
 
@@ -57,22 +42,20 @@
           class="ico"
           href="https://www.linkedin.com/in/muhammed-yunus-amini-5380b829a/"
           target="_blank"
+          rel="noopener"
         >
           <img src="assets/linkedin.png" alt="LinkedIn" />
         </a>
       </div>
 
-      <a class="hero-mail" href="mailto:contact@yunusamini.dev">
-        contact@yunusamini.dev
-      </a>
+      <a class="hero-mail" href="mailto:contact@yunusamini.dev">contact@yunusamini.dev</a>
     </div>
 
-    <!-- Scroll down -->
-    <div class="scrolldown">
-      <span>Scroll down</span>
-      <svg class="arrow" viewBox="0 0 24 24" width="24" height="24">
+    <button class="scrolldown" type="button" (click)="scrollTo('about')">
+      <span>{{ 'misc.scrolldown' | t }}</span>
+      <svg class="arrow" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
         <path d="M12 16 6 10h12l-6 6Z" />
       </svg>
-    </div>
+    </button>
   </div>
 </section>

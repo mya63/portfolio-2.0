@@ -3,7 +3,7 @@ export const de = {
 
   hero: {
     iam: 'Ich bin',
-    role: 'FRONTEND-ENTWICKLER',
+    role: 'FULLSTACK-ENTWICKLER',
     talk: 'Lass uns sprechen!'
   },
 
