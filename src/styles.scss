@@ -23,7 +23,7 @@ html {
 
 body {
   margin: 0;
-  background: var(--bg);
+  background: #000;
   color: var(--white);
   font-family:
     Poppins,
@@ -44,15 +44,25 @@ svg {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: var(--bg);
+  background: #000;
 }
 
 .page {
   flex: 1;
   width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
   position: relative;
   overflow-x: hidden;
+  background: var(--bg);
+}
+
+app-header,
+app-footer {
+  display: block;
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
 }
 .container {
   width: var(--container);

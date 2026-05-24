@@ -255,6 +255,133 @@
   }
 }
 
+@media (min-width: 1200px) {
+  .hero {
+    --stage-width: min(100%, 1344px);
+    --fold-height: min(calc(100svh - var(--header-height)), 791px);
+    --stage-height: calc(var(--fold-height) + 190px);
+    --wave-top: clamp(206px, 27svh, 238px);
+
+    min-height: var(--stage-height);
+  }
+
+  .hero-grid {
+    width: var(--stage-width);
+    min-height: var(--stage-height);
+    display: block;
+    padding: 0;
+  }
+
+  .hero-photo-wrap {
+    position: absolute;
+    left: 0;
+    top: clamp(32px, 5svh, 58px);
+    width: min(41vw, 590px);
+    align-self: auto;
+  }
+
+  .hero-photo {
+    max-height: min(71svh, 640px);
+  }
+
+  .photo-purple {
+    right: 58%;
+    bottom: -3%;
+    width: 63%;
+  }
+
+  .photo-green {
+    left: 34%;
+    top: 18%;
+    width: 80%;
+    transform: rotate(-100.81deg);
+  }
+
+  .hero-text {
+    position: absolute;
+    left: clamp(514px, 39vw, 560px);
+    top: clamp(204px, 24svh, 218px);
+    max-width: min(55vw, 782px);
+    column-gap: 20px;
+  }
+
+  .iam {
+    position: relative;
+    top: 10px;
+    transform: rotate(180deg) translateY(9px);
+    font-size: clamp(74px, 5.7vw, 82px);
+    line-height: 1.2;
+  }
+
+  .name {
+    font:
+      700 clamp(48px, 4.45vw, 64px) / 1.08 'Poppins',
+      sans-serif;
+  }
+
+  .role {
+    margin: 6px 0 0;
+    font:
+      400 clamp(27px, 2.55vw, 37px) / 1.15 'Poppins',
+      sans-serif;
+  }
+
+  .hero-cta {
+    position: absolute;
+    left: 222px;
+    top: 210px;
+    transform: none;
+  }
+
+  .hero-text .btn {
+    min-width: 150px;
+    height: 52px;
+    padding: 0 26px;
+    font-size: 20px;
+  }
+
+  .hero-contact {
+    position: absolute;
+    left: 0;
+    top: calc(var(--fold-height) + 74px);
+    gap: 32px;
+  }
+
+  .hero-contact::before {
+    width: 100px;
+    margin-left: 0;
+    height: 4px;
+  }
+
+  .hero-socials {
+    gap: 32px;
+  }
+
+  .ico {
+    width: 30px;
+    height: 30px;
+  }
+
+  .ico img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .hero-mail {
+    font-size: 23px;
+    line-height: 1.2;
+  }
+
+  .scrolldown {
+    right: 34px;
+    top: calc(var(--fold-height) + 53px);
+    bottom: auto;
+    gap: 3px;
+    font-size: 23px;
+    line-height: 1.2;
+  }
+}
+
 @media (min-width: 961px) {
   .name > span {
     white-space: nowrap;
