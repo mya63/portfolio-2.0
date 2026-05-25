@@ -258,9 +258,10 @@
 @media (min-width: 1200px) {
   .hero {
     --stage-width: min(100%, 1344px);
-    --fold-height: min(calc(100svh - var(--header-height)), 791px);
+    --fold-height: 791px;
     --stage-height: calc(var(--fold-height) + 190px);
-    --wave-top: clamp(206px, 27svh, 238px);
+    --wave-top: 238px;
+    --wave-width: 1440px;
 
     min-height: var(--stage-height);
   }
@@ -281,7 +282,7 @@
   }
 
   .hero-photo {
-    max-height: min(71svh, 640px);
+    max-height: 640px;
   }
 
   .photo-purple {
@@ -300,7 +301,7 @@
   .hero-text {
     position: absolute;
     left: clamp(514px, 39vw, 560px);
-    top: clamp(204px, 24svh, 218px);
+    top: 216px;
     max-width: min(55vw, 782px);
     column-gap: 20px;
   }
@@ -384,12 +385,18 @@
 
 @media (min-width: 1200px) and (max-height: 820px) {
   .hero {
+    --fold-height: min(calc(100svh - var(--header-height)), 791px);
     --stage-height: calc(var(--fold-height) + 260px);
     --wave-top: 192px;
+    --wave-width: max(100vw, 1440px);
   }
 
   .hero-photo-wrap {
     top: 86px;
+  }
+
+  .hero-photo {
+    max-height: min(71svh, 640px);
   }
 
   .hero-text {
