@@ -382,6 +382,29 @@
   }
 }
 
+@media (min-width: 1200px) and (max-height: 820px) {
+  .hero {
+    --stage-height: calc(var(--fold-height) + 260px);
+    --wave-top: 192px;
+  }
+
+  .hero-photo-wrap {
+    top: 86px;
+  }
+
+  .hero-text {
+    top: 178px;
+  }
+
+  .hero-cta {
+    top: 194px;
+  }
+
+  .scrolldown {
+    right: 54px;
+  }
+}
+
 @media (min-width: 961px) {
   .name > span {
     white-space: nowrap;
