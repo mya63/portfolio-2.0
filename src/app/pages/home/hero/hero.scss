@@ -277,7 +277,7 @@
   .hero-photo-wrap {
     position: absolute;
     left: 0;
-    top: clamp(32px, 5svh, 58px);
+    top: 58px;
     width: min(41vw, 590px);
     align-self: auto;
   }
@@ -388,13 +388,13 @@
 @media (min-width: 1200px) and (max-height: 820px) {
   .hero {
     --fold-height: min(calc(100svh - var(--header-height)), 791px);
-    --stage-height: calc(var(--fold-height) + 210px);
-    --wave-top: 174px;
+    --stage-height: calc(var(--fold-height) + 170px);
+    --wave-top: 198px;
     --wave-width: 1440px;
   }
 
   .hero-photo-wrap {
-    top: 86px;
+    top: clamp(72px, 10svh, 104px);
   }
 
   .hero-photo {
@@ -414,9 +414,73 @@
   }
 }
 
+@media (min-width: 1200px) and (min-height: 821px) and (max-height: 899px) {
+  .hero {
+    --fold-height: min(calc(100svh - var(--header-height)), 791px);
+    --stage-height: calc(var(--fold-height) + 178px);
+    --wave-top: clamp(204px, calc(48svh - 194px), 238px);
+  }
+
+  .hero-photo-wrap {
+    top: clamp(56px, calc(16svh - 74px), 70px);
+  }
+
+  .hero-text {
+    top: clamp(188px, calc(35svh - 100px), 216px);
+  }
+
+  .hero-cta {
+    top: clamp(198px, calc(28svh - 32px), 210px);
+  }
+
+  .hero-contact {
+    top: calc(var(--fold-height) + 70px);
+  }
+
+  .scrolldown {
+    top: calc(var(--fold-height) + 50px);
+  }
+}
+
+@media (min-width: 1200px) and (min-height: 900px) and (max-height: 1150px) {
+  .hero-photo-wrap {
+    top: 70px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1286px) and (min-height: 900px) {
+  .hero-photo-wrap {
+    top: 92px;
+  }
+}
+
+@media (min-width: 1287px) and (max-width: 1316px) and (min-height: 821px) {
+  .hero-photo-wrap {
+    top: 96px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1238px) and (min-height: 821px) {
+  .hero-photo-wrap {
+    top: 110px;
+  }
+}
+
+@media (min-width: 1200px) and (min-height: 600px) and (max-height: 800px) {
+  .hero {
+    --stage-height: calc(var(--fold-height) + 230px);
+    --wave-top: clamp(164px, 24svh, 184px);
+  }
+
+  .hero-contact,
+  .scrolldown {
+    display: none;
+  }
+}
+
 @media (min-width: 1200px) and (max-width: 1321px) and (max-height: 755px) {
   .hero-photo-wrap {
-    top: 112px;
+    top: 132px;
     width: min(39vw, 560px);
   }
 
@@ -431,7 +495,7 @@
     --stage-width: min(calc(100% - 72px), 1120px);
     --fold-height: 650px;
     --stage-height: 820px;
-    --wave-top: 190px;
+    --wave-top: 238px;
     --wave-width: max(100vw, 1120px);
 
     min-height: var(--stage-height);
@@ -501,7 +565,7 @@
   .hero-cta {
     position: absolute;
     left: clamp(150px, 16vw, 190px);
-    top: 184px;
+    top: 168px;
     transform: none;
   }
 
@@ -515,7 +579,7 @@
   .hero-contact {
     position: absolute;
     left: 0;
-    top: calc(var(--fold-height) + 74px);
+    top: calc(var(--fold-height) + 58px);
     gap: 22px;
   }
 
@@ -554,23 +618,77 @@
   }
 }
 
+@media (min-width: 1073px) and (max-width: 1199.98px) {
+  .hero-photo-wrap {
+    top: 128px;
+  }
+}
+
+@media (min-width: 961px) and (max-width: 1065px) {
+  .hero-photo-wrap {
+    top: 156px;
+  }
+}
+
 @media (min-width: 961px) and (max-width: 1199.98px) and (max-height: 755px) {
   .hero {
-    --fold-height: 600px;
-    --stage-height: 760px;
-    --wave-top: 204px;
+    --fold-height: 592px;
+    --stage-height: 768px;
+    --wave-top: 238px;
   }
 
   .hero-photo-wrap {
-    top: 122px;
+    top: 150px;
   }
 
   .hero-text {
-    top: 160px;
+    top: 152px;
   }
 
   .hero-cta {
-    top: 178px;
+    top: 170px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1333px) and (min-height: 600px) and (max-height: 760px) {
+  .hero-photo-wrap {
+    top: clamp(132px, 20svh, 150px);
+  }
+
+  .hero-cta {
+    top: clamp(178px, 25svh, 194px);
+  }
+}
+
+@media (min-width: 961px) and (max-width: 1199.98px) and (min-height: 600px) and (max-height: 760px) {
+  .hero {
+    --wave-top: 242px;
+  }
+
+  .hero-photo-wrap {
+    top: clamp(156px, 24svh, 170px);
+  }
+
+  .hero-cta {
+    top: clamp(164px, 25svh, 174px);
+  }
+}
+
+@media (min-width: 961px) and (max-width: 1018px) {
+  .hero-photo-wrap {
+    top: 174px;
+  }
+}
+
+@media (min-width: 961px) and (max-width: 973px) {
+  .hero-photo-wrap {
+    top: 188px;
+  }
+}
+
+@media (min-width: 1065px) and (max-width: 1086px) {
+  .hero-photo-wrap {
+    top: 158px;
   }
 }
 
