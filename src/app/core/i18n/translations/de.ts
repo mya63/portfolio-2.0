@@ -2,9 +2,9 @@ export const de = {
   nav: { about: 'Über mich', skills: 'Fähigkeiten', portfolio: 'Portfolio', contact: 'Kontakt' },
 
   hero: {
-    iam: 'Ich bin',
-    role: 'FULLSTACK-ENTWICKLER',
-    talk: 'Lass uns sprechen!'
+    iam: 'I am',
+    role: 'FULLSTACK DEVELOPER',
+    talk: "Let's talk!"
   },
 
 about: {
