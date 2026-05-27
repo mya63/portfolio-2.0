@@ -1134,13 +1134,13 @@
     --wave-top: clamp(138px, 18svh, 172px);
     --wave-width: max(190vw, 820px);
 
-    min-height: clamp(650px, 74svh, 700px);
+    min-height: calc(100svh - var(--header-height));
   }
 
   .hero-grid {
     width: 100%;
     max-width: none;
-    min-height: clamp(650px, 74svh, 700px);
+    min-height: calc(100svh - var(--header-height));
     display: block;
     padding: 0;
     text-align: left;
@@ -1162,9 +1162,10 @@
     position: absolute;
     left: 50%;
     top: clamp(402px, 53svh, 488px);
-    width: min(calc(100% - 32px), 430px);
+    width: fit-content;
+    max-width: calc(100% - 32px);
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-columns: auto auto;
     column-gap: 8px;
     align-items: center;
     justify-content: center;
@@ -1180,7 +1181,7 @@
   }
 
   .hero-copy {
-    width: 100%;
+    width: max-content;
     max-width: 100%;
     min-width: 0;
   }
@@ -1252,7 +1253,7 @@
 @media (max-width: 420px) and (min-height: 641px) {
   .hero,
   .hero-grid {
-    min-height: clamp(540px, 70svh, 610px);
+    min-height: calc(100svh - var(--header-height));
   }
 
   .hero-text {
