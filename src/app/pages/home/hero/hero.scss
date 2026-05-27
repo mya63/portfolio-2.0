@@ -940,7 +940,7 @@
     position: relative;
     top: 4px;
     transform: rotate(180deg) translateY(3px);
-    font-size: 54px;
+    font-size: clamp(42px, 5.6vw, 54px);
     line-height: 1;
   }
 
@@ -985,7 +985,8 @@
   .hero-contact {
     position: absolute;
     left: 0;
-    bottom: 22px;
+    top: clamp(620px, 82svh, 690px);
+    bottom: auto;
     z-index: 7;
     display: flex;
     flex-direction: row;
@@ -1014,6 +1015,21 @@
   .hero-mail,
   .scrolldown {
     display: none;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 860px) and (min-height: 641px) {
+  .hero,
+  .hero-grid {
+    min-height: clamp(690px, 88vw, 740px);
+  }
+
+  .iam {
+    font-size: clamp(46px, 6.1vw, 52px);
+  }
+
+  .hero-contact {
+    top: clamp(590px, 68svh, 640px);
   }
 }
 
