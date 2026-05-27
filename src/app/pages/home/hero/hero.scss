@@ -1129,6 +1129,154 @@
   }
 }
 
+@media (max-width: 699.98px) and (min-height: 641px) {
+  .hero {
+    --wave-top: clamp(138px, 18svh, 172px);
+    --wave-width: max(190vw, 820px);
+
+    min-height: clamp(650px, 74svh, 700px);
+  }
+
+  .hero-grid {
+    width: 100%;
+    max-width: none;
+    min-height: clamp(650px, 74svh, 700px);
+    display: block;
+    padding: 0;
+    text-align: left;
+  }
+
+  .hero-photo-wrap {
+    position: absolute;
+    left: 50%;
+    top: clamp(52px, 9svh, 88px);
+    width: clamp(250px, 68vw, 390px);
+    transform: translateX(-50%);
+  }
+
+  .hero-photo {
+    max-height: clamp(255px, 40svh, 360px);
+  }
+
+  .hero-text {
+    position: absolute;
+    left: 50%;
+    top: clamp(402px, 53svh, 488px);
+    width: min(calc(100% - 32px), 430px);
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 8px;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-50%);
+    text-align: left;
+  }
+
+  .iam {
+    top: 2px;
+    transform: rotate(180deg) translateY(3px);
+    font-size: clamp(34px, 8.6vw, 54px);
+    line-height: 1;
+  }
+
+  .hero-copy {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .name {
+    font-size: clamp(31px, 7vw, 46px);
+    line-height: 0.96;
+  }
+
+  .name > span {
+    white-space: nowrap;
+  }
+
+  .role {
+    margin: 6px 0 0;
+    white-space: nowrap;
+    font-size: clamp(16px, 4vw, 24px);
+    line-height: 1.08;
+  }
+
+  .hero-cta {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 16px);
+    transform: translateX(-50%);
+  }
+
+  .hero-text .btn {
+    min-width: 132px;
+    height: 48px;
+    padding: 0 24px;
+    font-size: 16px;
+  }
+
+  .hero-contact {
+    display: none;
+  }
+
+  .hero-socials {
+    gap: 22px;
+  }
+
+  .ico,
+  .ico img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .hero-mail,
+  .scrolldown {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) and (min-height: 641px) {
+  .hero-text {
+    top: clamp(320px, 44svh, 390px);
+  }
+
+  .name {
+    font-size: clamp(29px, 9vw, 34px);
+  }
+
+  .role {
+    font-size: clamp(16px, 4.7vw, 19px);
+  }
+}
+
+@media (max-width: 420px) and (min-height: 641px) {
+  .hero,
+  .hero-grid {
+    min-height: clamp(540px, 70svh, 610px);
+  }
+
+  .hero-text {
+    top: clamp(320px, 44svh, 390px);
+  }
+
+  .hero-copy,
+  .name {
+    width: min-content !important;
+  }
+
+  .name > span {
+    display: block;
+    max-width: 10.6ch !important;
+    width: 10.6ch !important;
+    overflow-wrap: normal !important;
+    white-space: normal !important;
+  }
+
+  .hero-cta {
+    top: calc(100% + 12px);
+  }
+}
+
 @media (max-height: 520px) and (orientation: landscape) {
   .hero {
     --wave-top: clamp(58px, 17svh, 96px);
