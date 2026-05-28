@@ -1755,3 +1755,25 @@
     display: flex;
   }
 }
+
+@media (min-width: 540px) and (max-width: 540px) and (min-height: 720px) and (max-height: 720px) {
+  .hero-photo-wrap {
+    top: clamp(66px, 10svh, 104px);
+  }
+}
+
+@media (min-width: 344px) and (max-width: 344px) and (min-height: 882px) and (max-height: 882px) {
+  .hero {
+    --wave-top: 106px;
+  }
+
+  .hero-contact {
+    bottom: 86px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1024px) and (min-height: 600px) and (max-height: 600px) {
+  .hero-photo-wrap {
+    top: clamp(174px, 28svh, 194px);
+  }
+}
