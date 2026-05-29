@@ -2019,39 +2019,47 @@
   }
 }
 
-@media (min-width: 540px) and (max-width: 540px) and (min-height: 720px) and (max-height: 720px) {
+@media (min-width: 530px) and (max-width: 560px) and (min-height: 700px) and (max-height: 740px) {
   .hero {
-    --wave-top: 138px;
+    --wave-top: 78px;
   }
 
   .hero-photo-wrap {
-    top: clamp(66px, 10svh, 104px);
+    top: clamp(60px, 8.8svh, 88px);
   }
 }
 
 /* 665-699 around ~700h: wave higher, photo deeper, text/cta a bit higher */
 @media (min-width: 665px) and (max-width: 699.98px) and (min-height: 701px) and (max-height: 760px) {
   .hero {
-    --wave-top: 28px;
+    --wave-top: -10px;
   }
 
   .hero-photo-wrap {
-    top: clamp(56px, 8svh, 84px);
+    top: clamp(64px, 9svh, 94px);
   }
 
   .hero-text {
-    top: clamp(378px, 50svh, 438px);
+    left: calc(50% - 22px);
+    top: clamp(384px, 52svh, 444px);
+    column-gap: 10px;
+  }
+
+  .iam {
+    top: -2px;
+    font-size: clamp(44px, 5.8vw, 54px);
+    line-height: 0.94;
   }
 
   .hero-cta {
-    top: calc(100% + 14px);
+    top: calc(100% + 28px);
   }
 }
 
 /* Low-height compact range while preserving 320x568 and 600h rescue */
 @media (min-width: 361px) and (max-width: 631px) and (min-height: 533px) and (max-height: 599.98px) {
   .hero {
-    --wave-top: 18px;
+    --wave-top: -36px;
     --wave-width: max(176vw, 920px);
   }
 
@@ -2067,7 +2075,7 @@
   .hero-photo-wrap {
     position: absolute;
     left: 50%;
-    top: clamp(40px, 7svh, 60px);
+    top: clamp(58px, 10svh, 78px);
     width: clamp(220px, 52vw, 292px);
     transform: translateX(-50%);
   }
@@ -2079,7 +2087,7 @@
   .hero-text {
     position: absolute;
     left: 50%;
-    top: clamp(278px, 53svh, 318px);
+    top: clamp(236px, 45svh, 278px);
     width: fit-content;
     max-width: calc(100% - 24px);
     display: grid;
@@ -2092,32 +2100,52 @@
   }
 
   .iam {
-    top: 0;
-    transform: rotate(180deg) translateY(0);
-    font-size: clamp(34px, 7.4vw, 46px);
+    top: -16px;
+    transform: rotate(180deg) translateY(-2px);
+    font-size: clamp(44px, 9.2vw, 56px);
     line-height: 0.95;
   }
 
   .name {
-    font-size: clamp(28px, 6.1vw, 36px);
+    font-size: clamp(26px, 6vw, 34px);
     line-height: 0.95;
   }
 
   .role {
     margin: 5px 0 0;
-    font-size: clamp(15px, 3.7vw, 19px);
+    font-size: clamp(14px, 3.5vw, 18px);
     line-height: 1.06;
   }
 
   .hero-cta {
-    top: calc(100% + 8px);
+    top: calc(100% + 24px);
   }
 
   .hero-text .btn {
     min-width: 122px;
-    height: 38px;
+    height: 40px;
     padding: 0 16px;
     font-size: 14px;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 560px) and (min-height: 533px) and (max-height: 599.98px) {
+  .hero-cta {
+    top: calc(100% + 32px);
+  }
+}
+
+@media (min-width: 541px) and (max-width: 631px) and (min-height: 533px) and (max-height: 599.98px) {
+  .hero-text {
+    left: calc(50% - 46px);
+    transform: translateX(-50%);
+    top: clamp(248px, 46svh, 292px);
+    column-gap: 8px;
+  }
+
+  .iam {
+    top: -12px;
+    font-size: clamp(42px, 6.7vw, 52px);
   }
 }
 
@@ -2213,7 +2241,7 @@
 /* Very tall narrow viewports: push wave deeper so photo isn't swallowed */
 @media (max-width: 360px) and (min-height: 900px) {
   .hero {
-    --wave-top: clamp(104px, 14svh, 148px);
+    --wave-top: clamp(78px, 11.5svh, 116px);
   }
 }
 
