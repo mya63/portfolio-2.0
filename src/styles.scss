@@ -47,22 +47,24 @@ svg {
   background: #000;
 }
 
+/* GEÄNDERT: Seitenfläche full-width, Content bleibt über innere Container begrenzt */
 .page {
   flex: 1;
   width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
   position: relative;
   overflow-x: hidden;
   background: var(--bg);
 }
 
+/* GEÄNDERT: Header/Footer-Hintergründe full-width, innere Container bleiben begrenzt */
 app-header,
 app-footer {
   display: block;
   width: 100%;
-  max-width: 1440px;
-  margin-inline: auto;
+  max-width: none;
+  margin-inline: 0;
 }
 .container {
   width: var(--container);

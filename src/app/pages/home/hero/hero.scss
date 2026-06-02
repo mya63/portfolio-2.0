@@ -9,6 +9,7 @@
   --green: #70e61c;
   --wave-top: clamp(96px, 15svh, 164px);
   --wave-width: max(100vw, 1440px);
+  --wave-height: auto;
 
   position: relative;
   min-height: calc(100svh - var(--header-height));
@@ -25,6 +26,10 @@
   z-index: 0;
 }
 
+.hero-wave-picture {
+  display: contents;
+}
+
 .hero-wave {
   position: absolute;
   top: var(--wave-top);
@@ -32,7 +37,7 @@
   z-index: 4;
   width: var(--wave-width);
   max-width: none;
-  height: auto;
+  height: var(--wave-height);
   transform: translateX(-50%);
   pointer-events: none;
 }
@@ -262,7 +267,7 @@
     --fold-height: 791px;
     --stage-height: calc(var(--fold-height) + 190px);
     --wave-top: 238px;
-    --wave-width: 1440px;
+    --wave-width: max(100vw, 1440px);
 
     min-height: var(--stage-height);
   }
@@ -390,7 +395,7 @@
     --fold-height: min(calc(100svh - var(--header-height)), 791px);
     --stage-height: calc(var(--fold-height) + 170px);
     --wave-top: 198px;
-    --wave-width: 1440px;
+    --wave-width: max(100vw, 1440px);
   }
 
   .hero-photo-wrap {
@@ -445,6 +450,22 @@
 @media (min-width: 1200px) and (min-height: 900px) and (max-height: 1150px) {
   .hero-photo-wrap {
     top: 70px;
+  }
+}
+
+/* NEU: Wide Desktop - Wave bleibt vertikal am 1440x900-Master ausgerichtet. */
+@media (min-width: 1600px) and (min-height: 900px) {
+  .hero {
+    --wave-height: 1079px;
+  }
+
+  .hero-wave {
+    width: 100vw;
+    max-width: none;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    object-fit: fill;
   }
 }
 
@@ -930,7 +951,7 @@
     --stage-width: min(calc(100% - 72px), 1280px);
     --stage-height: calc(100svh - var(--header-height));
     --wave-top: clamp(148px, 28svh, 190px);
-    --wave-width: max(1120px, min(100vw, 1440px));
+    --wave-width: max(1120px, 100vw);
 
     min-height: var(--stage-height);
   }
