@@ -456,7 +456,8 @@
 /* NEU: Wide Desktop - Wave bleibt vertikal am 1440x900-Master ausgerichtet. */
 @media (min-width: 1600px) and (min-height: 900px) {
   .hero {
-    --wave-height: 1079px;
+    --wave-top: -62px;
+    --wave-height: 1379px;
   }
 
   .hero-wave {
