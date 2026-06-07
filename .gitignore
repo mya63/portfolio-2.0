@@ -64,4 +64,5 @@ coverage/
 # Codex / Chrome profile folders
 chrome-profile-codex/
 chrome-profile-codex-transition/
-chrome-profile-codex2/
+chrome-profile-codex2/".codex/" 
+.codex/
