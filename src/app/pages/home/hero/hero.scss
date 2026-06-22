@@ -491,6 +491,12 @@
   }
 }
 
+@media (min-width: 1239px) and (max-width: 1286px) and (min-height: 821px) and (max-height: 899px) {
+  .hero-photo-wrap {
+    top: clamp(96px, calc(471.375px - 29.1667vw), 110px);
+  }
+}
+
 @media (min-width: 1200px) and (max-width: 1238px) and (min-height: 821px) {
   .hero-photo-wrap {
     top: 110px;
